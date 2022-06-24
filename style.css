@@ -222,7 +222,7 @@
     */
 
     .top_header_area {
-        background-color: #009688;
+        background-color: #57973A;
         height: 50px;
         width: 100%;
     }
@@ -230,6 +230,7 @@
     .top_quote > p {
         color: #fff;
         margin: 0;
+        line-height: 50px;
     }
 
     .login_register a {
@@ -237,7 +238,7 @@
         color: #fff;
     }
 
-    .language_area button,
+/*     .language_area button,
     .language_area button:focus {
         border: 0 solid transparent;
         border-radius: 0;
@@ -254,7 +255,7 @@
         display: block;
         font-size: 13px;
         color: #000;
-    }
+    } */
 
     /*
     * 3.2 Main Header Area CSS
@@ -281,9 +282,9 @@
         padding: 0.5em 0;
     }
 
-    .classynav ul li a {
+  /*   .classynav ul li a {
         text-transform: capitalize;
-    }
+    } */
 
     /*
     * 4.0 Welcome Area CSS
