@@ -192,7 +192,7 @@
     }
 
     #scrollUp {
-        background-color: #009688;
+        background-color: #46c34a;
         bottom: 30px;
         color: #fff;
         font-size: 24px;
@@ -222,7 +222,7 @@
     */
 
     .top_header_area {
-        background-color: #57973A;
+        background-color: #46c34a;
         height: 50px;
         width: 100%;
     }
@@ -356,9 +356,9 @@
 
     .welcome-btn:hover,
     .welcome-btn:focus {
-        background-color: #009688;
+        background-color: #46c34a;
         color: #fff;
-        border: 2px solid #009688;
+        border: 2px solid #46c34a;
     }
 
     .welcome_area .owl-dot {
@@ -399,7 +399,7 @@
         width: 25%;
         display: inline-block;
         float: left;
-        background-color: #009688;
+        background-color: #3486ad;
         overflow: hidden;
     }
 
@@ -448,7 +448,7 @@
     }
 
     .single_courses .title > a:hover {
-        color: #009688;
+        color: #46c34a;
     }
 
     .price_rating_area {
@@ -486,7 +486,7 @@
     }
 
     .courses_badge > span {
-        background: #009688;
+        background: #46c34a;
         clear: both;
         color: #fff;
         display: block;
@@ -504,7 +504,7 @@
     }
 
     .courses_badge > span:before {
-        border-color: #009688 transparent #009688 #009688;
+        border-color: #46c34a transparent #46c34a #46c34a;
         border-style: solid;
         border-width: 11px 6px;
         content: "";
@@ -521,7 +521,7 @@
     }
 
     .popular_coureses_slides .owl-dot.active {
-        background-color: #009688;
+        background-color: #46c34a;
     }
 
     .popular_coureses_slides .owl-dot {
@@ -579,7 +579,7 @@
 
     .single_service i {
         font-size: 3em;
-        color: #009688;
+        color: #46c34a;
         margin-bottom: 15px;
     }
 
@@ -592,7 +592,7 @@
         width: 100px;
         height: 100px;
         position: absolute;
-        background-color: #009688;
+        background-color: #46c34a;
         bottom: 200px;
         text-align: center;
         color: #fff;
@@ -617,7 +617,7 @@
     /*
     * 10.0 Cool Facts Area CSS
     */
-
+/* 
     .cool_facts_area {
         padding: 200px 0 70px;
         background-color: #00BCD4;
@@ -655,7 +655,7 @@
     .cool_fact_text > h3,
     .cool_fact_text > h4 {
         color: #fff
-    }
+    } */
 
     /*
     * 11.0 All Courses Collection Area CSS
@@ -679,7 +679,7 @@
     }
 
     .single_course_collection:after {
-        background-color: #009688;
+        background-color: #46c34a;
         width: 100%;
         height: 100%;
         z-index: -1;
@@ -770,7 +770,7 @@
     }
 
     .teacher_social_info {
-        background-color: #009688;
+        background-color: #46c34a;
         bottom: 0;
         height: 100%;
         left: 0;
@@ -814,7 +814,7 @@
     }
 
     .single_teacher_profile:hover .single_teacher_details_info {
-        border: 1px solid #009688;
+        border: 1px solid #46c34a;
     }
 
     .single_teacher_profile:hover .teacher_social_info {
@@ -906,11 +906,11 @@
     }
 
     .owl-dot.active {
-        background-color: #009688;
+        background-color: #46c34a;
     }
 
     .owl-dot.active:before {
-        border: 1px solid #009688;
+        border: 1px solid #46c34a;
         border-radius: 50%;
         content: "";
         height: 16px;
@@ -978,7 +978,7 @@
     }
 
     .single_latest_news_area:hover .news_title a {
-        color: #009688;
+        color: #46c34a;
     }
 
     .blog-btn {
@@ -1006,13 +1006,13 @@
         z-index: 1;
         width: 100%;
         height: 250px;
-        background-color: #009688;
-        bottom: -100px;
+        background-color: #3486ad;
+        bottom: -80px;
         right: -100px;
     }
 
     .video_play_button {
-        background-color: #009688;
+        background-color: #3486ad;
         border: 5px solid #fff;
         border-radius: 50%;
         height: 60px;
@@ -1056,7 +1056,7 @@
     .single-accordion h5 a {
         background-color: transparent;
         border: 1px solid #ddd;
-        color: #009688;
+        color: #46c34a;
         display: block;
         font-weight: 300;
         padding: 15px 45px 15px 20px;
@@ -1158,11 +1158,11 @@
 
     .basic_contact_area .basic_contact_form .form-group > input:focus,
     .basic_contact_area .basic_contact_form .form-group > textarea:focus {
-        border: 1px solid #009688;
+        border: 1px solid #46c34a;
     }
 
     .basic_contact_area .basic_contact_form button:hover {
-        background-color: #009688;
+        background-color: #46c34a;
         color: #fff;
     }
 
@@ -1222,7 +1222,7 @@
     .footer_contact_info .underline,
     .footer_about_us .underline,
     .important_links .underline {
-        background-color: #009688;
+        background-color: #46c34a;
         height: 3px;
         margin-bottom: 30px;
         width: 80px;
@@ -1234,7 +1234,7 @@
     }
 
     .important_links .links > a:hover {
-        color: #009688;
+        color: #46c34a;
     }
 
     .important_links .links > a i {
@@ -1242,7 +1242,7 @@
     }
 
     .footer_single_contact_info > i {
-        color: #009688;
+        color: #46c34a;
         font-size: 20px;
         position: absolute;
         top: 5px;
@@ -1355,7 +1355,7 @@
     }
 
     .page_pagination ul > li > a:hover {
-        color: #009688;
+        color: #46c34a;
     }
 
     /*
@@ -1390,7 +1390,7 @@
     }
 
     .single_courses.course-list .single_courses_desc .price_rating_area {
-        border-bottom: 7px solid #009688;
+        border-bottom: 7px solid #46c34a;
     }
 
     /*
@@ -1463,7 +1463,7 @@
 
     .singl-blog-status-bar span i {
         margin-right: 10px;
-        color: #009688;
+        color: #46c34a;
         font-size: 18px;
     }
 
@@ -1482,7 +1482,7 @@
 
     .singl-blog-details blockquote {
         background: #f4f4f4 none repeat scroll 0 0;
-        border-left: 10px solid #009688;
+        border-left: 10px solid #46c34a;
         margin-bottom: 30px;
         padding: 15px;
     }
@@ -1805,7 +1805,7 @@
     }
 
     #contact-form input#submit:hover {
-        background-color: #009688;
+        background-color: #46c34a;
         color: #fff;
     }
 
@@ -1909,13 +1909,13 @@
 
     .author-name h5,
     .commenter h5 {
-        color: #009688;
+        color: #46c34a;
         font-weight: 500;
         text-transform: uppercase;
     }
 
     .commenter > a {
-        color: #009688;
+        color: #46c34a;
     }
 
     .comment ul {
@@ -1950,7 +1950,7 @@
     }
 
     .replay:hover {
-        background: #009688;
+        background: #46c34a;
         color: #fff;
     }
 
@@ -2052,7 +2052,7 @@
     }
 
     .gallery_area .single_gallery_item .links > a:hover {
-        background-color: #009688;
+        background-color: #46c34a;
     }
 
     .gallery_area .single_gallery_item .links {
@@ -2063,7 +2063,7 @@
     }
 
     .gallery_area .single_gallery_item .links > a {
-        background-color: #009688;
+        background-color: #46c34a;
         border-radius: 50%;
         display: inline-block;
         height: 35px;
@@ -2150,7 +2150,7 @@
 
     .pagination li a:hover,
     .pagination li a:focus {
-        background-color: #009688;
+        background-color: #46c34a;
         color: #fff;
         border: 2px solid transparent;
     }
@@ -2307,7 +2307,7 @@
     .courses_overview,
     .courses_description {
         background-color: #fff;
-        border-left: 10px solid #009688;
+        border-left: 10px solid #46c34a;
         padding: 20px 0 20px 30px;
         box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
     }
@@ -2522,7 +2522,7 @@
     }
 
     .about_us_text > h3 span {
-        color: #009688;
+        color: #46c34a;
     }
 
     .about_us_area .special_service .single_special_service {
@@ -2544,7 +2544,7 @@
     }
 
     .about_us_thumb {
-        background-color: #009688;
+        background-color: #46c34a;
         height: 350px;
         position: relative;
         width: 100%;
@@ -2674,7 +2674,7 @@
 
     .register_form button,
     .login_manual_form button {
-        background-color: #009688;
+        background-color: #46c34a;
         color: #fff;
         width: 200px;
         padding: 10px 20px;
@@ -2857,7 +2857,7 @@
 
     .single_part_code_of_contact h3 span,
     .knowledgebase_area .accordions h3 span {
-        color: #009688;
+        color: #46c34a;
     }
 
     .single_part_code_of_contact > p {
@@ -2875,7 +2875,7 @@
         position: absolute;
         top: 2px;
         z-index: 9;
-        color: #009688;
+        color: #46c34a;
     }
 
     /*
@@ -2919,7 +2919,7 @@
     .achive_section ul li > a:hover,
     .catagory_section ul li > a:hover {
         border-bottom: 1px dashed transparent;
-        background-color: #009688;
+        background-color: #46c34a;
         color: #fff;
     }
 
@@ -2946,7 +2946,7 @@
     }
 
     .latest_post .single_latest_post > a > h5:hover {
-        color: #009688;
+        color: #46c34a;
     }
 
     .latest_post .single_latest_post > p {
@@ -2977,7 +2977,7 @@
     }
 
     .tag_section ul > li > a:hover {
-        background-color: #009688;
+        background-color: #46c34a;
     }
 
     .search_post > form input {
@@ -3000,7 +3000,7 @@
     .latest_post h3 span,
     .catagory_section h3 span,
     .tag_section h3 span {
-        color: #009688;
+        color: #46c34a;
     }
 
     .latest_blog_news_area.blog.sidebar .pagination {
@@ -3042,7 +3042,7 @@
     }
 
     .popular_coureses_area.home2 .price_rating_area {
-        border-bottom: 10px solid #009688;
+        border-bottom: 10px solid #46c34a;
         padding: 15px 30px 0;
     }
 
@@ -3051,7 +3051,7 @@
     }
 
     .why_choose_us_area.home2 .col-lg-3:nth-child(even) .single_service_img_area:hover {
-        background-color: #009688;
+        background-color: #46c34a;
     }
 
     .cool_facts_area.home2 .cool_fact_text span {
@@ -3163,7 +3163,7 @@
     }
 
     .event_thumbnails .event_details_thumb_overlay .countdown.event_details.price_rating_area {
-        border-bottom: 0 solid #009688;
+        border-bottom: 0 solid #46c34a;
         padding: 20px 30px 18px;
         -webkit-transition-duration: 500ms;
         transition-duration: 500ms;
@@ -3238,7 +3238,7 @@
     .event_next_previous .next > a:hover {
         border: 2px solid transparent;
         color: #fff;
-        background-color: #009688;
+        background-color: #46c34a;
     }
 
     .event_next_previous .previous {
@@ -3250,7 +3250,7 @@
     }
 
     .price_rating_area .timer > li {
-        color: #009688;
+        color: #46c34a;
         display: inline-block;
         font-size: 18px;
         margin: 0;
