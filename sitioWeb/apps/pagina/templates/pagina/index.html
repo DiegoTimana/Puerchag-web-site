@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="es">
 
@@ -12,15 +13,15 @@
     <title>Sede Educativa Puerchag</title>
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="img/core-img/favicon.ico">
+    <link rel="shortcut icon" href="{% static 'img/core-img/favicon.ico' %}">
 
     <!-- ===================== All CSS Files ===================== -->
 
     <!-- Style css -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
 
     <!-- Responsive css -->
-    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href= "{% static 'css/responsive.css' %}">
 
 </head>
 
@@ -71,7 +72,7 @@
                     <nav class="classy-navbar justify-content-between" id="educampNav">
 
                         <!-- Logo -->
-                        <a class="nav-brand" href="index.html"><img src="img/core-img/titulo.png" alt="Logo"></a>
+                        <a class="nav-brand" href="index.html"><img src="static/img/core-img/titulo.png" alt="Logo"></a>
 
                         <!-- Navbar Toggler -->
                         <div class="classy-navbar-toggler">
@@ -165,7 +166,7 @@
     <section class="welcome_area clearfix" id="home">
         <div class="welcome_slides">
             <!-- Single Slide -->
-            <div class="single_slide text-center" style="background-image: url(img/bg-pattern/fondo1.png);">
+            <div class="single_slide text-center" style="background-image: url(static/img/bg-pattern/fondo1.png);">
                 <div class="slide_text">
                     <div class="table">
                         <div class="table_cell">
@@ -184,7 +185,7 @@
             </div>
 
             <!-- Single Slide -->
-            <div class="single_slide text-center" style="background-image: url(img/bg-pattern/fondo2.png);">
+            <div class="single_slide text-center" style="background-image: url(static/img/bg-pattern/fondo2.png);">
                 <div class="slide_text">
                     <div class="table">
                         <div class="table_cell">
@@ -461,7 +462,7 @@
     <!-- ===================== About Us Area Start ===================== -->
     <div class="about_us_area clearfix">
         <div class="single_about_us">
-            <div class="about_us_image d-inline-block float-left w-50 item" style="background-image: url(img/bg-pattern/fondo-acercadenos.png);">
+            <div class="about_us_image d-inline-block float-left w-50 item" style="background-image: url(static/img/bg-pattern/fondo-acercadenos.png);">
                 <!-- Video Area Start -->
                 <div class="video_play_area">
                     <div class="video_play_button" id="video">
@@ -576,7 +577,7 @@
                         <!-- Single Courses Area Start -->
                         <div class="single_courses">
                             <div class="single_courses_thumb">
-                                <img src="img/course-img/event-1.jpg" alt="">
+                                <img src="static/img/course-img/event-1.jpg" alt="">
                             </div>
                             <!-- Single Courses Image Area End -->
                             <div class="single_courses_desc">
@@ -610,7 +611,7 @@
                         <!-- Single Courses Area Start -->
                         <div class="single_courses">
                             <div class="single_courses_thumb">
-                                <img src="img/course-img/event-2.jpg" alt="">
+                                <img src="static/img/course-img/event-2.jpg" alt="">
                             </div>
                             <!-- Single Courses Image Area End -->
                             <div class="single_courses_desc">
@@ -644,7 +645,7 @@
                         <!-- Single Courses Area Start -->
                         <div class="single_courses">
                             <div class="single_courses_thumb">
-                                <img src="img/course-img/event-3.jpg" alt="">
+                                <img src="static/img/course-img/event-3.jpg" alt="">
                             </div>
                             <!-- Single Courses Image Area End -->
                             <div class="single_courses_desc">
@@ -766,7 +767,7 @@
     <!-- ===================== All Collection Area End ===================== -->
 
     <!-- ===================== Call to action Area Start ===================== -->
-    <div class="call_to_action section_padding_100" style="background-image: url(img/bg-pattern/fondo-inscribete.png);">
+    <div class="call_to_action section_padding_100" style="background-image: url(static/img/bg-pattern/fondo-inscribete.png);">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -886,7 +887,7 @@
 
                         <div class="single_testimonial text-center">
                             <div class="testimonial_thumb">
-                                <img src="img/teacher-img/director-joseyela.png" alt="">
+                                <img src="static/img/teacher-img/director-joseyela.png" alt="">
                             </div>
                             <div class="testimonial_text">
                                 <p>Especialista en informática y telemática.</p>
@@ -897,7 +898,7 @@
 
                         <div class="single_testimonial text-center">
                             <div class="testimonial_thumb">
-                                <img src="img/teacher-img/docente-dory-romero.png" alt="">
+                                <img src="static/img/teacher-img/docente-dory-romero.png" alt="">
                             </div>
                             <div class="testimonial_text">
                                 <p>Especialista en lúdica educativa.</p>
@@ -908,7 +909,7 @@
 
                         <div class="single_testimonial text-center">
                             <div class="testimonial_thumb">
-                                <img src="img/teacher-img/docente-lucylopez.png" alt="">
+                                <img src="static/img/teacher-img/docente-lucylopez.png" alt="">
                             </div>
                             <div class="testimonial_text">
                                 <p>Especialista en pedagogía de la recreación ecológica.</p>
@@ -919,7 +920,7 @@
 
                         <div class="single_testimonial text-center">
                             <div class="testimonial_thumb">
-                                <img src="img/teacher-img/docente-merybenavides.png" alt="">
+                                <img src="static/img/teacher-img/docente-merybenavides.png" alt="">
                             </div>
                             <div class="testimonial_text">
                                 <p>Licenciada en educación primaria.</p>
@@ -1063,17 +1064,17 @@
     <!-- ===================== All jQuery Plugins ===================== -->
 
     <!-- jQuery (necessary for all JavaScript plugins) -->
-    <script src="js/jquery-2.2.4.min.js"></script>
+    <script src="{% static 'js/jquery-2.2.4.min.js' %}"></script>
     <!-- Popper js -->
-    <script src="js/popper.min.js"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
     <!-- Bootstrap js -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
     <!-- Plugins js -->
-    <script src="js/plugins.js"></script>
+    <script src="{% static 'js/plugins.js' %}"></script>
     <!-- Classy Nav js -->
-    <script src="js/classy-nav.js"></script>
+    <script src="{% static 'js/classy-nav.js' %}"></script>
     <!-- Active js -->
-    <script src="js/active.js"></script>
+    <script src="{% static 'js/active.js' %}"></script>
 
 </body>
 
