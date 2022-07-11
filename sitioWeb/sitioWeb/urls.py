@@ -23,6 +23,7 @@ from apps.pagina.views import contactar
 from django.urls import include
 
 urlpatterns = [
+
     path('admin/', admin.site.urls),
     path('', views.index),
     path('index.html', views.index),
