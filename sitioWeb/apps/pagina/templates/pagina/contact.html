@@ -1,6 +1,11 @@
+{% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
+    <!-- copiar y pegar desde la linea uno hasta el comentario "Header area end" en todas las vistas, para el header.
+    Para el footer copiar y pegar desde el comentario "Footer area start" hasta la ultima linea. con esto tendríamos el
+    mismo header y footer para todas las paginas. y los archivos estaticos css y js correctos. verificar ruta de imagenes -->
+ 
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="">
@@ -9,18 +14,18 @@
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title -->
-    <title>EduCamp - LMS Template for Courses &amp; Education</title>
+    <title>Sede Educativa Puerchag</title>
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="img/core-img/favicon.ico">
+    <link rel="shortcut icon" href="{% static 'img/core-img/favicon.ico' %}">
 
     <!-- ===================== All CSS Files ===================== -->
 
     <!-- Style css -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
 
     <!-- Responsive css -->
-    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href= "{% static 'css/responsive.css' %}">
 
 </head>
 
@@ -37,25 +42,14 @@
                     <div class="col-md">
                         <!--  Top Quote Area Start -->
                         <div class="top_quote">
-                            <p>Welcome to EduCamp LMS Platform</p>
+                            <p>Bienvenido al sitio web de la Sede Educativa Puerchag</p>
                         </div>
                     </div>
                     <div class="col-md">
                         <div class="login_language_area d-flex align-items-center float-right">
                             <!-- Login Register Area Start -->
                             <div class="login_register">
-                                <a href="login.html"><i class="fa fa-lock" aria-hidden="true"></i> Login/Register</a>
-                            </div>
-                            <!-- Language Area Start -->
-                            <div class="language_area">
-                                <div class="dropdown">
-                                    <button aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" id="lag" type="button" class="btn btn-default dropdown-toggle"><i class="fa fa-globe" aria-hidden="true"></i> Language</button>
-                                    <ul aria-labelledby="lag" class="dropdown-menu">
-                                        <li><a href="#">English</a></li>
-                                        <li><a href="#">हिन्दी</a></li>
-                                        <li><a href="#">বাংলা</a></li>
-                                    </ul>
-                                </div>
+                                <a href="login.html"><i class="fa fa-lock" aria-hidden="true"></i> Ingresar/Registrarse</a>
                             </div>
                         </div>
                     </div>
@@ -71,7 +65,7 @@
                     <nav class="classy-navbar justify-content-between" id="educampNav">
 
                         <!-- Logo -->
-                        <a class="nav-brand" href="index.html"><img src="img/core-img/logo.png" alt="Logo"></a>
+                        <a class="nav-brand" href="index.html"><img src="static/img/core-img/titulo.png" alt="Logo"></a>
 
                         <!-- Navbar Toggler -->
                         <div class="classy-navbar-toggler">
@@ -89,68 +83,29 @@
                             <!-- Nav Start -->
                             <div class="classynav">
                                 <ul>
-                                    <li class="current_page_item"><a href="#">Home</a></li>
-                                    <li><a href="#">Events</a>
-                                        <ul class="dropdown">
-                                            <li><a href="event-grid.html">Event Grid</a></li>
-                                            <li><a href="event-list.html">Event List</a></li>
-                                            <li><a href="event-details.html">Event Details</a></li>
-                                        </ul>
+                                    <li class="current_page_item"><a href="index.html">Inicio</a></li>
+                                    <li><a href="event-list.html">Eventos</a>
                                     </li>
-                                    <li><a href="#">Course</a>
-                                        <ul class="dropdown">
-                                            <li><a href="course-grid.html">Course Grid</a></li>
-                                            <li><a href="course-list.html">Course List</a></li>
-                                            <li><a href="course-details.html">Course Details</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="#">Pages</a>
+                                    <li><a href="#">Paginas de Interés</a>
                                         <div class="megamenu">
                                             <ul class="single-mega cn-col-4">
-                                                <li><a href="index.html">Home Page</a></li>
-                                                <li><a href="about-us.html">About Us</a></li>
-                                                <li><a href="event-grid.html">Event Grid</a></li>
-                                                <li><a href="event-list.html">Event List</a></li>
-                                                <li><a href="event-details.html">Event Details</a></li>
-                                                <li><a href="teachers.html">Teacher Grid</a></li>
+                                                <li><a href="index.html">Inicio</a></li>
+                                                <li><a href="about-us.html">Acerca de nosotros</a></li>          
+                                                <li><a href="event-list.html">Eventos</a></li>
                                             </ul>
                                             <ul class="single-mega cn-col-4">
-                                                <li><a href="teachers-details.html">Teacher Details</a></li>
-                                                <li><a href="gallery-fullwidth.html">Gallery Fullwidth</a></li>
-                                                <li><a href="gallery-4-column.html">Gallery 4 Column</a></li>
-                                                <li><a href="gallery-3-column.html">Gallery 3 Column</a></li>
-                                                <li><a href="gallery-2-column.html">Gallery 2 Column</a></li>
-                                                <li><a href="course-grid.html">Course Grid</a></li>
-                                            </ul>
-                                            <ul class="single-mega cn-col-4">
-                                                <li><a href="course-list.html">Course List</a></li>
-                                                <li><a href="course-details.html">Course Details</a></li>
-                                                <li><a href="blog.html">Blog - 1</a></li>
-                                                <li><a href="blog-sidebar.html">Blog - 2</a></li>
-                                                <li><a href="single.html">Single Blog - 1</a></li>
+                                                <li><a href="gallery-4-column.html">Galería</a></li>
                                                 <li><a href="single-sidebar.html">Single Blog - 2</a></li>
+                                                <li><a href="teachers.html">Nuestros Profesores</a></li>
                                             </ul>
                                             <ul class="single-mega cn-col-4">
-                                                <li><a href="code-of-contact.html">Code of Contact</a></li>
-                                                <li><a href="knowledgebase.html">Knowledgebase</a></li>
-                                                <li><a href="login.html">Login</a></li>
-                                                <li><a href="register.html">Register</a></li>
-                                                <li><a href="404.html">404 Not Found</a></li>
-                                                <li><a href="contact.html">Contact Page</a></li>
+                                                <li><a href="login.html">Ingresar</a></li>
+                                                <li><a href="register.html">Registrarse</a></li>
+                                                <li><a href="contact.html">Escríbenos</a></li>
                                             </ul>
                                         </div>
                                     </li>
-                                    <li><a href="#">Others</a>
-                                        <ul class="dropdown">
-                                            <li><a href="about-us.html">About Us</a></li>
-                                            <li><a href="code-of-contact.html">Code of Contact</a></li>
-                                            <li><a href="knowledgebase.html">Knowledgebase</a></li>
-                                            <li><a href="login.html">Login</a></li>
-                                            <li><a href="register.html">Register</a></li>
-                                            <li><a href="404.html">404 Not Found</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="#">Contact</a></li>
+                                    <li><a href="contact.html">Contáctanos</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -193,14 +148,14 @@
                 <div class="col-12">
                     <!-- Message Title -->
                     <div class="message_title">
-                        <h3>Send us a message now!</h3>
+                        <h3>¡Envíanos un mensaje ahora!</h3>
                     </div>
                 </div>
             </div>
             <!-- .end row -->
             <div class="row">
                 <div class="col-12">
-                    <form action="mail.php" method="post" id="main_contact_form">
+                    <form action="/contactar/" method="POST" id="main_contact_form">{% csrf_token %}
                         <!-- Message Input Area Start -->
                         <div class="contact_input_area">
                             <div id="success_fail_info"></div>
@@ -208,37 +163,37 @@
                                 <!-- Single Input Area Start -->
                                 <div class="col-12 col-md-6">
                                     <div class="form-group">
-                                        <input type="text" name="name" class="form-control" id="name" placeholder="Your Name *">
+                                        <input type="text" name="name" class="form-control" id="name" placeholder="Tu Nombre *">
                                     </div>
                                 </div>
                                 <!-- Single Input Area Start -->
                                 <div class="col-12 col-md-6">
                                     <div class="form-group">
-                                        <input type="email" name="email" class="form-control" id="email" placeholder="Your E-mail *" required>
+                                        <input type="email" name="email" class="form-control" id="email" placeholder="Tu Correo *" required>
                                     </div>
                                 </div>
                                 <!-- Single Input Area Start -->
                                 <div class="col-12 col-md-6">
                                     <div class="form-group">
-                                        <input type="text" name="subject" class="form-control" id="subject" placeholder="Your Subject *" required>
+                                        <input type="text" name="subject" class="form-control" id="subject" placeholder="Asunto *" required>
                                     </div>
                                 </div>
                                 <!-- Single Input Area Start -->
                                 <div class="col-12 col-md-6">
                                     <div class="form-group">
-                                        <input type="number" name="number" class="form-control" id="number" placeholder="Your Number *" required>
+                                        <input type="number" name="number" class="form-control" id="number" placeholder="Tu Número *" required>
                                     </div>
                                 </div>
 
                                 <!-- Single Input Area Start -->
                                 <div class="col-12">
                                     <div class="form-group">
-                                        <textarea name="message" id="message" class="form-control" cols="30" rows="10" placeholder="Your Message *" required></textarea>
+                                        <textarea name="message" id="message" class="form-control" cols="30" rows="10" placeholder="Tu Mensaje *" required></textarea>
                                     </div>
                                 </div>
                                 <!-- Single Input Area Start -->
                                 <div class="col-12">
-                                    <button type="submit" class="btn btn-default">SEND MESSAGE</button>
+                                    <button type="submit" class="btn btn-default">ENVIAR MENSAJE</button>
                                 </div>
                             </div>
                         </div>
@@ -268,17 +223,13 @@
                     <div class="col-12 col-md-6 col-lg">
                         <div class="footer_about_us footer-single-part">
                             <div class="title">
-                                <h4>About EduCamp</h4>
+                                <h4>Acerca de la plataforma</h4>
                                 <!-- Useful Links Title -->
                                 <div class="underline"></div>
                             </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam nostrum, illum quod facilis minima natus adipisci, fugit provident! Totam ipsam, ullam aut. Autem, corporis, tenetur.</p>
+                            <p>Este sitio web fue desarrollado con propósitos académicos por estudiantes de la Universidad del Valle. ¿Tienes alguna duda? Contáctanos</p>
                             <div class="footer_social_links">
-                                <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                                <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                                <a href="#"><i class="fa fa-skype" aria-hidden="true"></i></a>
-                                <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                                <a href="#"><i class="fa fa-youtube" aria-hidden="true"></i></a>
+                                <a href="mailto:alexis.timana@correounivalle.edu.co"><i class="fa fa-envelope-o" aria-hidden="true"></i></a>
                             </div>
                         </div>
                     </div>
@@ -288,26 +239,25 @@
                     <div class="col-12 col-md-6 col-lg">
                         <div class="footer_contact_info footer-single-part">
                             <div class="title">
-                                <h4>get in touch</h4>
+                                <h4>ponte en contacto</h4>
                                 <!-- Useful Links Title -->
                                 <div class="underline"></div>
                             </div>
                             <!-- single contact info start -->
                             <div class="footer_single_contact_info">
                                 <i class="fa fa-thumb-tack" aria-hidden="true"></i>
-                                <p>House - 87, Mirpur DOHS, Dhaka, Bangladesh</p>
+                                <p>Vereda Puerchag, Samaniego, Nariño, Colombia</p>
                             </div>
                             <!-- single contact info start -->
                             <div class="footer_single_contact_info">
                                 <i class="fa fa-phone" aria-hidden="true"></i>
-                                <a href="tel:+8801791166123">+88 698 257 14520</a>
-                                <a href="tel:+8801791166123">+88 698 257 14521</a>
+                                <a href="tel:+573146816388">+57 314 681 6388</a>
                             </div>
                             <!-- single contact info start -->
                             <div class="footer_single_contact_info">
                                 <i class="fa fa-envelope-o" aria-hidden="true"></i>
-                                <a href="mailto:info@educamp.com">info@educamp.com</a>
-                                <a href="mailto:care@educamp.com">care@educamp.com</a>
+                                <a href="mailto:puerchageduca8745@gmail.com">Puerchageduca8745@gmail.com</a>
+                                <a href="mailto:yelaalvarezj@gmail.com">Yelaalvarezj@gmail.com</a>
                             </div>
                         </div>
                     </div>
@@ -317,39 +267,20 @@
                     <div class="col-12 col-md-6 col-lg">
                         <div class="important_links footer-single-part">
                             <div class="title">
-                                <h4>useful links</h4>
+                                <h4>Enlaces útiles</h4>
                                 <div class="underline"></div>
                             </div>
                             <!-- Links Start -->
                             <div class="links">
-                                <a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i> All Our Courses</a>
-                                <a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i> Event Calendar</a>
-                                <a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i> Customer Support</a>
-                                <a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i> Career at EduCamp</a>
-                                <a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i> Terms &amp; Conditions</a>
-                                <a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i> Community Forums</a>
+                                <a href="contact.html"><i class="fa fa-angle-right" aria-hidden="true"></i> Contáctanos</a>
+                                <a href="event-list.html"><i class="fa fa-angle-right" aria-hidden="true"></i> Calendario de Eventos</a>
+                                <a href="login.html"><i class="fa fa-angle-right" aria-hidden="true"></i> Ingresa o Regístrate </a>
+                                <a href="gallery-4-column.html"><i class="fa fa-angle-right" aria-hidden="true"></i> Galería de Fotos</a>
+                                <a href="teachers.html"><i class="fa fa-angle-right" aria-hidden="true"></i> Nuestros Profesores</a>
+                                <a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i> Cómo inscribirse</a>
                             </div>
                         </div>
                     </div>
-
-                    <!-- Useful Links Area Start -->
-                    <div class="col-12 col-md-6 col-lg">
-                        <div class="important_links footer-single-part">
-                            <div class="title">
-                                <h4>Subscribe Newsletter</h4>
-                                <div class="underline"></div>
-                            </div>
-                            <div class="newsletter_from">
-                                <form action="#">
-                                    <div class="form-group">
-                                        <input type="email" class="form-control" id="newsletter-email" placeholder="Enter Your E-mail" required>
-                                    </div>
-                                    <button type="submit" class="btn blog-btn w-100">Submit <i class="fa fa-paper-plane"></i></button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
             </div>
         </div>
@@ -372,17 +303,17 @@
     <!-- ===================== All jQuery Plugins ===================== -->
 
     <!-- jQuery (necessary for all JavaScript plugins) -->
-    <script src="js/jquery-2.2.4.min.js"></script>
+    <script src="{% static 'js/jquery-2.2.4.min.js' %}"></script>
     <!-- Popper js -->
-    <script src="js/popper.min.js"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
     <!-- Bootstrap js -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
     <!-- Plugins js -->
-    <script src="js/plugins.js"></script>
+    <script src="{% static 'js/plugins.js' %}"></script>
     <!-- Classy Nav js -->
-    <script src="js/classy-nav.js"></script>
+    <script src="{% static 'js/classy-nav.js' %}"></script>
     <!-- Active js -->
-    <script src="js/active.js"></script>
+    <script src="{% static 'js/active.js' %}"></script>
 
 </body>
 

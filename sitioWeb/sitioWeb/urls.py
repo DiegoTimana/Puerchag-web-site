@@ -18,9 +18,15 @@ from django.urls import path
 from apps.pagina import views
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
+from apps.pagina.views import contactar
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index),
+    path('index.html', views.index),
+    path('login.html', views.login),
+    path('contact.html', views.contact),
+    path('contactar/', contactar),
 ]
 
 
