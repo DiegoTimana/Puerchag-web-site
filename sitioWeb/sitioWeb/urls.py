@@ -27,6 +27,10 @@ urlpatterns = [
     path('login.html', views.login),
     path('contact.html', views.contact),
     path('contactar/', contactar),
+    path('teachers.html', views.teachers),
+    path('single.html', views.single),
+    path('single-sidebar', views.singleSidebar),
+    path('event-list.html', views.eventList),
 ]
 
 
