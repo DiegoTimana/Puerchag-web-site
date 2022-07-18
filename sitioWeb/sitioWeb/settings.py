@@ -36,17 +36,24 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    #'paginaPublica',
-    # "plataformaNotas",
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'django.contrib.sites',
     'django.contrib.staticfiles',
     'apps.pagina',
     'apps.plataforma',
+    ##Libreria allauth
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    #Se agregan los que se necesiten, en este caso vamos a iniciar sesión con google (ver documentacion del allauth/installacion)
+    'allauth.socialaccount.providers.google',
 ]
+
+SITE_ID = 1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -63,7 +70,7 @@ ROOT_URLCONF = 'sitioWeb.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'apps/pagina/templates/pagina', BASE_DIR / 'apps/plataforma/templates/plataforma'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -116,9 +123,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
-LANGUAGE_CODE = 'es'
+LANGUAGE_CODE = 'es-COL'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Bogota'
 
 USE_I18N = True
 
@@ -142,3 +149,20 @@ EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = "paginapuerchag@gmail.com"
 EMAIL_HOST_PASSWORD = "ozklgkbtajoukpcl"
+
+AUTHENTICATION_BACKENDS = [
+    # Needed to login by username in Django admin, regardless of `allauth`
+    'django.contrib.auth.backends.ModelBackend',
+
+    # `allauth` specific authentication methods, such as login by e-mail
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
+
+#el método de autenticacion para iniciar sesion es email. No el nombre de usuario
+ACCOUNT_AUTHTENTICATION_METHOD = 'email' 
+#es obligación tener un email para ingresar
+ACCOUNT_EMAIL_REQUIRED = True  
+#tiene que verificar manualmente el correo electronico que se registra
+ACCOUNT_EMAIL_VERIFICATION = True  
+#tiene un plazo de una semana para hacerlo
+ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = 7  

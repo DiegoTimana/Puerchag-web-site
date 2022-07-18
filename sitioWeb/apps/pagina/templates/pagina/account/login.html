@@ -1,0 +1,70 @@
+{% extends "account/base.html" %}
+
+{% load i18n %}
+{% load account socialaccount %}
+
+{% block head_title %}{% trans "Sign In" %}{% endblock %}
+
+{% block content %} 
+
+{% get_providers as socialaccount_providers %}
+
+<section class="login_area section_padding_100">
+  <div class="container">
+      <div class="row">
+
+          <div class="col-12 col-lg-5 col-xl-6 item">
+              <!-- Login thumb start -->
+              <div class="login_thumb" style="background-image: url(../../static/img/bg-pattern/courses-bg.jpg);">
+                  <!-- Login thumb caption -->
+                  <div class="login_thumb_caption">
+                      <h3>¡Bienvenido de vuelta!</h3>
+                      <p>Ingrese con su cuenta de Google, o introduzca sus datos aquí:</p>
+                  </div>
+              </div>
+          </div>
+
+
+          <div class="col-12 col-lg-7 col-xl-6 item">
+            <!-- login form start -->
+            <div class="login_form">
+                <!-- sign in google -->
+                <!-- <div class="sign_in_facebook">
+                    <a class="btn btn-default" href="#" role="button"><i class="fa fa-facebook"></i>Sign in with Facebook</a>
+                </div> -->
+                <div class="sign_in_facebook">
+                  <ul>
+                    <a class="btn btn-default" href="#" role="button">{% include "socialaccount/snippets/provider_list.html" with process="login" %}</a>  
+                  </ul>
+                  </div>
+                <!-- sign in manual form -->
+                <div class="login_manual_form">
+                    <p>o</p>
+                    <form  action="{% url 'account_login' %}" method="POST">
+                      {% csrf_token %}
+                      {% if redirect_field_value %}
+                      <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                      {% endif %}
+                        <div class="form-group">
+                            <i class="fa fa-user"></i>
+                            <input type="text" name="username" id="user" placeholder="E-mail">
+                        </div>
+                        <div class="form-group">
+                            <i class="fa fa-lock" aria-hidden="true"></i>
+                            <input type="password" name="username" id="pass" placeholder="Contraseña">
+                        </div>
+                           <button type="submit" class="btn btn-default" id="login_submit">{% trans "Sign In" %}</button>
+                    </form>
+                    <!-- forget password -->
+                    <div class="forget_pass one">
+                        <a href="{% url 'account_reset_password' %}"><i class="fa fa-question-circle" aria-hidden="true"></i>{% trans "Forgot Password?" %}</a>
+                    </div>
+                </div>
+            </div>
+            <!-- login form end -->
+        </div>
+    </div>
+</div>
+</section>
+
+{% endblock %}
