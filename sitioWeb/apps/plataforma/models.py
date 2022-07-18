@@ -27,6 +27,10 @@ class Profesor(models.Model):
     password = models.CharField(max_length=20)
     vigencia = models.BooleanField(default=True)
 
+    def __str__(self):
+        txt = "{0}"
+        return txt.format(self.id_profesor)
+
 class Acudiente(models.Model):
     id_acudiente = models.BigIntegerField (primary_key=True)
     nombre = models.CharField(max_length=50)
@@ -37,6 +41,10 @@ class Acudiente(models.Model):
     password = models.CharField(max_length=20)
     vigencia = models.BooleanField(default=True)
 
+    def __str__(self):
+        txt = "{0}"
+        return txt.format(self.id_acudiente)
+
 
 class Curso(models.Model):
     id_curso = models.BigIntegerField (primary_key=True)
@@ -44,12 +52,19 @@ class Curso(models.Model):
     periodo_electivo = models.CharField(max_length=6)
     id_profesor = models.ForeignKey(Profesor, on_delete=models.CASCADE)
 
+    def __str__(self):
+        txt = "{0}"
+        return txt.format(self.id_curso)
+
 
 class Asignatura(models.Model):
     id_asignatura = models.BigIntegerField (primary_key=True)
     nombre = models.CharField(max_length=50)
     id_curso = models.ForeignKey(Curso, on_delete=models.CASCADE)
 
+    def __str__(self):
+        txt = "{0}"
+        return txt.format(self.id_asignatura)
 
 
 class Estudiante(models.Model):
@@ -67,6 +82,10 @@ class Estudiante(models.Model):
     id_acudiente = models.ForeignKey(Acudiente, on_delete=models.CASCADE)
     vigencia = models.BooleanField(default=True)
 
+    def __str__(self):
+        txt = "{0}"
+        return txt.format(self.id_estudiante)
+
 
 class Nota(models.Model):
     id_nota = models.BigIntegerField (primary_key=True)
@@ -79,12 +98,20 @@ class Nota(models.Model):
     id_asignatura = models.ForeignKey(Asignatura, on_delete=models.CASCADE)
     id_estudiante = models.ForeignKey(Estudiante, on_delete=models.CASCADE)
 
+    def __str__(self):
+        txt = "{0}"
+        return txt.format(self.id_nota)
+
 class Cita(models.Model):
     id_cita = models.BigIntegerField (primary_key=True)
     fecha = models.DateField()
     hora = models.TimeField()
     id_acudiente = models.ForeignKey(Acudiente, on_delete=models.CASCADE)
     id_profesor = models.ForeignKey(Profesor, on_delete=models.CASCADE)
+
+    def __str__(self):
+        txt = "{0}"
+        return txt.format(self.id_cita)
 
 
 class Sugerencia(models.Model):
@@ -93,10 +120,18 @@ class Sugerencia(models.Model):
     detalle_sugerencia = models.TextField()
     id_acudiente = models.ForeignKey(Acudiente, on_delete=models.CASCADE)
 
+    def __str__(self):
+        txt = "{0}"
+        return txt.format(self.id_sugerencia)
+
 
 class Evento(models.Model):
     id_evento = models.BigIntegerField (primary_key=True)
     fecha = models.DateField()
     hora = models.TimeField()
     detalle = models.TextField()
-    id_profesor = models.ForeignKey(Profesor, on_delete=models.CASCADE)
+    id_profesor = models.ForeignKey(Profesor, on_delete=models.CASCADE) 
+
+    def __str__(self):
+        txt = "{0}"
+        return txt.format(self.id_evento)
