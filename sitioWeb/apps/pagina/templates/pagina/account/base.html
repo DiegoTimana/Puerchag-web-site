@@ -1,0 +1,291 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <title>{% block head_title %}{% endblock %}</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{% static 'img/core-img/favicon.ico' %}">
+    <!-- ===================== All CSS Files ===================== -->
+    <!-- Style css -->
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <!-- Responsive css -->
+    <link rel="stylesheet" href= "{% static 'css/responsive.css' %}">
+    {% block extra_head %}
+    {% endblock %}
+  </head>
+  <body>
+        <!-- Preloader -->
+        <div id="preloader"></div>
+
+        <!-- Header Area Start -->
+        <header class="header_area">
+            <!-- Top Header Area Start -->
+            <div class="top_header_area">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-md">
+                            <!--  Top Quote Area Start -->
+                            <div class="top_quote">
+                                <p>Bienvenido al sitio web de la Sede Educativa Puerchag</p>
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <div class="login_language_area d-flex align-items-center float-right">
+                                <!-- Login Register Area Start -->
+                                <div class="login_register">
+                                    <a href="login.html"><i class="fa fa-lock" aria-hidden="true"></i> Ingresar/Registrarse</a>
+                                </div>
+                                <!-- Language Area Start -->
+                                <!-- <div class="language_area">
+                                    <div class="dropdown">
+                                        <button aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" id="lag" type="button" class="btn btn-default dropdown-toggle"><i class="fa fa-globe" aria-hidden="true"></i> Language</button>
+                                        <ul aria-labelledby="lag" class="dropdown-menu">
+                                            <li><a href="#">English</a></li>
+                                            <li><a href="#">हिन्दी</a></li>
+                                            <li><a href="#">বাংলা</a></li>
+                                        </ul>
+                                    </div>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Main Header Area Start -->
+            <div class="main_header_area animated">
+                <div class="classy-nav-container breakpoint-off">
+                    <div class="container">
+                        <!-- Classy Menu -->
+                        <nav class="classy-navbar justify-content-between" id="educampNav">
+    
+                            <!-- Logo -->
+                            <a class="nav-brand" href="index.html"><img src="../../static/img/core-img/titulo.png" alt="Logo"></a>
+    
+                            <!-- Navbar Toggler -->
+                            <div class="classy-navbar-toggler">
+                                <span class="navbarToggler"><span></span><span></span><span></span></span>
+                            </div>
+    
+                            <!-- Menu -->
+                            <div class="classy-menu">
+    
+                                <!-- close btn -->
+                                <div class="classycloseIcon">
+                                    <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                                </div>
+    
+                                <!-- Nav Start -->
+                                <div class="classynav">
+                                    <ul>
+                                        <li class="current_page_item"><a href="index.html">Inicio</a></li>
+                                        <li><a href="event-list.html">Eventos</a>
+                                            <!-- <ul class="dropdown">
+                                                <li><a href="event-grid.html">Cuadícula de Eventos</a></li>
+                                                <li><a href="event-list.html">Lista de Eventos</a></li>
+                                                <li><a href="event-details.html">Detalles de Eventos</a></li>
+                                            </ul> -->
+                                        </li>
+    <!--                                     <li><a href="#">Course</a>
+                                            <ul class="dropdown">
+                                                <li><a href="course-grid.html">Course Grid</a></li>
+                                                <li><a href="course-list.html">Course List</a></li>
+                                                <li><a href="course-details.html">Course Details</a></li>
+                                            </ul>
+                                        </li> -->
+                                        <li><a href="#">Paginas de Interés</a>
+                                            <div class="megamenu">
+                                                <ul class="single-mega cn-col-4">
+                                                    <li><a href="index.html">Inicio</a></li>
+                                                    <li><a href="about-us.html">Acerca de nosotros</a></li>
+                                                    <!-- <li><a href="event-grid.html">Cuadrícula de Eventos</a></li> -->
+                                                    <li><a href="event-list.html">Eventos</a></li>
+                                                    <!-- <li><a href="event-details.html">Detalles de Eventos</a></li> -->
+                                                </ul>
+                                                <ul class="single-mega cn-col-4">
+                                                    <!-- <li><a href="teachers-details.html">Detalles de Profesores</a></li> -->
+                                                    <!-- <li><a href="gallery-fullwidth.html">Galería Ancho Completo</a></li> -->
+                                                    <li><a href="gallery-4-column.html">Galería</a></li>
+                                                    <!-- <li><a href="gallery-3-column.html">Galería 3 Columnas</a></li>
+                                                    <li><a href="gallery-2-column.html">Galería 2 Columnas</a></li> -->
+                                                    <li><a href="single-sidebar.html">Single Blog - 2</a></li>
+                                                    <!-- <li><a href="course-grid.html">Course Grid</a></li> -->
+                                                    <li><a href="teachers.html">Nuestros Profesores</a></li>
+                                                </ul>
+                                                <!-- <ul class="single-mega cn-col-4">
+                                                    <li><a href="course-list.html">Course List</a></li>
+                                                    <li><a href="course-details.html">Course Details</a></li> -->
+                                                    <!-- <li><a href="blog.html">Blog - 1</a></li>
+                                                    <li><a href="blog-sidebar.html">Blog - 2</a></li>
+                                                    <li><a href="single.html">Single Blog - 1</a></li>
+                                                </ul> -->
+                                                <ul class="single-mega cn-col-4">
+                                                    <!-- <li><a href="code-of-contact.html">Código de Coducta</a></li>
+                                                    <li><a href="knowledgebase.html">Preguntas Frecuentes</a></li> -->
+                                                    <li><a href="login.html">Ingresar</a></li>
+                                                    <li><a href="register.html">Registrarse</a></li>
+                                                    <!-- <li><a href="404.html">404 Not Found</a></li> -->
+                                                    <li><a href="contact.html">Escríbenos</a></li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                       <!--  <li><a href="#">Others</a>
+                                            <ul class="dropdown">
+                                                <li><a href="about-us.html">About Us</a></li>
+                                                <li><a href="code-of-contact.html">Code of Contact</a></li>
+                                                <li><a href="knowledgebase.html">Knowledgebase</a></li>
+                                                <li><a href="login.html">Login</a></li>
+                                                <li><a href="register.html">Register</a></li>
+                                                <li><a href="404.html">404 Not Found</a></li>
+                                            </ul>
+                                        </li> -->
+                                        <li><a href="contact.html">Contáctanos</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!--  ===================== Header Area End ===================== -->
+    {% block body %}
+    {% if messages %}
+    <div>
+      <strong>Messages:</strong>
+      <ul>
+        {% for message in messages %}
+        <li>{{message}}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+
+    <!-- <div>
+      <strong>Menu:</strong>
+      <ul>
+        {% if user.is_authenticated %}
+        <li><a href="{% url 'account_email' %}">Change E-mail</a></li>
+        <li><a href="{% url 'account_logout' %}">Sign Out</a></li>
+        {% else %}
+        <li><a href="{% url 'account_login' %}">Sign In</a></li>
+        <li><a href="{% url 'account_signup' %}">Sign Up</a></li>
+        {% endif %}
+      </ul>
+    </div> -->
+    {% block content %}
+    {% endblock %}
+    {% endblock %}
+    {% block extra_body %}
+    {% endblock %}
+           <!-- ===================== Footer Area Start ===================== -->
+           <footer class="footer_area">
+            <div class="container">
+                <div class="section_padding_100_70">
+                    <div class="row">
+                        <!-- Footer About Area Start -->
+                        <div class="col-12 col-md-6 col-lg">
+                            <div class="footer_about_us footer-single-part">
+                                <div class="title">
+                                    <h4>Acerca de la plataforma</h4>
+                                    <!-- Useful Links Title -->
+                                    <div class="underline"></div>
+                                </div>
+                                <p>Este sitio web fue desarrollado con propósitos académicos por estudiantes de la Universidad del Valle. ¿Tienes alguna duda? Contáctanos</p>
+                                <div class="footer_social_links">
+                                    <a href="mailto:alexis.timana@correounivalle.edu.co"><i class="fa fa-envelope-o" aria-hidden="true"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Footer About Area End -->
+    
+                        <!-- Contact info Area Start -->
+                        <div class="col-12 col-md-6 col-lg">
+                            <div class="footer_contact_info footer-single-part">
+                                <div class="title">
+                                    <h4>ponte en contacto</h4>
+                                    <!-- Useful Links Title -->
+                                    <div class="underline"></div>
+                                </div>
+                                <!-- single contact info start -->
+                                <div class="footer_single_contact_info">
+                                    <i class="fa fa-thumb-tack" aria-hidden="true"></i>
+                                    <p>Vereda Puerchag, Samaniego, Nariño, Colombia</p>
+                                </div>
+                                <!-- single contact info start -->
+                                <div class="footer_single_contact_info">
+                                    <i class="fa fa-phone" aria-hidden="true"></i>
+                                    <a href="tel:+573146816388">+57 314 681 6388</a>
+                                </div>
+                                <!-- single contact info start -->
+                                <div class="footer_single_contact_info">
+                                    <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                                    <a href="mailto:puerchageduca8745@gmail.com">Puerchageduca8745@gmail.com</a>
+                                    <a href="mailto:yelaalvarezj@gmail.com">Yelaalvarezj@gmail.com</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Contact info Area End -->
+    
+                        <!-- Useful Links Area Start -->
+                        <div class="col-12 col-md-6 col-lg">
+                            <div class="important_links footer-single-part">
+                                <div class="title">
+                                    <h4>Enlaces útiles</h4>
+                                    <div class="underline"></div>
+                                </div>
+                                <!-- Links Start -->
+                                <div class="links">
+                                    <a href="contact.html"><i class="fa fa-angle-right" aria-hidden="true"></i> Contáctanos</a>
+                                    <a href="event-list.html"><i class="fa fa-angle-right" aria-hidden="true"></i> Calendario de Eventos</a>
+                                    <a href="login.html"><i class="fa fa-angle-right" aria-hidden="true"></i> Ingresa o Regístrate </a>
+                                    <a href="gallery-4-column.html"><i class="fa fa-angle-right" aria-hidden="true"></i> Galería de Fotos</a>
+                                    <a href="teachers.html"><i class="fa fa-angle-right" aria-hidden="true"></i> Nuestros Profesores</a>
+                                    <a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i> Cómo inscribirse</a>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <!-- Useful Links Area Start -->
+                        <!-- <div class="col-12 col-md-6 col-lg">
+                            <div class="important_links footer-single-part">
+                                <div class="title">
+                                    <h4>Subscribe Newsletter</h4>
+                                    <div class="underline"></div>
+                                </div>
+                                <div class="newsletter_from">
+                                    <form action="#">
+                                        <div class="form-group">
+                                            <input type="email" class="form-control" id="email" placeholder="Enter Your E-mail" required>
+                                        </div>
+                                        <button type="submit" class="btn blog-btn w-100">Submit <i class="fa fa-paper-plane"></i></button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div> -->
+    
+                    </div>
+                </div>
+            </div>
+         </footer>
+        <!-- ===================== All jQuery Plugins ===================== -->
+
+    <!-- jQuery (necessary for all JavaScript plugins) -->
+    <script src="{% static 'js/jquery-2.2.4.min.js' %}"></script>
+    <!-- Popper js -->
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <!-- Bootstrap js -->
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <!-- Plugins js -->
+    <script src="{% static 'js/plugins.js' %}"></script>
+    <!-- Classy Nav js -->
+    <script src="{% static 'js/classy-nav.js' %}"></script>
+    <!-- Active js -->
+    <script src="{% static 'js/active.js' %}"></script>
+  </body>
+</html>
