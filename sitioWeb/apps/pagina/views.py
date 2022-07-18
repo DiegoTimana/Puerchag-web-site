@@ -13,7 +13,7 @@ def index(request):
 
 #vista del login
 def login(request): 
-    return render(request, "pagina/login.html")
+    return render(request, "account/login.html")
 
 #vista de contactanos (enviar e-mail)
 def contact(request): 

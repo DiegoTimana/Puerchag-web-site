@@ -30,7 +30,10 @@ urlpatterns = [
     path('contact.html', views.contact),
     path('contactar/', contactar),
     path('', include('apps.plataforma.urls')),
-    path('accounts/', include('allauth.urls')) #urls utilizadas para las autenticaciones del login 
+    path('accounts/', include('allauth.urls')), #urls utilizadas para las autenticaciones del login 
+    path('teachers.html', views.teachers),
+    path('single.html', views.single),
+    path('single-sidebar.html', views.singleSidebar)
 ]
 
 
