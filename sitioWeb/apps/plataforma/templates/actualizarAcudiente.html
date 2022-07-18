@@ -1,0 +1,74 @@
+{% extends "./base.html" %}
+
+{% block title %}Gestion de Acudientes{% endblock%}
+
+{% block body %}
+    <divc class="row">
+        <div class="col-md-4 offset-md-4">
+            <h2>Actualizar Acudiente</h2>
+            <div class="card">
+                <div class="card-body">
+                    <form action="/editarAcudiente/" method="POST">{% csrf_token%}
+
+                        <div>Id Acudiente:</div>
+                        <div class="form-group">
+                            <input type="number" id="numeroId" name="numeroId" value="{{acudiente.id_acudiente}}" class="form-control" placeholder="Id" minlength="6" maxlength="15" readonly required>
+                        </div>
+
+                        <div>Nombre:</div>
+                        <div class="form-group">
+                            <input type="text" id="txtNombre" name="txtNombre" value="{{acudiente.nombre}}" class="form-control" placeholder="Nombre" minlength="2" maxlength="50" required>
+                        </div>
+
+                        <div>Primer Apellido:</div>
+                        <div class="form-group">
+                            <input type="text" id="txtPrimerApellido" name="txtPrimerApellido" value="{{acudiente.primer_apellido}}" class="form-control" placeholder="Primer Apellido" minlength="2" maxlength="50" required>
+                        </div>
+
+                        <div>Segundo Apellido:</div>
+                        <div class="form-group">
+                            <input type="text" id="txtSegundoApellido" name="txtSegundoApellido" value="{{acudiente.segundo_apellido}}" class="form-control" placeholder="Segundo Apellido" minlength="2" maxlength="50" required>
+                        </div>
+                        
+                        <div>Email:</div>
+                        <div class="form-group">
+                            <input type="text" id="txtEmail" name="txtEmail" value="{{acudiente.email}}" class="form-control" placeholder="Email" minlength="6" maxlength="50" required>
+                        </div>
+
+                        <div>Telefono:</div>
+                        <div class="form-group">
+                            <input type="text" id="txtTelefono" name="txtTelefono" value="{{acudiente.telefono}}" class="form-control" placeholder="Telefono" minlength="7" maxlength="15" required>
+                        </div>                       
+
+                        <div>Password:</div>
+                        <div class="form-group">
+                            <input type="password" id="pwd" name="pwd" value="{{acudiente.password}}" selected class="form-control" placeholder="Password" minlength="1" maxlength="20" required>
+                        </div>
+
+                        <div>Activo:</div>
+                        <div class="form-group">
+                            <select name="Activo" id="Activo" class="form-control">
+                                <option value="True">True</option>
+                                <option value="False">False</option>
+                            </select>
+                            
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-success">Guardar</button>
+                            <a href="/acudientes/" class="btn btn-danger">Cancelar</a>
+                        </div>
+
+                        <script>
+                                
+                                select = document.getElementById('Activo');
+                                select.value = '{{acudiente.vigencia}}';
+
+
+                        </script>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </divc>
+{% endblock %}

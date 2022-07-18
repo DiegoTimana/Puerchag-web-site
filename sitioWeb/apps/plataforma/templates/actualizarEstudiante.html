@@ -1,0 +1,116 @@
+{% extends "./base.html" %}
+
+{% block title %}Gestion de Estudiantes{% endblock%}
+
+{% block body %}
+    <divc class="row">
+        <div class="col-md-4 offset-md-4">
+            <h2>Actualizar Estudiante</h2>
+            <div class="card">
+                <div class="card-body">
+                    <form action="/editarEstudiante/" method="POST">{% csrf_token%}
+
+                        <div>Id Estudiante:</div>
+                        <div class="form-group">
+                            <input type="number" id="numeroId" name="numeroId" value="{{estudiante.id_estudiante}}" class="form-control" placeholder="Id" minlength="6" maxlength="15" readonly required>
+                        </div>
+
+                        <div>Nombre:</div>
+                        <div class="form-group">
+                            <input type="text" id="txtNombre" name="txtNombre" value="{{estudiante.nombre}}" class="form-control" placeholder="Nombre" minlength="2" maxlength="50" required>
+                        </div>
+
+                        <div>Primer Apellido:</div>
+                        <div class="form-group">
+                            <input type="text" id="txtPrimerApellido" name="txtPrimerApellido" value="{{estudiante.primer_apellido}}" class="form-control" placeholder="Primer Apellido" minlength="2" maxlength="50" required>
+                        </div>
+
+                        <div>Segundo Apellido:</div>
+                        <div class="form-group">
+                            <input type="text" id="txtSegundoApellido" name="txtSegundoApellido" value="{{estudiante.segundo_apellido}}" class="form-control" placeholder="Segundo Apellido" minlength="2" maxlength="50" required>
+                        </div>
+
+                        <div>Fecha de Nacimiento:</div>
+                        <div class="form-group">
+                            <input type="date" id="fechaNacimiento" name="fechaNacimiento" class="form-control" placeholder="Fecha Nacimiento"  required>
+                        </div>
+
+                        <div>Sexo:</div>
+                        <div class="form-group">
+                            <select name="Sexo" id="Sexo" class="form-control">
+                                <option value="F">F</option>
+                                <option value="M">M</option>
+                            </select>
+                        </div>
+                        
+                        <div>Id Curso:</div>
+                        <div class="form-group">
+                            <select name="numeroIdCurso" id="numeroIdCurso" class="form-control">
+                                {% for results in cursos %}
+                                <option value="{{results.id_curso}}">{{results.id_curso}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        
+                        <div>Id Acudiente:</div>
+                        <div class="form-group">
+                            <select name="numeroIdAcudiente" id="numeroIdAcudiente" class="form-control">
+                                {% for results in acudientes %}
+                                <option value="{{results.id_acudiente}}">{{results.id_acudiente}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+
+                        <div>Activo:</div>
+                        <div class="form-group">
+                            <select name="Activo" id="Activo" class="form-control">
+                                <option value="">Activo</option>
+                                <option value="True">True</option>
+                                <option value="False">False</option>
+                            </select>
+                            
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-success">Guardar</button>
+                            <a href="/estudiantes/" class="btn btn-danger">Cancelar</a>
+                        </div>
+
+                        <script>
+                                select = document.getElementById('Sexo');
+                                select.value = '{{estudiante.sexo}}';
+
+                                select = document.getElementById('numeroIdCurso');
+                                select.value = '{{estudiante.id_curso}}';
+
+                                select = document.getElementById('numeroIdAcudiente');
+                                select.value = '{{estudiante.id_acudiente}}';
+
+                                select = document.getElementById('fechaNacimiento');
+                                var year = '{{estudiante.fecha_nacimiento.year}}'
+                                var month = '{{estudiante.fecha_nacimiento.month}}';
+                                var day ='{{estudiante.fecha_nacimiento.day}}'
+
+                                function formatoDia(numero){
+                                    if(numero<10){
+                                        dia = '' + 0 + numero
+                                        return dia;
+                                    }else{
+                                        return dia;
+                                    }
+                                }
+
+                                month = formatoDia(month);
+                                day = formatoDia(day);
+                                var fecha = `${year}-${month}-${day}`;
+                                select.value = fecha;
+
+                                select = document.getElementById('Activo');
+                                select.value = '{{estudiante.vigencia}}';
+                        </script>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </divc>
+{% endblock %}
