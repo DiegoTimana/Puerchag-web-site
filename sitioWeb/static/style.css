@@ -2743,7 +2743,7 @@
         width: 100%;
         z-index: 99;
         right: 30px;
-        text-align: right;
+        text-align: left;
         color: #fff;
     }
 
@@ -2756,6 +2756,7 @@
         display: inline-block;
         width: auto;
         border-radius: 5px;
+        text-transform: uppercase;
     }
 
     .sign_in_twitter {
@@ -2781,7 +2782,7 @@
 
     .sign_in_facebook > a > i,
     .sign_in_twitter > a > i {
-        padding-right: 5px;
+        padding-right: 10px;
     }
 
     .login_manual_form > p {

@@ -27,10 +27,10 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index),
     path('index.html', views.index),
-    path('login.html', views.login),
     path('contact.html', views.contact),
     path('contactar/', contactar),
-    path('', include('apps.plataforma.urls'))
+    path('', include('apps.plataforma.urls')),
+    path('accounts/', include('allauth.urls')) #urls utilizadas para las autenticaciones del login 
 ]
 
 
