@@ -26,11 +26,9 @@ urlpatterns = [
 
     path('admin/', admin.site.urls),
     path('', views.index),
-    path('index.html', views.index),
-    path('contact.html', views.contact),
-    path('contactar/', contactar),
     path('', include('apps.plataforma.urls')),
-    path('accounts/', include('allauth.urls')) #urls utilizadas para las autenticaciones del login 
+    path('',include('apps.pagina.urls')),
+    path('accounts/', include('allauth.urls')), #urls utilizadas para las autenticaciones del login 
 ]
 
 

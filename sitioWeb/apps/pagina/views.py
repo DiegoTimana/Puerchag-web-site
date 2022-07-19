@@ -13,7 +13,7 @@ def index(request):
 
 #vista del login
 def login(request): 
-    return render(request, "pagina/login.html")
+    return render(request, "account/login.html")
 
 #vista de contactanos (enviar e-mail)
 def contact(request): 
@@ -30,4 +30,19 @@ def contactar(request):
         return render(request, "pagina/login.html")
     else: 
         return render(request, "pagina/contact.html")
-    
+
+#vista de profesores
+def teachers(request): 
+    return render(request, "pagina/teachers.html")
+
+#vista del single
+def single(request): 
+    return render(request, "pagina/single.html")
+
+#vista del single-sidebar
+def singleSidebar(request): 
+    return render(request, "pagina/single-sidebar.html")
+
+#vista de event-list
+def eventList(request): 
+    return render(request, "pagina/event-list.html")
