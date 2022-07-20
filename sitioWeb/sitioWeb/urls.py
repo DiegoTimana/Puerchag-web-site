@@ -18,8 +18,6 @@ from django.contrib import admin
 from django.urls import path
 from apps.pagina import views
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
-
-from apps.pagina.views import contactar
 from django.urls import include
 
 urlpatterns = [
