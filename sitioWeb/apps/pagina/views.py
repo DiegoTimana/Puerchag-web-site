@@ -46,3 +46,7 @@ def singleSidebar(request):
 #vista de event-list
 def eventList(request): 
     return render(request, "pagina/event-list.html")
+
+#vista de galeria
+def galeria(request): 
+    return render(request, "pagina/gallery-4-column.html")
