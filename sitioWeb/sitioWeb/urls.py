@@ -18,19 +18,15 @@ from django.contrib import admin
 from django.urls import path
 from apps.pagina import views
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
-
-from apps.pagina.views import contactar
 from django.urls import include
 
 urlpatterns = [
 
     path('admin/', admin.site.urls),
     path('', views.index),
-    path('index.html', views.index),
-    path('contact.html', views.contact),
-    path('contactar/', contactar),
     path('', include('apps.plataforma.urls')),
-    path('accounts/', include('allauth.urls')) #urls utilizadas para las autenticaciones del login 
+    path('',include('apps.pagina.urls')),
+    path('accounts/', include('allauth.urls')), #urls utilizadas para las autenticaciones del login 
 ]
 
 
