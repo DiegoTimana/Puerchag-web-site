@@ -38,7 +38,7 @@
                 </div> -->
                 <div class="sign_in_facebook">
                   <ul>
-                    <a class="btn btn-default" href="#" role="button">{% include "socialaccount/snippets/provider_list.html" with process="login" %}</a>  
+                    <a class="btn btn-default" role="button"></i>{% include "socialaccount/snippets/provider_list.html" with process="login" %}</a>  
                   </ul>
                   </div>
                 <!-- sign in manual form -->
@@ -60,6 +60,7 @@
                         </div> -->
                            <button class="primaryAction" type="submit" id="login_submit">{% trans "Sign In" %}</button>
                            <div class="mb-3">
+                            <p>Por favor llene el captcha antes de iniciar sesión:</p>
                             <div class="g-recaptcha" data-sitekey="6LfuXgkhAAAAAMT7lzAO9jObbhgKnHDi0tACvgga"></div>
                            </div>
                     </form>
