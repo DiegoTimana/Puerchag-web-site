@@ -51,8 +51,11 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     #Se agregan los que se necesiten, en este caso vamos a iniciar sesión con google (ver documentacion del allauth/installacion)
     'allauth.socialaccount.providers.google',
+    #formularios django
+    'crispy_forms',
 ]
 
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 SITE_ID = 1
 
 MIDDLEWARE = [
@@ -137,6 +140,8 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+LOGIN_REDIRECT_URL = '../../../../home/'
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
@@ -159,9 +164,10 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 #el método de autenticacion para iniciar sesion es email. No el nombre de usuario
-ACCOUNT_AUTHTENTICATION_METHOD = 'email' 
+ACCOUNT_AUTHENTICATION_METHOD = 'email' 
 #es obligación tener un email para ingresar
-ACCOUNT_EMAIL_REQUIRED = True  
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_EMAIL_UNIQUE = True
 #tiene que verificar manualmente el correo electronico que se registra
 ACCOUNT_EMAIL_VERIFICATION = True  
 #tiene un plazo de una semana para hacerlo
