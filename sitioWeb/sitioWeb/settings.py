@@ -30,7 +30,7 @@ SECRET_KEY = 'django-insecure-_)@uu(0a3&s)#p$jhbhwukcx$g47+gn@998^7v=^j-88x97568
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1']
 
 
 # Application definition
@@ -53,6 +53,8 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.google',
     #formularios django
     'crispy_forms',
+    #captcha :p
+    'captcha',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -172,3 +174,9 @@ ACCOUNT_EMAIL_UNIQUE = True
 ACCOUNT_EMAIL_VERIFICATION = True  
 #tiene un plazo de una semana para hacerlo
 ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = 7  
+
+#claves captcha api google
+RECAPTCHA_PUBLIC_KEY = '6LfuXgkhAAAAAMT7lzAO9jObbhgKnHDi0tACvgga'
+GOOGLE_RECAPTCHA_PRIVATE_KEY = '6LfuXgkhAAAAAJbTiuQXc9EQuVzijYG_eGE0cBGy'
+RECAPTCHA_REQUIRED_SCORE = 0.85
+SILENCED_SYSTEM_CHECKS = ['captcha.recaptcha_test_key_error']

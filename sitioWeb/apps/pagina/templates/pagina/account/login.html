@@ -9,6 +9,10 @@
 
 {% get_providers as socialaccount_providers %}
 
+<head>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+
 <section class="login_area section_padding_100">
   <div class="container">
       <div class="row">
@@ -55,6 +59,9 @@
                             <input type="password" name="" id="pass" placeholder="Contraseña">
                         </div> -->
                            <button class="primaryAction" type="submit" id="login_submit">{% trans "Sign In" %}</button>
+                           <div class="mb-3">
+                            <div class="g-recaptcha" data-sitekey="6LfuXgkhAAAAAMT7lzAO9jObbhgKnHDi0tACvgga"></div>
+                           </div>
                     </form>
                     <!-- forget password -->
                     <div class="forget_pass one">
