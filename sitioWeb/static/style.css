@@ -2674,6 +2674,7 @@
 
     .register_form button,
     .col-md-4 button,
+    .col-md-7 button,
     .login_manual_form button {
         background-color: #46c34a;
         color: #fff;
@@ -2695,6 +2696,10 @@
 
     .register_form button:hover,
     .register_form button:focus,
+    .col-md-4 button:focus,
+    .col-md-4 button:hover,
+    .col-md-7 button:focus,
+    .col-md-7 button:hover,
     .login_manual_form button:hover,
     .login_manual_form button:focus {
         background-color: #2c3e50;
@@ -2739,11 +2744,11 @@
     .login_thumb_caption > h3,
     .login_thumb_caption > p {
         height: auto;
-        position: relative;
-        bottom: 15%;
+        position: absolute;
+        bottom: 16%;
         width: auto;
         z-index: 99;
-        right: auto;
+        right: 20px;
         text-align: right;
         color: #fff;
     }
@@ -2755,15 +2760,11 @@
     .sign_in_facebook,
     .sign_in_twitter {
         display: inline-block;
-        width: auto;
+        width: 20px;
         border-radius: 5px;
         text-transform: uppercase;
     }
 
-    .sign_in_twitter {
-        background-color: #3498db;
-        margin-left: 10px;
-    }
 
     .sign_in_facebook > a,
     .sign_in_twitter > a {
@@ -2838,6 +2839,9 @@
         right: 30px;
     }
 
+    .mb-3 > p{
+        padding: 15px 0px 0px 0px;
+    }
     /*
     * 31.0 Code of Contact Area CSS
     */
@@ -3270,6 +3274,36 @@
     .price_rating_area ul.timer {
         display: block;
         text-align: center;
+    }
+
+        /*
+    * 34.0 logout area
+    */
+
+    .signout_area,
+    .login_google_message{
+        padding-left: 80px;
+        
+    }
+
+    .signout_area button,
+    .login_google_message button{
+        background-color: #46c34a;
+        color: #fff;
+        width: 200px;
+        padding: 10px 20px;
+        -webkit-transition-duration: 500ms;
+        transition-duration: 500ms;
+        border: none;
+        text-transform: uppercase;
+    }
+
+    .signout_area button:hover,
+    .signout_area button:focus,
+    .login_google_message button:hover,
+    .login_google_message button:focus {
+        background-color: #2c3e50;
+        color: #fff;
     }
 
     /* The End */
