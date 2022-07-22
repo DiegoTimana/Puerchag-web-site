@@ -1,81 +1,143 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
-    {% load static %}
-    <meta charset='utf-8'>
+    <meta charset="UTF-8">
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>{% block title %}{% endblock %}</title>
-    <!-- CSS only -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!--CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'css/gestionProfesor.css' %}">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Title -->
+    <title>Sede Educativa Puerchag</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{% static 'img/core-img/favicon.ico' %}">
+
+    <!-- ===================== All CSS Files ===================== -->
+
+    <!-- Style css -->
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+
+    <!-- Responsive css -->
+    <link rel="stylesheet" href= "{% static 'css/responsive.css' %}">
+
 </head>
+
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
-        <a class="navbar-brand" href="#">PUERCHAG</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+    <!-- Preloader -->
+    <div id="preloader"></div>
 
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'homePage' %}">Home</a>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'profesoresPage' %}">Profesores</a>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link" href="/acudientes/">Acudientes</a>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link" href="/cursos/">Cursos</a>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link" href="/estudiantes/">Estudiantes</a>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link" href="">Asignaturas</a>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link" href="">Notas</a>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link" href="">Citas</a>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link" href="">Sugerencias</a>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link" href="">Eventos</a>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-            </li>
-
-          </ul>
+    <!-- Header Area Start -->
+    <header class="header_area">
+        <!-- Top Header Area Start -->
+        <div class="top_header_area">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md">
+                        <!--  Top Quote Area Start -->
+                        <div class="top_quote">
+                            <p>Bienvenido al sitio web de la Sede Educativa Puerchag</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </nav>
+
+        <!-- Main Header Area Start -->
+        <div class="main_header_area animated">
+            <div class="classy-nav-container breakpoint-off">
+                <div class="container">
+                    <!-- Classy Menu -->
+                    <nav class="classy-navbar justify-content-between" id="educampNav">
+
+                        <!-- Logo -->
+                        <img src='{% static "img/core-img/titulo.png" %}' >
+
+                        <ul>
+
+                        <div class="classynav"> 
+                          <li class="nav-item">
+                            <a class="nav-link" href="{% url 'homePage' %}">Home</a>
+                          </li>
+
+                          <li class="nav-item">
+                            <a class="nav-link" href="{% url 'profesoresPage' %}">Profesores</a>
+                          </li>
+
+                          <li class="nav-item">
+                            <a class="nav-link" href="/acudientes/">Acudientes</a>
+                          </li>
+
+                          <li class="nav-item">
+                            <a class="nav-link" href="/cursos/">Cursos</a>
+                          </li>
+                          
+                          <li class="nav-item">
+                            <a class="nav-link" href="/estudiantes/">Estudiantes</a>
+                          </li>
+                          
+                          <li class="nav-item">
+                            <a class="nav-link" href="">Asignaturas</a>
+                          </li>
+                          
+                          <li class="nav-item">
+                            <a class="nav-link" href="">Notas</a>
+                          </li>
+                        
+                          <li class="nav-item">
+                            <a class="nav-link" href="">Citas</a>
+                          </li>
+                          
+                          <li class="nav-item">
+                            <a class="nav-link" href="">Sugerencias</a>
+                          </li>
+                          
+                          <li class="nav-item">
+                            <a class="nav-link" href="">Eventos</a>
+                          </li>
+                          
+                          <li class="nav-item">
+                            <a class="nav-link" href="{% url 'account_logout' %}" >Salir</a>
+                          </li>
+                        
+                        </ul>
+
+                        </div>    
+                    </nav>
+                </div>
+            </div>
+        </div>
       <div class="container py-4" >
         {% block body %}
 
         {% endblock %}
       </div>
+    </header>
+    <!--  ===================== Header Area End ===================== -->
 
 
+<!-- ===================== All jQuery Plugins ===================== -->
 
-    <!-- JavaScript Bundle with Popper -->
+    <!-- jQuery (necessary for all JavaScript plugins) -->
+    <script src="{% static 'js/jquery-2.2.4.min.js' %}"></script>
+    <!-- Popper js -->
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <!-- Bootstrap js -->
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <!-- Plugins js -->
+    <script src="{% static 'js/plugins.js' %}"></script>
+    <!-- Classy Nav js -->
+    <script src="{% static 'js/classy-nav.js' %}"></script>
+    <!-- Active js -->
+    <script src="{% static 'js/active.js' %}"></script>
+
+<!-- JavaScript Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 <script src="{% static 'js/gestionProfesor.js' %}"></script>
+
 </body>
 </html>

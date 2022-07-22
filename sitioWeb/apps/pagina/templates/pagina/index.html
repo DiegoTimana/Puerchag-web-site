@@ -1,4 +1,5 @@
 {% load static %}
+{% load pwa %}
 <!DOCTYPE html>
 <html lang="es">
 
@@ -26,6 +27,8 @@
 
     <!-- Responsive css -->
     <link rel="stylesheet" href= "{% static 'css/responsive.css' %}">
+
+    {% progressive_web_app_meta %}
 
 </head>
 
@@ -139,7 +142,7 @@
                                                 <!-- <li><a href="code-of-contact.html">Código de Coducta</a></li>
                                                 <li><a href="knowledgebase.html">Preguntas Frecuentes</a></li> -->
                                                 <li><a href="accounts/login">Ingresar</a></li>
-                                                <li><a href="register.html">Registrarse</a></li>
+                                                <li><a href="accounts/signup">Registrarse</a></li>
                                                 <!-- <li><a href="404.html">404 Not Found</a></li> -->
                                                 <li><a href="contact.html">Escríbenos</a></li>
                                             </ul>
@@ -1050,7 +1053,7 @@
             </div>
         </div>
 
-        <!-- Bottom Footer Area Start -->
+        <!-- Bottom Footer Area Start
         <div class="footer_bottom_area">
             <div class="container">
                 <div class="row">
@@ -1063,7 +1066,7 @@
             </div>
         </div>
     </footer>
-    <!-- ===================== Footer Area End ===================== -->
+    -- ===================== Footer Area End ===================== -->
 
     <!-- ===================== All jQuery Plugins ===================== -->
 

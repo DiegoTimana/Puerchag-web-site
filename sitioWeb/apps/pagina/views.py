@@ -1,6 +1,13 @@
+import json
+from multiprocessing import AuthenticationError
+from telnetlib import AUTHENTICATION
 from django.conf import settings
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.core.mail import send_mail
+import urllib
+from django.contrib import messages
+import urllib3
+
 
 # Create your views here.
 #Para crear una vista, definir la funcion en la parte de abajo, cambiar el nombre y el path. Luego agregar la url al archivo
@@ -11,9 +18,31 @@ from django.core.mail import send_mail
 def index(request): 
     return render(request, "pagina/index.html")
 
-#vista del login
-def login(request): 
-    return render(request, "pagina/login.html")
+#vista del login FALTA VALIDAR EL CAPTCHA, NO SE COMOOOO
+def login(request):
+    if request.method == 'POST':
+            print("hola")
+            ''' Begin reCAPTCHA validation '''
+            recaptcha_response = request.POST.get('g-recaptcha-response')
+            url = 'https://www.google.com/recaptcha/api/siteverify'
+            values = {
+                'secret': settings.GOOGLE_RECAPTCHA_SECRET_KEY,
+                'response': recaptcha_response
+            }
+            data = urllib.urlencode(values)
+            req = urllib3.Request(url, data)
+            response = urllib3.urlopen(req)
+            result = json.load(response)
+            ''' End reCAPTCHA validation '''
+            if result['success']:
+                messages.success(request, 'PASO CAPTCHA')
+            else:
+                messages.error(request, 'Invalid reCAPTCHA. INTENTE NUEVAMENTE.')
+
+            return redirect('accounts/login/')
+    else:
+        return render(request, 'accounts/login/')
+
 
 #vista de contactanos (enviar e-mail)
 def contact(request): 
@@ -30,4 +59,23 @@ def contactar(request):
         return render(request, "pagina/login.html")
     else: 
         return render(request, "pagina/contact.html")
-    
+
+#vista de profesores
+def teachers(request): 
+    return render(request, "pagina/teachers.html")
+
+#vista del single
+def single(request): 
+    return render(request, "pagina/single.html")
+
+#vista del single-sidebar
+def singleSidebar(request): 
+    return render(request, "pagina/single-sidebar.html")
+
+#vista de event-list
+def eventList(request): 
+    return render(request, "pagina/event-list.html")
+
+#vista de galeria
+def galeria(request): 
+    return render(request, "pagina/gallery-4-column.html")

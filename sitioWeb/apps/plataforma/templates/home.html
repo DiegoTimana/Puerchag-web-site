@@ -1,9 +1,9 @@
 {% extends "./base.html" %}
-
+{% load i18n %}
 {% block title %}Home Page{% endblock%}
 
 {% block body %}
 
-    <h1>Bienvenido al Sistema </h1>
+    <h1>Bienvenido al Sistema {{request.user.first_name}} {{request.user.last_name}}</h1>
 
 {% endblock %}
