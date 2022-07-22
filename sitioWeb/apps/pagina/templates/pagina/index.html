@@ -1,4 +1,5 @@
 {% load static %}
+{% load pwa %}
 <!DOCTYPE html>
 <html lang="es">
 
@@ -26,6 +27,8 @@
 
     <!-- Responsive css -->
     <link rel="stylesheet" href= "{% static 'css/responsive.css' %}">
+
+    {% progressive_web_app_meta %}
 
 </head>
 

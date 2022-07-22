@@ -55,6 +55,8 @@ INSTALLED_APPS = [
     'crispy_forms',
     #captcha :p
     'captcha',
+    #pwa
+    'pwa',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -180,3 +182,21 @@ RECAPTCHA_PUBLIC_KEY = '6LfuXgkhAAAAAMT7lzAO9jObbhgKnHDi0tACvgga'
 GOOGLE_RECAPTCHA_PRIVATE_KEY = '6LfuXgkhAAAAAJbTiuQXc9EQuVzijYG_eGE0cBGy'
 RECAPTCHA_REQUIRED_SCORE = 0.85
 SILENCED_SYSTEM_CHECKS = ['captcha.recaptcha_test_key_error']
+
+#manifesto
+PWA_APP_NAME = 'Plataforma Sede Educativa Puerchag'
+PWA_APP_SHORT_NAME = 'SE Puerchag'
+PWA_APP_START_URL = '/index'
+PWA_APP_DISPLAY = 'standalone'
+PWA_APP_BACKGROUND_COLOR = '#F7F7F7'
+PWA_APP_THEME_COLOR = '#46c34a'
+PWA_APP_ORIENTATION = 'portrait-primary'
+PWA_APP_ICONS = [
+        {'src': '/static/img/core-img/titulo.png',
+        'type': 'image/png',
+        'sizes': '230x43'},
+        {'src': '/static/img/core-img/titulo144.png',
+        'type': 'image/png',
+        'sizes': '170x170'}
+    ]
+PWA_APP_LANG= "es"
