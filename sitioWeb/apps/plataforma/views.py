@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Profesor, Usuario, Curso, Estudiante, Acudiente
+from .models import Evento, Profesor, Usuario, Curso, Estudiante, Acudiente
 
 # Create your views here.
 
@@ -245,3 +245,7 @@ def eliminarEstudiante(request, ident):
     estudiante.vigencia = False
     estudiante.save()
     return redirect('/estudiantes')
+
+def eventos(request):
+    eventos = Evento.objects.all()
+    return render(request,"gestionEventos.html",{"eventos":eventos})

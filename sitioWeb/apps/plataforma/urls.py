@@ -7,7 +7,7 @@ from . import views
 urlpatterns = [
     path('',login_required(views.home)),
     path('home/', login_required(views.home), name="homePage"),
-
+    
     # path('profesores/', login_required(views.profesores), name="profesoresPage"),
     # path('registrarProfesor/', login_required(views.registrarProfesor)),
     # path('edicionProfesor/<ident>', login_required(views.edicionProfesor)),
@@ -31,5 +31,8 @@ urlpatterns = [
     # path('edicionEstudiante/<ident>',login_required(views.edicionEstudiante)),
     # path('editarEstudiante/', login_required(views.editarEstudiante)),
     # path('eliminarEstudiante/<ident>',login_required( views.eliminarEstudiante)),
+
+path('gestionEventos/', login_required(views.eventos)),
+
 
 ]
