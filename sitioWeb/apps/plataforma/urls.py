@@ -8,8 +8,8 @@ urlpatterns = [
     path('',login_required(views.home)),
     path('home/', login_required(views.home), name="homePage"),
 
-    # path('profesores/', login_required(views.profesores), name="profesoresPage"),
-    # path('registrarProfesor/', login_required(views.registrarProfesor)),
+    path('profesores/', login_required(views.profesores), name="profesoresPage"),
+    path('registrarProfesor/', login_required(views.registrarProfesor)),
     # path('edicionProfesor/<ident>', login_required(views.edicionProfesor)),
     # path('editarProfesor/', login_required(views.editarProfesor)),
     # path('eliminarProfesor/<ident>',login_required( views.eliminarProfesor)),
