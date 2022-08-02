@@ -88,7 +88,7 @@ class Estudiante(models.Model):
 
 
 class Nota(models.Model):
-    id_nota = models.BigIntegerField (primary_key=True)
+    id_nota = models.AutoField(primary_key=True)
     calificacion = models.DecimalField(max_digits=3, decimal_places=2)
     periodo = models.CharField(max_length=6)
     fecha = models.DateField()

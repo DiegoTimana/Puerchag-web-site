@@ -31,4 +31,17 @@ urlpatterns = [
     path('editarEstudiante/', views.editarEstudiante),
     path('eliminarEstudiante/<ident>', views.eliminarEstudiante),
 
+    path('asignaturas/', views.asignaturas),
+    path('registrarAsignatura/', views.registrarAsignatura),
+    path('edicionAsignatura/<ident>',views.edicionAsignatura),
+    path('editarAsignatura/', views.editarAsignatura),
+
+
+    path('notas/', views.notas),
+    path('registrarNota/', views.registrarNota),
+    path('verNotas/<identEstudiante>', views.verNotas),
+
+
+
+
 ]

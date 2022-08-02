@@ -1,0 +1,46 @@
+{% extends "./base.html" %}
+
+{% block title %}Gestion de Estudiantes{% endblock%}
+
+
+{% block body %}
+    <h1>Notas del Estudiante</h1>
+
+    <div class="col-sm-12 col-md-6 col-lg-8 col-xl-8">
+        <h1>Listado de Estudiantes</h1>
+        <div class="table-responsive py-2">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Id Nota</th>
+                        <th>Calificacion</th>
+                        <th>Periodo</th>
+                        <th>Fecha</th>
+                        <th>Tipo</th>
+                        <th>Comentario</th>
+                        <th>Id Asignatura</th>
+                        <th>Opciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for nota in notas %}
+                        <tr>
+                            <td>{{forloop.counter}}</td>
+                            <td>{{nota.id_nota}}</td>
+                            <td>{{nota.calificacion}}</td>
+                            <td>{{nota.periodo}}</td>
+                            <td>{{nota.fecha}}</td>
+                            <td>{{nota.tipo}}</td>
+                            <td>{{nota.comentario}}</td>
+                            <td>{{nota.id_asignatura}}</td>
+                            <td><a href="" class="btn btn-info">Editar</a></td>
+                            <td><a href="" class="btn btn-danger btnEliminacion">Eliminar</a></td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+
+{% endblock %}

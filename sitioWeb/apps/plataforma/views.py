@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Profesor, Acudiente, Curso, Estudiante
+from .models import Profesor, Acudiente, Curso, Estudiante, Asignatura, Nota
 
 # Create your views here.
 
@@ -246,3 +246,80 @@ def eliminarEstudiante(request, ident):
     estudiante.vigencia = False
     estudiante.save()
     return redirect('/estudiantes')
+
+
+#-------------------------------------asignatura---------------------------------------------------
+
+def asignaturas(request):
+    asignaturas = Asignatura.objects.all().order_by('id_asignatura')
+    cursos =  Curso.objects.all()
+    return render(request,"gestionAsignatura.html",{"asignaturas":asignaturas,"cursos":cursos})
+
+
+def registrarAsignatura(request):
+    ident = request.POST['numeroId']
+    nombre = request.POST['txtNombre']
+    curso = request.POST['numeroIdCurso']
+
+    asignatura = Asignatura.objects.create(id_asignatura=ident, nombre=nombre, id_curso=Curso.objects.get(id_curso=curso))
+
+    return redirect('/asignaturas')
+
+
+def edicionAsignatura(request, ident):
+    asignatura = Asignatura.objects.get(id_asignatura=ident)
+    cursos =  Curso.objects.all()
+    return render(request,"actualizarAsignatura.html", {"asignatura":asignatura,"cursos":cursos})
+
+def editarAsignatura(request):
+    ident = request.POST['numeroId']
+    nombre = request.POST['txtNombre']
+    curso = request.POST['numeroIdCurso']
+
+    asignatura = Asignatura.objects.get(id_asignatura=ident)
+
+    asignatura.id_asignatura=ident 
+    asignatura.nombre=nombre 
+    asignatura.id_curso=Curso.objects.get(id_curso=curso)
+    asignatura.save()
+    return redirect('/asignaturas')
+
+
+#--------------------------------Notas---------------------------------------------
+
+
+def notas(request):
+
+    #necesito pasarle el id del curso!!!!!!!!!!!
+    
+    cursos = Curso.objects.all()
+    asignaturas = Asignatura.objects.filter(id_curso = 1).order_by('id_asignatura')
+    estudiantes = Estudiante.objects.filter(id_curso = 1).order_by('primer_apellido')
+    return render(request,"gestionNota.html",{"cursos":cursos, "asignaturas":asignaturas, "estudiantes":estudiantes})
+
+def registrarNota(request):
+    
+    calificacion = request.POST['numeroCalificacion']
+    periodo = request.POST['txtPeriodo']
+    fecha = request.POST['fechaNota']
+    tipo = request.POST['Tipo']
+    comentario = request.POST['txtComentario']
+    id_asignatura = request.POST['numeroIdAsignatura']
+    id_estudiante = request.POST['numeroIdEstudiante']
+
+    nota = Nota.objects.create(
+        calificacion=calificacion,
+        periodo= periodo,
+        fecha=fecha,
+        tipo=tipo,
+        comentario=comentario,
+        id_asignatura=Asignatura.objects.get(id_asignatura=id_asignatura),
+        id_estudiante=Estudiante.objects.get(id_estudiante=id_estudiante)
+    )
+
+    return redirect('/notas')
+
+def verNotas(request,identEstudiante):
+
+    notas = Nota.objects.filter(id_estudiante=identEstudiante).order_by('id_asignatura')
+    return render(request,"verNotas.html",{"notas":notas})
