@@ -32,7 +32,9 @@ urlpatterns = [
     path('registrarEstudiante/', views.registrarEstudiante),
     path('edicionEstudiante/<ident>',views.edicionEstudiante),
     path('editarEstudiante/', views.editarEstudiante),
-    path('eliminarEstudiante/<ident>', views.eliminarEstudiante)
+    path('eliminarEstudiante/<ident>', views.eliminarEstudiante),
+
+    path('eventos/', views.eventos)
 ]
 
 if settings.DEBUG:
