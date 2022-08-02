@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 import os
+from telnetlib import LOGOUT
+from django.urls import reverse_lazy
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -77,7 +80,8 @@ ROOT_URLCONF = 'sitioWeb.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'apps/pagina/templates/pagina', BASE_DIR / 'apps/plataforma/templates/plataforma'],
+        'DIRS': [BASE_DIR / 'apps/pagina/templates/pagina', BASE_DIR / 'apps/plataforma/templates/plataforma',
+        BASE_DIR / 'apps/pagina/templates/pagina/account'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -127,6 +131,8 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+AUTH_USER_MODEL = 'plataforma.Usuario'
+
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
@@ -145,6 +151,8 @@ USE_TZ = True
 STATIC_URL = 'static/'
 
 LOGIN_REDIRECT_URL = '../../../../home/'
+LOGOUT_REDIRECT_URL = '../../index.html'
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
