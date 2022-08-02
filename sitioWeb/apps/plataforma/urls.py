@@ -32,15 +32,15 @@ urlpatterns = [
     # path('editarEstudiante/', login_required(views.editarEstudiante)),
     # path('eliminarEstudiante/<ident>',login_required( views.eliminarEstudiante)),
 
-    path('asignaturas/', views.asignaturas),
-    path('registrarAsignatura/', views.registrarAsignatura),
-    path('edicionAsignatura/<ident>',views.edicionAsignatura),
-    path('editarAsignatura/', views.editarAsignatura),
+    #path('asignaturas/', views.asignaturas),
+    #path('registrarAsignatura/', views.registrarAsignatura),
+    #path('edicionAsignatura/<ident>',views.edicionAsignatura),
+    #path('editarAsignatura/', views.editarAsignatura),
 
 
-    path('notas/', views.notas),
-    path('registrarNota/', views.registrarNota),
-    path('verNotas/<identEstudiante>', views.verNotas),
+    #path('notas/', views.notas),
+    #path('registrarNota/', views.registrarNota),
+    #path('verNotas/<identEstudiante>', views.verNotas),
 
 
 
