@@ -1,7 +1,10 @@
 #Este archivo es para gestionar las rutas de la aplicacion plataforma
 
+from msilib.schema import AdminExecuteSequence
 from django.urls import path
 from . import views
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('',views.home),
@@ -29,6 +32,8 @@ urlpatterns = [
     path('registrarEstudiante/', views.registrarEstudiante),
     path('edicionEstudiante/<ident>',views.edicionEstudiante),
     path('editarEstudiante/', views.editarEstudiante),
-    path('eliminarEstudiante/<ident>', views.eliminarEstudiante),
-
+    path('eliminarEstudiante/<ident>', views.eliminarEstudiante)
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
