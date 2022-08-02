@@ -1,0 +1,6 @@
+py -m pip install Django
+pip install django-allauth
+pip install django-crispy-forms
+pip install django-pwa editar la primera linea del archivo urls de esta libreria, cambiarla por from django.urls import path, re_path as url
+pip install django-recaptcha
+pip install psycopg2
