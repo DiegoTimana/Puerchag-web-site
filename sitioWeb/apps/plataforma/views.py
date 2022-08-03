@@ -246,3 +246,16 @@ def editarProfesor(request):
 #     estudiante.vigencia = False
 #     estudiante.save()
 #     return redirect('/estudiantes')
+
+def eventos(request):
+    eventos = Evento.objects.all()
+    return render(request,"gestionEventos.html",{"eventos":eventos})
+
+def registrarEvento(request):
+
+    id = request.POST['numeroId']
+    Fecha = request.POST['fecha']
+    Hora = request.POST['hora']
+    detalles = request.POST['detalle']
+    evento = Evento.objects.create(id_evento=id, fecha=Fecha, hora=Hora, detalle= detalles)
+    return redirect('/gestionEventos')
