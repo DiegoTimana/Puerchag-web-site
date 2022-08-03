@@ -164,6 +164,7 @@ class Evento(models.Model):
     fecha = models.DateField()
     hora = models.TimeField()
     detalle = models.TextField(max_length=255)
+    imagen = models.ImageField(upload_to='images/', null=True, blank=True)
 
     def __str__(self):
         txt = "{0}"

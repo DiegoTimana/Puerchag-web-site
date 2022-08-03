@@ -1,7 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import Evento, Profesor, Usuario, Curso, Estudiante, Acudiente
 
-
 # Create your views here.
 
 def home(request):
@@ -242,13 +241,22 @@ def editarProfesor(request):
 #     estudiante.save()
 #     return redirect('/estudiantes')
 
-def eliminarEstudiante(request, ident):
-    estudiante = Estudiante.objects.get(id_estudiante = ident)
-    estudiante.vigencia = False
-    estudiante.save()
-    return redirect('/estudiantes')
+# def eliminarEstudiante(request, ident):
+#     estudiante = Estudiante.objects.get(id_estudiante = ident)
+#     estudiante.vigencia = False
+#     estudiante.save()
+#     return redirect('/estudiantes')
 
-#----------eventos------------------------------------
 def eventos(request):
     eventos = Evento.objects.all()
     return render(request,"gestionEventos.html",{"eventos":eventos})
+
+def registrarEvento(request):
+
+    id = request.POST['numeroId']
+    Fecha = request.POST['fecha']
+    Hora = request.POST['hora']
+    detalles = request.POST['detalle']
+    imagen = request.FILES['imagen']
+    evento = Evento.objects.create(id_evento=id, fecha=Fecha, hora=Hora, detalle= detalles, imagen=imagen)
+    return redirect('/gestionEventos')

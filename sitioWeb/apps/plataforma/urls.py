@@ -1,8 +1,12 @@
 #Este archivo es para gestionar las rutas de la aplicacion plataforma
 
+from django.conf import settings
 from msilib.schema import AdminExecuteSequence
 from django.urls import path
 from django.contrib.auth.decorators import login_required
+from django.conf.urls.static import static
+
+
 from . import views
 from django.conf import settings
 from django.conf.urls.static import static
@@ -36,10 +40,9 @@ urlpatterns = [
     # path('eliminarEstudiante/<ident>',login_required( views.eliminarEstudiante)),
 
 path('gestionEventos/', login_required(views.eventos)),
-
-
-    path('eventos/', views.eventos)
+path('registrarEvento/',login_required(views.registrarEvento))
 ]
 
 if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+        urlpatterns += static(settings.MEDIA_URL,
+                              document_root=settings.MEDIA_ROOT)
