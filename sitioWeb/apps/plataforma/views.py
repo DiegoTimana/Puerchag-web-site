@@ -257,5 +257,6 @@ def registrarEvento(request):
     Fecha = request.POST['fecha']
     Hora = request.POST['hora']
     detalles = request.POST['detalle']
-    evento = Evento.objects.create(id_evento=id, fecha=Fecha, hora=Hora, detalle= detalles)
+    imagen = request.FILES['imagen']
+    evento = Evento.objects.create(id_evento=id, fecha=Fecha, hora=Hora, detalle= detalles, imagen=imagen)
     return redirect('/gestionEventos')
