@@ -166,4 +166,12 @@ class Evento(models.Model):
     detalle = models.TextField(max_length=255)
 
     def __str__(self):
-        return f'{self.id_evento}'
+        txt = "{0}"
+        return txt.format(self.id_evento)
+
+class Image(models.Model):
+    title = models.CharField(max_length=200)
+    image = models.ImageField(upload_to='images')
+
+    def __str__(self):
+        return self.title
