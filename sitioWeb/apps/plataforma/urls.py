@@ -10,8 +10,8 @@ urlpatterns = [
 
     path('profesores/', login_required(views.profesores), name="profesoresPage"),
     path('registrarProfesor/', login_required(views.registrarProfesor)),
-    # path('edicionProfesor/<ident>', login_required(views.edicionProfesor)),
-    # path('editarProfesor/', login_required(views.editarProfesor)),
+    path('edicionProfesor/<ident>', login_required(views.edicionProfesor)),
+    path('editarProfesor/', login_required(views.editarProfesor)),
     # path('eliminarProfesor/<ident>',login_required( views.eliminarProfesor)),
 
     # # path('acudientes/', login_required(views.acudientes)),
@@ -32,17 +32,7 @@ urlpatterns = [
     # path('editarEstudiante/', login_required(views.editarEstudiante)),
     # path('eliminarEstudiante/<ident>',login_required( views.eliminarEstudiante)),
 
-    #path('asignaturas/', views.asignaturas),
-    #path('registrarAsignatura/', views.registrarAsignatura),
-    #path('edicionAsignatura/<ident>',views.edicionAsignatura),
-    #path('editarAsignatura/', views.editarAsignatura),
-
-
-    #path('notas/', views.notas),
-    #path('registrarNota/', views.registrarNota),
-    #path('verNotas/<identEstudiante>', views.verNotas),
-
-
+path('gestionEventos/', login_required(views.eventos)),
 
 
 ]

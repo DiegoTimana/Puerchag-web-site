@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Profesor, Usuario, Curso, Estudiante, Acudiente
+from .models import Evento, Profesor, Usuario, Curso, Estudiante, Acudiente
 
 # Create your views here.
 
@@ -7,7 +7,7 @@ def home(request):
     return render(request, 'home.html',{})
 
 def profesores(request):
-    profesores = Usuario.objects.filter(es_profesor=True)
+    profesores = Usuario.objects.filter(es_profesor=True, vigencia=True)
     return render(request,"gestionProfesor.html",{"profesores":profesores})
 
 
@@ -21,47 +21,49 @@ def registrarProfesor(request):
     email = request.POST['txtEmail']
     telefono = request.POST['txtTelefono']
     es_profesor = True
-    password1 = request.POST['pwd']
-    password2 = request.POST['pwd2']
+    es_acudiente = False
+    es_administrador = False
+    password = request.POST['pwd']
+
+    ##tener en cuenta los campos de create_user en models.py, para que el usuario que se cree se pueda loguear
+    profesor = Usuario.objects.create_user(id=ident, username=nombre, primer_apellido=apellido1, segundo_apellido=apellido2,
+    email=email,telefono_profesor=telefono, es_profesor = es_profesor, es_acudiente = es_acudiente,
+    es_administrador = es_administrador, password=password)
 
 
-    profesor = Usuario.objects.create(id=ident, username=nombre, primer_apellido=apellido1, segundo_apellido=apellido2,
-    email=email,telefono_profesor=telefono, es_profesor = es_profesor, password=password1)
 
     return redirect('/profesores')
 
-# def edicionProfesor(request, ident):
-#     profesor = Usuario.objects.get(id_profesor=ident)
-#     return render(request,"actualizarProfesor.html", {"profesor":profesor})
+def edicionProfesor(request, ident):
+    profesor = Usuario.objects.get(id=ident)
+    return render(request,"actualizarProfesor.html", {"profesor":profesor})
 
-# def editarProfesor(request):
-#     ident = request.POST['numeroId']
-#     nombre = request.POST['txtNombre']
-#     apellido1 = request.POST['txtPrimerApellido']
-#     apellido2 = request.POST['txtSegundoApellido']
-#     sexo = request.POST['Sexo']
-#     email = request.POST['txtEmail']
-#     telefono = request.POST['txtTelefono']
-#     tipo_de_usuario = request.POST['Tipo']
-#     estudio = request.POST['Estudio']
-#     password = request.POST['pwd']
-#     activo = request.POST['Activo']
+def editarProfesor(request):
+    ident = request.POST['numeroId']
+    nombre = request.POST['txtNombre']
+    apellido1 = request.POST['txtPrimerApellido']
+    apellido2 = request.POST['txtSegundoApellido'] 
+    email = request.POST['txtEmail']
+    telefono = request.POST['txtTelefono']
+    es_profesor = True
+    es_acudiente = False
+    es_administrador = False
+    password = request.POST['pwd']
 
-#     profesor = Usuario.objects.get(id_profesor=ident)
+    profesor = Usuario.objects.get(id=ident)
 
-#     profesor.id_profesor = ident
-#     profesor.nombre = nombre
-#     profesor.primer_apellido = apellido1
-#     profesor.segundo_apellido = apellido2
-#     profesor.sexo_profesor = sexo
-#     profesor.email = email
-#     profesor.telefono_profesor = telefono
-#     profesor.tipo_de_usuario = tipo_de_usuario
-#     profesor.nivel_estudios = estudio
-#     profesor.password = password
-#     profesor.vigencia = activo
-#     profesor.save()
-#     return redirect('/profesores')
+    profesor.id = ident
+    profesor.username = nombre
+    profesor.primer_apellido = apellido1
+    profesor.segundo_apellido = apellido2
+    profesor.email = email
+    profesor.telefono_profesor = telefono
+    profesor.password = password
+    profesor.es_profesor = True
+    profesor.es_acudiente = False
+    profesor.es_administrador = False
+    profesor.save()
+    return redirect('/profesores')
 
 
 # def borrarProfesor(request, ident):
