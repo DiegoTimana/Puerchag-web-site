@@ -36,10 +36,5 @@ urlpatterns = [
     # path('eliminarEstudiante/<ident>',login_required( views.eliminarEstudiante)),
 
 path('gestionEventos/', login_required(views.eventos)),
-
-
-    path('eventos/', views.eventos)
+path('registrarEvento/',login_required(views.registrarEvento))
 ]
-
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
