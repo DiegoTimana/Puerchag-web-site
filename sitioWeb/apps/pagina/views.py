@@ -79,3 +79,7 @@ def eventList(request):
 #vista de galeria
 def galeria(request): 
     return render(request, "pagina/gallery-4-column.html")
+
+#vista de eventos
+def eventos(request): 
+    return render(request, "pagina/event-list.html")

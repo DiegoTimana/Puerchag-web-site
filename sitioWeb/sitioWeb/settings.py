@@ -208,3 +208,9 @@ PWA_APP_ICONS = [
         'sizes': '170x170'}
     ]
 PWA_APP_LANG= "es"
+
+# Base url to serve media files
+MEDIA_URL = '/media/'
+
+# Path where media is stored
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
