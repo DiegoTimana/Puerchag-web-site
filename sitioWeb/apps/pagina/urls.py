@@ -10,5 +10,5 @@ urlpatterns = [
     path('single.html', views.single),
     path('single-sidebar.html', views.singleSidebar),
     path('gallery-4-column.html', views.galeria),
-    path('event-list.html', views.eventList),
+    path('event-list.html', views.eventos)
 ]
