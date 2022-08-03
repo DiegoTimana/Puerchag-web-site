@@ -12,12 +12,12 @@
 
                         <div>Id Profesor:</div>
                         <div class="form-group">
-                            <input type="number" id="numeroId" name="numeroId" value="{{profesor.id_profesor}}" class="form-control" placeholder="Id" minlength="6" maxlength="15" readonly required>
+                            <input type="number" id="numeroId" name="numeroId" value="{{profesor.id}}" class="form-control" placeholder="Id" minlength="6" maxlength="15" readonly required>
                         </div>
 
-                        <div>Nombre:</div>
+                        <div>Nombres:</div>
                         <div class="form-group">
-                            <input type="text" id="txtNombre" name="txtNombre" value="{{profesor.nombre}}" class="form-control" placeholder="Nombre" minlength="2" maxlength="50" required>
+                            <input type="text" id="txtNombre" name="txtNombre" value="{{profesor.username}}" class="form-control" placeholder="Nombre" minlength="2" maxlength="50" required>
                         </div>
 
                         <div>Primer Apellido:</div>
@@ -29,80 +29,26 @@
                         <div class="form-group">
                             <input type="text" id="txtSegundoApellido" name="txtSegundoApellido" value="{{profesor.segundo_apellido}}" class="form-control" placeholder="Segundo Apellido" minlength="2" maxlength="50" required>
                         </div>
-
-                        <div>Sexo:</div>
-                        <div class="form-group">
-                            <select name="Sexo" id="Sexo" class="form-control">
-                                <option value="F">F</option>
-                                <option value="M">M</option>
-                            </select>
-                        </div>
                         
-                        <div>Email:</div>
+                        <div>Correo Electrónico:</div>
                         <div class="form-group">
                             <input type="text" id="txtEmail" name="txtEmail" value="{{profesor.email_profesor}}" class="form-control" placeholder="Email" minlength="6" maxlength="50" required>
                         </div>
 
-                        <div>Telfono:</div>
+                        <div>Teléfono:</div>
                         <div class="form-group">
                             <input type="text" id="txtTelefono" name="txtTelefono" value="{{profesor.telefono_profesor}}" class="form-control" placeholder="Telefono" minlength="7" maxlength="15" required>
                         </div>
                         
-                        <div>Cargo:</div>
-                        <div class="form-group">    
-                            <select name="Cargo" id="Cargo" class="form-control">
-                                <option value="Profesor">Profesor</option>
-                                <option value="Rector">Rector</option>
-                                <option value="Administrador">Administrador</option>
-                            </select>
-                        </div>
-
-                        <div>Nivel de Estudio:</div>
-                        <div class="form-group">
-                            <select name="Estudio" id="Estudio" class="form-control">
-                                <option value="Tecnico">Tecnico</option>
-                                <option value="Licenciatura">Licenciatura</option>
-                                <option value="Pregrado">Administrador</option>
-                                <option value="Maestria">Maestria</option>
-                                <option value="Doctorado">Doctorado</option>
-                            </select>
-                        </div>
-
-                        <div>Password:</div>
+                        <div>Contraseña:</div>
                         <div class="form-group">
                             <input type="password" id="pwd" name="pwd" value="{{profesor.password}}" selected class="form-control" placeholder="Password" minlength="1" maxlength="20" required>
-                        </div>
-
-                        <div>Activo:</div>
-                        <div class="form-group">
-                            <select name="Activo" id="Activo" class="form-control">
-                                <option value="True">True</option>
-                                <option value="False">False</option>
-                            </select>
-                            
                         </div>
                         <br>
                         <div class="form-group">
                             <button type="submit" class="btn btn-success">Guardar</button>
                             <a href="/profesores/" class="btn btn-danger">Cancelar</a>
                         </div>
-
-                        <script>
-                                
-                                select = document.getElementById('Sexo');
-                                select.value = '{{profesor.sexo_profesor}}';
-
-                                select = document.getElementById('Cargo');
-                                select.value = '{{profesor.cargo}}';
-
-                                select = document.getElementById('Estudio');
-                                select.value = '{{profesor.nivel_estudios}}';
-
-                                select = document.getElementById('Activo');
-                                select.value = '{{profesor.vigencia}}';
-
-
-                        </script>
                     </form>
                 </div>
             </div>
