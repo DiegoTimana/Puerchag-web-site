@@ -1,6 +1,12 @@
+{% load static %}
+{% load pwa %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
+    <!-- copiar y pegar desde la linea uno hasta el comentario "Header area end" en todas las vistas, para el header.
+    Para el footer copiar y pegar desde el comentario "Footer area start" hasta la ultima linea. con esto tendríamos el
+    mismo header y footer para todas las paginas. y los archivos estaticos css y js correctos. verificar ruta de imagenes -->
+ 
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="">
@@ -9,18 +15,20 @@
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title -->
-    <title>EduCamp - LMS Template for Courses &amp; Education</title>
+    <title>Sede Educativa Puerchag</title>
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="img/core-img/favicon.ico">
+    <link rel="shortcut icon" href="{% static 'img/core-img/favicon.ico' %}">
 
     <!-- ===================== All CSS Files ===================== -->
 
     <!-- Style css -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
 
     <!-- Responsive css -->
-    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href= "{% static 'css/responsive.css' %}">
+
+    {% progressive_web_app_meta %}
 
 </head>
 
@@ -37,17 +45,17 @@
                     <div class="col-md">
                         <!--  Top Quote Area Start -->
                         <div class="top_quote">
-                            <p>Welcome to EduCamp LMS Platform</p>
+                            <p>Bienvenido al sitio web de la Sede Educativa Puerchag</p>
                         </div>
                     </div>
                     <div class="col-md">
                         <div class="login_language_area d-flex align-items-center float-right">
                             <!-- Login Register Area Start -->
                             <div class="login_register">
-                                <a href="login.html"><i class="fa fa-lock" aria-hidden="true"></i> Login/Register</a>
+                                <a href="accounts/login"><i class="fa fa-lock" aria-hidden="true"></i> Ingresar/Registrarse</a>
                             </div>
                             <!-- Language Area Start -->
-                            <div class="language_area">
+                            <!-- <div class="language_area">
                                 <div class="dropdown">
                                     <button aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" id="lag" type="button" class="btn btn-default dropdown-toggle"><i class="fa fa-globe" aria-hidden="true"></i> Language</button>
                                     <ul aria-labelledby="lag" class="dropdown-menu">
@@ -56,7 +64,7 @@
                                         <li><a href="#">বাংলা</a></li>
                                     </ul>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>
@@ -71,7 +79,7 @@
                     <nav class="classy-navbar justify-content-between" id="educampNav">
 
                         <!-- Logo -->
-                        <a class="nav-brand" href="index.html"><img src="img/core-img/logo.png" alt="Logo"></a>
+                        <a class="nav-brand" href="index.html"><img src="static/img/core-img/titulo.png" alt="Logo"></a>
 
                         <!-- Navbar Toggler -->
                         <div class="classy-navbar-toggler">
@@ -89,58 +97,57 @@
                             <!-- Nav Start -->
                             <div class="classynav">
                                 <ul>
-                                    <li class="current_page_item"><a href="#">Home</a></li>
-                                    <li><a href="#">Events</a>
-                                        <ul class="dropdown">
-                                            <li><a href="event-grid.html">Event Grid</a></li>
-                                            <li><a href="event-list.html">Event List</a></li>
-                                            <li><a href="event-details.html">Event Details</a></li>
-                                        </ul>
+                                    <li class="current_page_item"><a href="index.html">Inicio</a></li>
+                                    <li><a href="event-list.html">Eventos</a>
+                                        <!-- <ul class="dropdown">
+                                            <li><a href="event-grid.html">Cuadícula de Eventos</a></li>
+                                            <li><a href="event-list.html">Lista de Eventos</a></li>
+                                            <li><a href="event-details.html">Detalles de Eventos</a></li>
+                                        </ul> -->
                                     </li>
-                                    <li><a href="#">Course</a>
+<!--                                     <li><a href="#">Course</a>
                                         <ul class="dropdown">
                                             <li><a href="course-grid.html">Course Grid</a></li>
                                             <li><a href="course-list.html">Course List</a></li>
                                             <li><a href="course-details.html">Course Details</a></li>
                                         </ul>
-                                    </li>
-                                    <li><a href="#">Pages</a>
+                                    </li> -->
+                                    <li><a href="#">Paginas de Interés</a>
                                         <div class="megamenu">
                                             <ul class="single-mega cn-col-4">
-                                                <li><a href="index.html">Home Page</a></li>
-                                                <li><a href="about-us.html">About Us</a></li>
-                                                <li><a href="event-grid.html">Event Grid</a></li>
-                                                <li><a href="event-list.html">Event List</a></li>
-                                                <li><a href="event-details.html">Event Details</a></li>
-                                                <li><a href="teachers.html">Teacher Grid</a></li>
+                                                <li><a href="index.html">Inicio</a></li>
+                                                <li><a href="about-us.html">Acerca de nosotros</a></li>
+                                                <!-- <li><a href="event-grid.html">Cuadrícula de Eventos</a></li> -->
+                                                <li><a href="event-list.html">Eventos</a></li>
+                                                <!-- <li><a href="event-details.html">Detalles de Eventos</a></li> -->
                                             </ul>
                                             <ul class="single-mega cn-col-4">
-                                                <li><a href="teachers-details.html">Teacher Details</a></li>
-                                                <li><a href="gallery-fullwidth.html">Gallery Fullwidth</a></li>
-                                                <li><a href="gallery-4-column.html">Gallery 4 Column</a></li>
-                                                <li><a href="gallery-3-column.html">Gallery 3 Column</a></li>
-                                                <li><a href="gallery-2-column.html">Gallery 2 Column</a></li>
-                                                <li><a href="course-grid.html">Course Grid</a></li>
+                                                <!-- <li><a href="teachers-details.html">Detalles de Profesores</a></li> -->
+                                                <!-- <li><a href="gallery-fullwidth.html">Galería Ancho Completo</a></li> -->
+                                                <li><a href="gallery-4-column.html">Galería</a></li>
+                                                <!-- <li><a href="gallery-3-column.html">Galería 3 Columnas</a></li>
+                                                <li><a href="gallery-2-column.html">Galería 2 Columnas</a></li> -->
+                                                <li><a href="single-sidebar.html">Información de Matrícula</a></li>
+                                                <!-- <li><a href="course-grid.html">Course Grid</a></li> -->
+                                                <li><a href="teachers.html">Nuestros Profesores</a></li>
                                             </ul>
-                                            <ul class="single-mega cn-col-4">
+                                            <!-- <ul class="single-mega cn-col-4">
                                                 <li><a href="course-list.html">Course List</a></li>
-                                                <li><a href="course-details.html">Course Details</a></li>
-                                                <li><a href="blog.html">Blog - 1</a></li>
+                                                <li><a href="course-details.html">Course Details</a></li> -->
+                                                <!-- <li><a href="blog.html">Blog - 1</a></li>
                                                 <li><a href="blog-sidebar.html">Blog - 2</a></li>
                                                 <li><a href="single.html">Single Blog - 1</a></li>
-                                                <li><a href="single-sidebar.html">Single Blog - 2</a></li>
-                                            </ul>
+                                            </ul> -->
                                             <ul class="single-mega cn-col-4">
-                                                <li><a href="code-of-contact.html">Code of Contact</a></li>
-                                                <li><a href="knowledgebase.html">Knowledgebase</a></li>
-                                                <li><a href="login.html">Login</a></li>
-                                                <li><a href="register.html">Register</a></li>
-                                                <li><a href="404.html">404 Not Found</a></li>
-                                                <li><a href="contact.html">Contact Page</a></li>
+                                                <!-- <li><a href="code-of-contact.html">Código de Coducta</a></li>
+                                                <li><a href="knowledgebase.html">Preguntas Frecuentes</a></li> -->
+                                                <li><a href="accounts/login">Ingresar</a></li>
+                                                <!-- <li><a href="404.html">404 Not Found</a></li> -->
+                                                <li><a href="contact.html">Escríbenos</a></li>
                                             </ul>
                                         </div>
                                     </li>
-                                    <li><a href="#">Others</a>
+                                   <!--  <li><a href="#">Others</a>
                                         <ul class="dropdown">
                                             <li><a href="about-us.html">About Us</a></li>
                                             <li><a href="code-of-contact.html">Code of Contact</a></li>
@@ -149,8 +156,8 @@
                                             <li><a href="register.html">Register</a></li>
                                             <li><a href="404.html">404 Not Found</a></li>
                                         </ul>
-                                    </li>
-                                    <li><a href="#">Contact</a></li>
+                                    </li> -->
+                                    <li><a href="contact.html">Contáctanos</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -161,22 +168,23 @@
     </header>
     <!--  ===================== Header Area End ===================== -->
 
+
     <!-- ===================== Breadcumb Area Start ===================== -->
-    <section class="breadcumb_area" style="background-image: url(img/bg-pattern/breadcumb.jpg);">
+    <section class="breadcumb_area" style="background-image: url(static/img/bg-pattern/banner.png);">
         <div class="container">
             <div class="row">
                 <div class="col">
                     <div class="breadcumb_section">
                         <!-- Breadcumb page title start -->
                         <div class="page_title">
-                            <h3>About Us</h3>
+                            <h3>Acerca de Nosotros</h3>
                         </div>
                         <!-- Breadcumb page pagination start -->
                         <div class="page_pagination">
                             <ul>
-                                <li><a href="index.html">Home</a></li>
+                                <li><a href="index.html">Inicio</a></li>
                                 <li><i class="fa fa-angle-right" aria-hidden="true"></i></li>
-                                <li>About us</li>
+                                <li>Acerca de Nosotros</li>
                             </ul>
                         </div>
                     </div>
@@ -193,9 +201,9 @@
                 <div class="col-12 col-lg-6 item">
                     <!-- About us text start -->
                     <div class="about_us_text">
-                        <h3>About <span>EduCamp</span></h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor doloremque quaerat modi accusamus, deserunt quos iusto beatae facilis expedita quisquam molestiae harum distinctio, vero mollitia, corporis repellat! Dicta possimus, minima.</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus repellat blanditiis non tenetur modi, sint id quo esse corporis dicta, dignissimos nemo. Voluptas blanditiis ad culpa obcaecati in dicta, quibusdam.</p>
+                        <h3>Acerca de<span> Sede Educativa Puerchag</span></h3>
+                        <p>La sede Educativa Puerchag se encuentra ubicada a 4 km del casco urbano de Samaniego, cuenta con 3 docentes y un director, su planta física es muy agradable, tiene dos pisos y 3 aulas de clases, una sala de informática, una aula múltiple, cocina, restaurante escolar, biblioteca, un patio de recreo y un mini parque recreacional para que los niños puedan disfrutar de sus momentos libres.</p>
+                        <p> Además nuestro plantel brinda una  educación  personalizada, lo cual nos permite conocer y atender adecuadamente a los estudiantes, desde diferentes puntos de vista (cognitivo, emocional y todas sus dimensiones).</p>
                     </div>
                     <!-- About us special quote start -->
                     <div class="special_service">
@@ -203,25 +211,25 @@
                             <div class="col-md-6">
                                 <!-- About us single quote start -->
                                 <div class="single_special_service">
-                                    <h5><i class="fa fa-check-circle" aria-hidden="true"></i> We are Global</h5>
+                                    <h5><i class="fa fa-check-circle" aria-hidden="true"></i>Educación de Calidad</h5>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <!-- About us single quote start -->
                                 <div class="single_special_service">
-                                    <h5><i class="fa fa-check-circle" aria-hidden="true"></i> Highest Rated</h5>
+                                    <h5><i class="fa fa-check-circle" aria-hidden="true"></i>Espacios de Recreación</h5>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <!-- About us single quote start -->
                                 <div class="single_special_service">
-                                    <h5><i class="fa fa-check-circle" aria-hidden="true"></i> Online Traning</h5>
+                                    <h5><i class="fa fa-check-circle" aria-hidden="true"></i>Docentes Comprometidos</h5>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <!-- About us single quote start -->
                                 <div class="single_special_service">
-                                    <h5><i class="fa fa-check-circle" aria-hidden="true"></i> Awesome Support</h5>
+                                    <h5><i class="fa fa-check-circle" aria-hidden="true"></i>Seguimiento Constante</h5>
                                 </div>
                             </div>
                         </div>
@@ -231,7 +239,7 @@
                 <div class="col-12 col-lg-6 item">
                     <!-- About us thumb start -->
                     <div class="about_us_thumb">
-                        <img src="img/about.jpg" alt="">
+                        <img src="static/img/acerca.png" alt="">
                     </div>
                 </div>
             </div>
@@ -244,20 +252,21 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 col-md-3">
-                    <!-- Single Cool Facts area Start -->
+                   
                     <div class="cool_fact_text">
                         <i class="fa fa-book" aria-hidden="true"></i>
-                        <h3><span class="counter">763</span></h3>
-                        <h4>Free Courses</h4>
+                        <h3><span class="counter">10</span></h3>
+                        <h4>Áreas de Educación</h4>
                     </div>
                 </div>
-
+                
+                 <!-- Single Cool Facts area Start -->
                 <div class="col-12 col-md-3">
                     <!-- Single Cool Facts area Start -->
                     <div class="cool_fact_text">
                         <i class="fa fa-users" aria-hidden="true"></i>
-                        <h3><span class="counter">10</span>k+</h3>
-                        <h4>Students Enrolled</h4>
+                        <h3><span class="counter">50</span>+</h3>
+                        <h4>Estudiantes Matriculados</h4>
                     </div>
                 </div>
 
@@ -265,19 +274,19 @@
                     <!-- Single Cool Facts area Start -->
                     <div class="cool_fact_text">
                         <i class="fa fa-check-square-o" aria-hidden="true"></i>
-                        <h3><span class="counter">251</span></h3>
-                        <h4>Certified Teachers</h4>
+                        <h3><span class="counter">9</span></h3>
+                        <h4>Profesores Profesionales</h4>
                     </div>
                 </div>
 
-                <div class="col-12 col-md-3">
-                    <!-- Single Cool Facts area Start -->
+                <!-- <div class="col-12 col-md-3">
+               
                     <div class="cool_fact_text">
                         <i class="fa fa-graduation-cap" aria-hidden="true"></i>
                         <h3><span class="counter">7412</span></h3>
                         <h4>Complate Graduates</h4>
                     </div>
-                </div>
+                </div> -->
 
             </div>
         </div>
@@ -292,7 +301,7 @@
                 <div class="col-12 col-lg-6">
                     <!-- Our mission thumb start -->
                     <div class="about_us_thumb mission">
-                        <img src="img/about.jpg" alt="">
+                        <img src="static/img/mision.png" alt="">
                     </div>
                 </div>
                 
@@ -302,28 +311,26 @@
                         <!-- Single Accordian Start -->
                         <div class="panel single-accordion">
                             <h5>
-                                <a role="button" class="collapsed" aria-expanded="true" aria-controls="educampone" data-parent="#accordion" data-toggle="collapse" href="#educampone">Our Vision
+                                <a role="button" class="collapsed" aria-expanded="true" aria-controls="educampone" data-parent="#accordion" data-toggle="collapse" href="#educampone">Nuestra Misión
                                     <span class="accor-open">+</span>
                                     <span class="accor-close">-</span>
                                 </a>
                             </h5>
                             <div id="educampone" class="accordion-content collapse show">
-                                <p>Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.</p>
-                                <p>Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.</p>
+                                <p>Formar humana y cristianamente a niñas y niños en los niveles de Preescolar y Básica primaria, mediante un currículo académico incluyente, orientado por el constructivismo y la sensibilidad ecológica condiciones básicas para la convivencia y el desarrollo integral del individuo.</p>
                             </div>
                         </div>
                         
                         <!-- Single Accordian Start -->
                         <div class="panel single-accordion">
                             <h5>
-                                <a role="button" class="collapsed" aria-expanded="true" aria-controls="two" data-parent="#accordion" data-toggle="collapse" href="#two">Our Vision
+                                <a role="button" class="collapsed" aria-expanded="true" aria-controls="two" data-parent="#accordion" data-toggle="collapse" href="#two">Nuestra Visión
                                     <span class="accor-open">+</span>
                                     <span class="accor-close">-</span>
                                 </a>
                             </h5>
                             <div id="two" class="accordion-content collapse">
-                                <p>Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.</p>
-                                <p>Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.</p>
+                                <p>Hasta el 2025 la Asociación Educativa Puerchag será reconocida por su impacto pedagógico, fortalecimiento de la Jornada Única con excelencia en la formación integral constituyéndose en referente de calidad para el municipio y el departamento.</p>
                             </div>
                         </div>
                         
@@ -343,17 +350,17 @@
                     <div class="col-12 col-md-6 col-lg">
                         <div class="footer_about_us footer-single-part">
                             <div class="title">
-                                <h4>About EduCamp</h4>
+                                <h4>Acerca de la plataforma</h4>
                                 <!-- Useful Links Title -->
                                 <div class="underline"></div>
                             </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam nostrum, illum quod facilis minima natus adipisci, fugit provident! Totam ipsam, ullam aut. Autem, corporis, tenetur.</p>
+                            <p>Este sitio web fue desarrollado con propósitos académicos por estudiantes de la Universidad del Valle. ¿Tienes alguna duda? Contáctanos</p>
                             <div class="footer_social_links">
-                                <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                                <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                                <a href="mailto:alexis.timana@correounivalle.edu.co"><i class="fa fa-envelope-o" aria-hidden="true"></i></a>
+                                <!-- <a href="#"><i class="icon brands fa-linkedin" aria-hidden="true"></i></a>
                                 <a href="#"><i class="fa fa-skype" aria-hidden="true"></i></a>
                                 <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                                <a href="#"><i class="fa fa-youtube" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fa fa-youtube" aria-hidden="true"></i></a> -->
                             </div>
                         </div>
                     </div>
@@ -363,26 +370,25 @@
                     <div class="col-12 col-md-6 col-lg">
                         <div class="footer_contact_info footer-single-part">
                             <div class="title">
-                                <h4>get in touch</h4>
+                                <h4>ponte en contacto</h4>
                                 <!-- Useful Links Title -->
                                 <div class="underline"></div>
                             </div>
                             <!-- single contact info start -->
                             <div class="footer_single_contact_info">
                                 <i class="fa fa-thumb-tack" aria-hidden="true"></i>
-                                <p>House - 87, Mirpur DOHS, Dhaka, Bangladesh</p>
+                                <p>Vereda Puerchag, Samaniego, Nariño, Colombia</p>
                             </div>
                             <!-- single contact info start -->
                             <div class="footer_single_contact_info">
                                 <i class="fa fa-phone" aria-hidden="true"></i>
-                                <a href="tel:+8801791166123">+88 698 257 14520</a>
-                                <a href="tel:+8801791166123">+88 698 257 14521</a>
+                                <a href="tel:+573146816388">+57 314 681 6388</a>
                             </div>
                             <!-- single contact info start -->
                             <div class="footer_single_contact_info">
                                 <i class="fa fa-envelope-o" aria-hidden="true"></i>
-                                <a href="mailto:info@educamp.com">info@educamp.com</a>
-                                <a href="mailto:care@educamp.com">care@educamp.com</a>
+                                <a href="mailto:puerchageduca8745@gmail.com">Puerchageduca8745@gmail.com</a>
+                                <a href="mailto:yelaalvarezj@gmail.com">Yelaalvarezj@gmail.com</a>
                             </div>
                         </div>
                     </div>
@@ -392,23 +398,23 @@
                     <div class="col-12 col-md-6 col-lg">
                         <div class="important_links footer-single-part">
                             <div class="title">
-                                <h4>useful links</h4>
+                                <h4>Enlaces útiles</h4>
                                 <div class="underline"></div>
                             </div>
                             <!-- Links Start -->
                             <div class="links">
-                                <a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i> All Our Courses</a>
-                                <a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i> Event Calendar</a>
-                                <a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i> Customer Support</a>
-                                <a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i> Career at EduCamp</a>
-                                <a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i> Terms &amp; Conditions</a>
-                                <a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i> Community Forums</a>
+                                <a href="contact.html"><i class="fa fa-angle-right" aria-hidden="true"></i> Contáctanos</a>
+                                <a href="event-list.html"><i class="fa fa-angle-right" aria-hidden="true"></i> Calendario de Eventos</a>
+                                <a href="accounts/login"><i class="fa fa-angle-right" aria-hidden="true"></i> Ingresa o Regístrate </a>
+                                <a href="gallery-4-column.html"><i class="fa fa-angle-right" aria-hidden="true"></i> Galería de Fotos</a>
+                                <a href="teachers.html"><i class="fa fa-angle-right" aria-hidden="true"></i> Nuestros Profesores</a>
+                                <a href="single-sidebar.html"><i class="fa fa-angle-right" aria-hidden="true"></i> Cómo inscribirse</a>
                             </div>
                         </div>
                     </div>
 
                     <!-- Useful Links Area Start -->
-                    <div class="col-12 col-md-6 col-lg">
+                    <!-- <div class="col-12 col-md-6 col-lg">
                         <div class="important_links footer-single-part">
                             <div class="title">
                                 <h4>Subscribe Newsletter</h4>
@@ -423,13 +429,13 @@
                                 </form>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
 
                 </div>
             </div>
         </div>
 
-        <!-- Bottom Footer Area Start -->
+        <!-- Bottom Footer Area Start
         <div class="footer_bottom_area">
             <div class="container">
                 <div class="row">
@@ -442,22 +448,22 @@
             </div>
         </div>
     </footer>
-    <!-- ===================== Footer Area End ===================== -->
+    -- ===================== Footer Area End ===================== -->
 
     <!-- ===================== All jQuery Plugins ===================== -->
 
     <!-- jQuery (necessary for all JavaScript plugins) -->
-    <script src="js/jquery-2.2.4.min.js"></script>
+    <script src="{% static 'js/jquery-2.2.4.min.js' %}"></script>
     <!-- Popper js -->
-    <script src="js/popper.min.js"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
     <!-- Bootstrap js -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
     <!-- Plugins js -->
-    <script src="js/plugins.js"></script>
+    <script src="{% static 'js/plugins.js' %}"></script>
     <!-- Classy Nav js -->
-    <script src="js/classy-nav.js"></script>
+    <script src="{% static 'js/classy-nav.js' %}"></script>
     <!-- Active js -->
-    <script src="js/active.js"></script>
+    <script src="{% static 'js/active.js' %}"></script>
 
 </body>
 

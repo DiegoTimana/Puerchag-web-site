@@ -55,10 +55,10 @@ def contactar(request):
         mensaje = request.POST["message"] + "\n" + "\nContacto" + "\nNombre: " + request.POST["name"] + "\nCorreo: " + request.POST["email"] + "\nNúmero: " + request.POST["number"]
         email_desde = settings.EMAIL_HOST_USER
         email_para = ["alexistimana021@gmail.com"]
-        send_mail(asunto, mensaje, email_desde, email_para, fail_silently = False)
-        return render(request, "pagina/login.html")
+        send_mail(asunto, mensaje, email_desde, email_para, fail_silently = True)
+        return render(request,'pagina/contact.html')
     else: 
-        return render(request, "pagina/contact.html")
+        return render(request,'pagina/contact.html')
 
 #vista de profesores
 def teachers(request): 
@@ -83,3 +83,7 @@ def galeria(request):
 #vista de eventos
 def eventos(request): 
     return render(request, "pagina/event-list.html")
+
+#vista acerca de nosotros
+def acerca(request): 
+    return render(request, "pagina/about-us.html")

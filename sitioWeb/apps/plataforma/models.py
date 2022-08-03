@@ -57,7 +57,7 @@ class Usuario(AbstractBaseUser):
     REQUIRED_FIELDS = ['username', 'primer_apellido', 'id']
 
     def __str__(self):
-        return f'{self.username},{self.primer_apellido}'
+        return f'{self.id}'
 
     def has_perm(self, perm, obj = None):
         return True
@@ -71,7 +71,7 @@ class Usuario(AbstractBaseUser):
 
 
     def __str__(self):
-        return f'{self.username},{self.primer_apellido}'
+        return f'{self.id}'
 
 
 class Acudiente(models.Model):
@@ -91,10 +91,10 @@ class Curso(models.Model):
     id_curso = models.BigIntegerField(primary_key=True)
     nombre = models.CharField(max_length=50)
     periodo_electivo = models.CharField(max_length=6)
-    id_profesor = models.ForeignKey(Profesor, on_delete=models.CASCADE)
+    id_profesor = models.ForeignKey(Usuario, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f'{self.nombre},{self.periodo_electivo}'
+        return f'{self.id_curso}'
 
 
 class Asignatura(models.Model):
@@ -103,7 +103,7 @@ class Asignatura(models.Model):
     id_curso = models.ForeignKey(Curso, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f'{self.nombre},{self.id_curso}'
+        return f'{self.id_asignatura}'
 
 
 class Estudiante(models.Model):
@@ -118,11 +118,11 @@ class Estudiante(models.Model):
     ]
     sexo = models.CharField(max_length=1, choices=sexos, default='F')
     id_curso = models.ForeignKey(Curso, on_delete=models.CASCADE)
-    id_acudiente = models.ForeignKey(Acudiente, on_delete=models.CASCADE)
+    id_acudiente = models.ForeignKey(Usuario, on_delete=models.CASCADE)
     vigencia = models.BooleanField(default=True)
 
     def __str__(self):
-        return f'{self.nombre},{self.primer_apellido}'
+        return f'{self.id_estudiante}'
 
 
 class Nota(models.Model):
@@ -136,7 +136,7 @@ class Nota(models.Model):
     id_estudiante = models.ForeignKey(Estudiante, on_delete=models.CASCADE)
 
     def __str__(self):
-       return f'{self.titulo},{self.id_nota}'
+       return f'{self.id_nota}'
 
 class Cita(models.Model):
     id_cita = models.BigIntegerField(primary_key=True)

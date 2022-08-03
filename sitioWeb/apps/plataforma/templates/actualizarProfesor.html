@@ -32,12 +32,21 @@
                         
                         <div>Correo Electrónico:</div>
                         <div class="form-group">
-                            <input type="text" id="txtEmail" name="txtEmail" value="{{profesor.email_profesor}}" class="form-control" placeholder="Email" minlength="6" maxlength="50" required>
+                            <input type="text" id="txtEmail" name="txtEmail" value="{{profesor.email}}" class="form-control" placeholder="Email" minlength="6" maxlength="50" required>
                         </div>
 
                         <div>Teléfono:</div>
                         <div class="form-group">
                             <input type="text" id="txtTelefono" name="txtTelefono" value="{{profesor.telefono_profesor}}" class="form-control" placeholder="Telefono" minlength="7" maxlength="15" required>
+                        </div>
+
+                        <div>Activo:</div>
+                        <div class="form-group">
+                            <select name="Activo" id="Activo" class="form-control">
+                                <option value="True">True</option>
+                                <option value="False">False</option>
+                            </select>
+                            
                         </div>
                         
                         <div>Contraseña:</div>
@@ -49,6 +58,12 @@
                             <button type="submit" class="btn btn-success">Guardar</button>
                             <a href="/profesores/" class="btn btn-danger">Cancelar</a>
                         </div>
+                        <script>
+                        
+                            select = document.getElementById('Activo');
+                            select.value = '{{profesor.vigencia}}';
+                            
+                    </script>
                     </form>
                 </div>
             </div>

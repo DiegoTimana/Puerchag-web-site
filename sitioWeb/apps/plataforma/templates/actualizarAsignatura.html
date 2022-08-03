@@ -1,0 +1,49 @@
+{% extends "./base.html" %}
+
+{% block title %}Gestion de Asignaturas{% endblock%}
+
+{% block body %}
+    <divc class="row">
+        <div class="col-md-4 offset-md-4">
+            <h2>Actualizar Asignatura</h2>
+            <div class="card">
+                <div class="card-body">
+                    <form action="/editarAsignatura/" method="POST">{% csrf_token%}
+
+                        <div>Id Asignatura:</div>
+                        <div class="form-group">
+                            <input type="number" id="numeroId" name="numeroId" value="{{asignatura.id_asignatura}}" class="form-control" placeholder="Id" minlength="6" maxlength="15" readonly required>
+                        </div>
+
+                        <div>Nombre:</div>
+                        <div class="form-group">
+                            <input type="text" id="txtNombre" name="txtNombre" value="{{asignatura.nombre}}" class="form-control" placeholder="Nombre" minlength="2" maxlength="50" required>
+                        </div>
+                        
+                        <div>Id Curso:</div>
+                        <div class="form-group">
+                            <select name="numeroIdCurso" id="numeroIdCurso" class="form-control">
+                                {% for results in cursos %}
+                                <option value="{{results.id_curso}}">{{results.id_curso}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        
+                        <br>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-success">Guardar</button>
+                            <a href="/asignaturas/" class="btn btn-danger">Cancelar</a>
+                        </div>
+
+                        <script>
+                               
+                            select = document.getElementById('numeroIdCurso');
+                            select.value = '{{asignatura.id_curso}}';
+
+                        </script>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </divc>
+{% endblock %}

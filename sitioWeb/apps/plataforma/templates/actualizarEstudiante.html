@@ -56,7 +56,7 @@
                         <div class="form-group">
                             <select name="numeroIdAcudiente" id="numeroIdAcudiente" class="form-control">
                                 {% for results in acudientes %}
-                                <option value="{{results.id_acudiente}}">{{results.id_acudiente}}</option>
+                                <option value="{{results.id}}">{{results.id}}</option>
                                 {% endfor %}
                             </select>
                         </div>
@@ -64,7 +64,6 @@
                         <div>Activo:</div>
                         <div class="form-group">
                             <select name="Activo" id="Activo" class="form-control">
-                                <option value="">Activo</option>
                                 <option value="True">True</option>
                                 <option value="False">False</option>
                             </select>
