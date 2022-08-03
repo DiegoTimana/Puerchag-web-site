@@ -19,14 +19,16 @@ from django.urls import path, re_path as url
 from apps.pagina import views
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.urls import include
+from django.contrib.auth.views import LoginView, LogoutView
 
 urlpatterns = [
-
     path('admin/', admin.site.urls),
-    path('', views.index),
+    path('', views.index, name = 'index'),
     path('', include('apps.plataforma.urls')),
-    path('',include('apps.pagina.urls')),
-    path('accounts/', include('allauth.urls')), #urls utilizadas para las autenticaciones del login 
+    path('',include('apps.pagina.urls')), 
+    path('accounts/login', LoginView.as_view(template_name='login.html'), name='login'),
+    path('logout/', LogoutView.as_view(template_name='index.html'), name='logout'),
+    path('accounts/', include('allauth.urls')), #urls utilizadas para las autenticaciones del login
     url('', include('pwa.urls'))
 ]
 

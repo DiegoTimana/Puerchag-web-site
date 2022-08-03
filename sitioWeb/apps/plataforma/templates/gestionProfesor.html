@@ -1,23 +1,23 @@
-{% extends "./base.html" %}
+{% extends "./base-plataforma.html" %}
 
 {% block title %}Gestion de Profesores{% endblock%}
 
 {% block body %}
     <div class="row">
         <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4">
-            <h2>Gestion de Profesores</h2>
+            <h2>Registro de Profesores</h2>
             <div class="card">
                 <div class="card-body">
                     <form action="/registrarProfesor/" method="POST">{% csrf_token%}
                         
                         <div>Id Profesor:</div>
                         <div class="form-group">
-                            <input type="number" id="numeroId" name="numeroId" class="form-control" placeholder="Id" minlength="6" maxlength="15" required>
+                            <input type="number" id="numeroId" name="numeroId" class="form-control" placeholder="Identificación" minlength="6" maxlength="15" required>
                         </div>
 
-                        <div>Nombre:</div>
+                        <div>Nombres:</div>
                         <div class="form-group">
-                            <input type="text" id="txtNombre" name="txtNombre" class="form-control" placeholder="Nombre" minlength="2" maxlength="50" required>
+                            <input type="text" id="txtNombre" name="txtNombre" class="form-control" placeholder="Nombres" minlength="2" maxlength="50" required>
                         </div>
 
                         <div>Primer Apellido:</div>
@@ -29,66 +29,24 @@
                         <div class="form-group">
                             <input type="text" id="txtSegundoApellido" name="txtSegundoApellido" class="form-control" placeholder="Segundo Apellido" minlength="2" maxlength="50" required>
                         </div>
-
-                        <div>Sexo:</div>
-                        <div class="form-group">
-                            <select name="Sexo" id="Sexo" class="form-control">
-                                <option value=""></option>
-                                <option value="F">F</option>
-                                <option value="M">M</option>
-                            </select>
-                        </div>
                         
-                        <div>Email:</div>
+                        <div>Correo Electrónico:</div>
                         <div class="form-group">
-                            <input type="text" id="txtEmail" name="txtEmail" class="form-control" placeholder="Email" minlength="6" maxlength="50" required>
+                            <input type="text" id="txtEmail" name="txtEmail" class="form-control" placeholder="Correo Electrónico" minlength="6" maxlength="50" required>
                         </div>
 
-                        <div>Telefono:</div>
+                        <div>Teléfono:</div>
                         <div class="form-group">
                             <input type="text" id="txtTelefono" name="txtTelefono" class="form-control" placeholder="Telefono" minlength="7" maxlength="15" required>
                         </div>
                         
-                        <div>Cargo:</div>
-                        <div class="form-group">    
-                            <select name="Cargo" id="Cargo" class="form-control">
-                                <option value=""></option>
-                                <option value="Profesor">Profesor</option>
-                                <option value="Rector">Rector</option>
-                                <option value="Administrador">Administrador</option>
-                            </select>
-                        </div>
-
-                        <div>Nivel de Estudio:</div>
+                        <div>Contraseña:</div>
                         <div class="form-group">
-                            <select name="Estudio" id="Estudio" class="form-control">
-                                <option value=""></option>
-                                <option value="Tecnico">Tecnico</option>
-                                <option value="Licenciatura">Licenciatura</option>
-                                <option value="Pregrado">Administrador</option>
-                                <option value="Maestria">Maestria</option>
-                                <option value="Doctorado">Doctorado</option>
-                            </select>
+                            <input type="password" id="pwd" name="pwd" class="form-control" placeholder="Contraseña" minlength="1" maxlength="20" required>
                         </div>
-
-                        <div>Password:</div>
-                        <div class="form-group">
-                            <input type="password" id="pwd" name="pwd" class="form-control" placeholder="Password" minlength="1" maxlength="20" required>
-                        </div>
-
-                        <div>Activo:</div>
-                        <div class="form-group">
-                            <select name="Activo" id="Activo" class="form-control">
-                                <option value=""></option>
-                                <option value="True">True</option>
-                                <option value="False">False</option>
-                            </select>
-                        </div>
-                        <br>
                         <div class="form-group">
                             <button type="submit" class="btn btn-success">Guardar</button>
                         </div>
-
                         
                     </form>
                 </div>
@@ -102,10 +60,8 @@
                         <tr>
                             <th>#</th>
                             <th>Id</th>
-                            <th>Nombre</th>
-                            <th>Apellido</th>
-                            <th>Apellido</th>
-                            <th>Activo</th>
+                            <th>Nombres</th>
+                            <th>Apellidos</th>
                             <th colspan="2">Opciones</th>
                         </tr>
                     </thead>
@@ -113,13 +69,11 @@
                         {% for profesor in profesores %}
                             <tr>
                                 <td>{{forloop.counter}}</td>
-                                <td>{{profesor.id_profesor}}</td>
-                                <td>{{profesor.nombre}}</td>
-                                <td>{{profesor.primer_apellido}}</td>
-                                <td>{{profesor.segundo_apellido}}</td>
-                                <td>{{profesor.vigencia}}</td>
-                                <td><a href="/edicionProfesor/{{profesor.id_profesor}}" class="btn btn-info">Editar</a></td>
-                                <td><a href="/eliminarProfesor/{{profesor.id_profesor}}" class="btn btn-danger btnEliminacion">Eliminar</a></td>
+                                <td>{{profesor.id}}</td>
+                                <td>{{profesor.username}}</td>
+                                <td>{{profesor.primer_apellido}} {{profesor.segundo_apellido}}</td>
+                                <td><a href="/edicionProfesor/{{profesor.id}}" class="btn btn-info">Editar</a></td>
+                                <td><a href="/eliminarProfesor/{{profesor.id}}" class="btn btn-danger btnEliminacion">Eliminar</a></td>
                             </tr>
                         {% endfor %}
                     </tbody>
