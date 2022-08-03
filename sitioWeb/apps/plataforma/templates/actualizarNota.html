@@ -1,0 +1,84 @@
+{% extends "./base-plataforma.html" %}
+
+{% block title %}Actualizar Nota{% endblock%}
+
+{% block body %}
+    <divc class="row">
+        <div class="col-md-4 offset-md-4">
+            <h2>Crear Nota</h2>
+            <div class="card">
+                <div class="card-body">
+                    <form action="/editarNota/" method="POST">{% csrf_token%}
+
+                        <div>ID Nota:</div>
+                        <div class="form-group">
+                            <input type="number" id="numeroId" name="numeroId" value="{{nota.id_nota}}" class="form-control" minlength="1" maxlength="15" readonly required>
+                        </div>
+    
+                        <div>Calificacion:</div>
+                        <div class="form-group">
+                            <input type="number" id="numeroCalificacion" name="numeroCalificacion" value="{{nota.calificacion}}" class="form-control"  step="0.1" min="0" max="5" required>
+                        </div>
+    
+                        <div>Periodo:</div>
+                        <div class="form-group">
+                            <input type="text" id="txtPeriodo" name="txtPeriodo" value="{{nota.periodo}}" class="form-control" minlength="1" maxlength="6" required>
+                        </div>
+    
+                        <div>Fecha:</div>
+                        <div class="form-group">
+                            <input type="date" id="fechaNota" name="fechaNota" value="{{nota.fecha}}" class="form-control" required>
+                        </div>
+    
+                        <div>Titulo:</div>
+                        <div class="form-group">
+                            <input type="text" id="txtTitulo" name="txtTitulo" value="{{nota.titulo}}" class="form-control" minlength="2" maxlength="50" required>
+                        </div>
+    
+                        <div>Comentario:</div>
+                        <div class="form-group">
+                            <input type="text" id="txtComentario" name="txtComentario" value="{{nota.comentario}}" class="form-control" minlength="2" maxlength="250" required>
+                        </div>
+    
+                        <div>ID Asignatura:</div>
+                        <div class="form-group">
+                            <input type="number" id="numeroIdAsignatura" name="numeroIdAsignatura" value="{{nota.id_asignatura}}" class="form-control" minlength="1" maxlength="15" readonly required>
+                        </div>
+    
+                        <div>ID Estudiante:</div>
+                        <div class="form-group">
+                            <input type="number" id="numeroIdEstudiante" name="numeroIdEstudiante" value="{{nota.id_estudiante}}" class="form-control" minlength="1" maxlength="15" readonly required>
+                        </div>
+                        
+                        <br>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-success">Guardar</button>
+                            <td><a href="/verNotas/{{nota.id_estudiante}}" class="btn btn-info">Cancelar</a></td>
+                        </div>
+
+                        <script>
+                                select = document.getElementById('fechaNota');
+                                var year = '{{nota.fecha.year}}'
+                                var month = '{{nota.fecha.month}}';
+                                var day ='{{nota.fecha.day}}'
+
+                                function formatoDia(numero){
+                                    if(numero<10){
+                                        dia = '' + 0 + numero
+                                        return dia;
+                                    }else{
+                                        return dia;
+                                    }
+                                }
+
+                                month = formatoDia(month);
+                                day = formatoDia(day);
+                                var fecha = `${year}-${month}-${day}`;
+                                select.value = fecha;
+                        </script>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </divc>
+{% endblock %}

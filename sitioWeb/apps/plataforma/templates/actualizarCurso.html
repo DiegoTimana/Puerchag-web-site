@@ -29,7 +29,7 @@
                         <div class="form-group">
                             <select name="numeroIdProfesor" id="numeroIdProfesor" class="form-control">
                                 {% for results in profesores%}
-                                <option value="{{results.id_profesor}}">{{results.id_profesor}}</option>
+                                <option value="{{results.id}}">{{results.id}}</option>
                                 {% endfor %}
                             </select>
                         </div>
@@ -43,9 +43,7 @@
                         <script>
                                 
                             select = document.getElementById('numeroIdProfesor');
-                            select.value = '{{curso.id_profesor}}';
-
-
+                            select.value = "{{curso.id_profesor}}";
 
                     </script>
 

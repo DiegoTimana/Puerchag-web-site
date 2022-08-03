@@ -1,0 +1,52 @@
+{% extends "./base-plataforma.html" %}
+
+{% block title %}Gestion de Estudiantes{% endblock%}
+
+
+{% block body %}
+<div>
+    <h1>Notas del Estudiante</h1>
+    <br>
+    <div>
+        <p><b>Estudiante:</b> {{estudiante.nombre}} {{estudiante.primer_apellido}}</p>
+        <p><b>ID:</b> {{estudiante.id_estudiante}}</p>
+    </div>
+    <br>
+    <div class="col-sm-12 col-md-6 col-lg-8 col-xl-8">
+        <div class="table-responsive py-2">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th style="text-align:center">#</th>
+                        <th style="text-align:center">Id Nota</th>
+                        <th style="text-align:center">Calificacion</th>
+                        <th style="text-align:center">Periodo</th>
+                        <th style="text-align:center">Fecha</th>
+                        <th style="text-align:center">Titulo</th>
+                        <th style="text-align:center">Comentario</th>
+                        <th style="text-align:center">Asignatura</th>
+                        <th>Curso</th>
+                        <th style="text-align:center" colspan="2">Opciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for nota in notas %}
+                        <tr>
+                            <td>{{forloop.counter}}</td>
+                            <td>{{nota.id_nota}}</td>
+                            <td>{{nota.calificacion}}</td>
+                            <td>{{nota.periodo}}</td>
+                            <td>{{nota.fecha}}</td>
+                            <td>{{nota.titulo}}</td>
+                            <td>{{nota.comentario}}</td>
+                            <td>{{nota.id_asignatura.nombre}}</td>
+                            <td>{{estudiante.id_curso.nombre}}</td>
+                            <td><a href="/edicionNota/{{nota.id_nota}}" class="btn btn-info">Editar</a></td>
+                            <td><a href="/eliminarNota/{{nota.id_nota}}/{{nota.id_estudiante}}" class="btn btn-danger btnEliminacion">Eliminar</a></td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+</div>
+{% endblock %}
