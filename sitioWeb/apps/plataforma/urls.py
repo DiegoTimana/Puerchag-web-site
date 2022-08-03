@@ -32,4 +32,7 @@ urlpatterns = [
     # path('editarEstudiante/', login_required(views.editarEstudiante)),
     # path('eliminarEstudiante/<ident>',login_required( views.eliminarEstudiante)),
 
+path('gestionEventos/', login_required(views.eventos)),
+
+
 ]
