@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Profesor, Acudiente, Curso, Estudiante, Asignatura, Nota, Usuario
+from .models import Profesor, Acudiente, Curso, Estudiante, Asignatura, Nota, Usuario, Evento
 
 # Create your views here.
 
