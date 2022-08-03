@@ -33,6 +33,7 @@ urlpatterns = [
     # path('eliminarEstudiante/<ident>',login_required( views.eliminarEstudiante)),
 
 path('gestionEventos/', login_required(views.eventos)),
+path('registrarEvento/',login_required(views.registrarEvento))
 
 
 ]
