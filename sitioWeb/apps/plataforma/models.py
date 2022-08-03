@@ -4,15 +4,21 @@ from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 # Create your models here.
 #el manager de los usuarios (para crear los super usuarios/usuarios basicos)
 class UsuarioManager(BaseUserManager):
-    def create_user(self, email, username, primer_apellido, id, password):
+    def create_user(self,id,username,primer_apellido, segundo_apellido, email, telefono_profesor,
+    es_profesor, es_acudiente, es_administrador, password):
         if not email:
             raise ValueError('El usuario debe tener un correo electrónico')
         
         usuario = self.model(
-            email = self.normalize_email(email),
+            id = id,
             username = username,
             primer_apellido = primer_apellido,
-            id = id,
+            segundo_apellido = segundo_apellido,
+            email = self.normalize_email(email),
+            telefono_profesor = telefono_profesor,
+            es_profesor = es_profesor,
+            es_acudiente = es_acudiente,
+            es_administrador = es_administrador
         )
 
         usuario.set_password(password)
