@@ -136,7 +136,7 @@ AUTH_USER_MODEL = 'plataforma.Usuario'
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
-LANGUAGE_CODE = 'es-COL'
+LANGUAGE_CODE = 'es'
 
 TIME_ZONE = 'America/Bogota'
 

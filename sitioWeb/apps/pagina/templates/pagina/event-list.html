@@ -127,7 +127,7 @@
                                                 <li><a href="gallery-4-column.html">Galería</a></li>
                                                 <!-- <li><a href="gallery-3-column.html">Galería 3 Columnas</a></li>
                                                 <li><a href="gallery-2-column.html">Galería 2 Columnas</a></li> -->
-                                                <li><a href="single-sidebar.html">Single Blog - 2</a></li>
+                                                <li><a href="single-sidebar.html">Información de Matrícula</a></li>
                                                 <!-- <li><a href="course-grid.html">Course Grid</a></li> -->
                                                 <li><a href="teachers.html">Nuestros Profesores</a></li>
                                             </ul>
@@ -142,7 +142,6 @@
                                                 <!-- <li><a href="code-of-contact.html">Código de Coducta</a></li>
                                                 <li><a href="knowledgebase.html">Preguntas Frecuentes</a></li> -->
                                                 <li><a href="accounts/login">Ingresar</a></li>
-                                                <li><a href="accounts/signup">Registrarse</a></li>
                                                 <!-- <li><a href="404.html">404 Not Found</a></li> -->
                                                 <li><a href="contact.html">Escríbenos</a></li>
                                             </ul>
@@ -170,21 +169,21 @@
     <!--  ===================== Header Area End ===================== -->
 
     <!-- ===================== Breadcumb area start ===================== -->
-    <section class="breadcumb_area" style="background-image: url(img/bg-pattern/breadcumb.jpg);">
+    <section class="breadcumb_area" style="background-image: url(static/img/bg-pattern/banner.png);">
         <div class="container">
             <div class="row">
                 <div class="col">
                     <div class="breadcumb_section">
                         <!-- Breadcumb page title start -->
                         <div class="page_title">
-                            <h3>Event List</h3>
+                            <h3>Eventos</h3>
                         </div>
                         <!-- Breadcumb page pagination start -->
                         <div class="page_pagination">
                             <ul>
-                                <li><a href="index.html">Home</a></li>
+                                <li><a href="index.html">Inicio</a></li>
                                 <li><i class="fa fa-angle-right" aria-hidden="true"></i></li>
-                                <li>Event List</li>
+                                <li>Eventos</li>
                             </ul>
                         </div>
                     </div>
@@ -199,13 +198,16 @@
         <div class="container">
             <div class="row">
 
-                <!-- Single Courses Area Start -->
+                
                 <div class="col-12">
                     <div class="single_courses">
+
+                    {% for evento in lista %}
+
                         <div class="single_courses_thumb" style="background-image: url(img/course-img/event-1.jpg);"></div>
                         <div class="single_courses_desc">
                             <div class="title">
-                                <a href="#">7 Quick Ways to Make a Great Event Successful</a>
+                                <a href="#"> Esto es un ensayo </a>
                                 <div class="date_time d-flex">
                                     <div class="date w-50">
                                         <p><span class="icon-calendar"></span> 16 Sep, 2017</p>
@@ -228,141 +230,12 @@
                             </div>
                             <!-- Event Coundown area End -->
                         </div>
-                    </div>
-                </div>
-                <!-- Single Courses Area End -->
+                        {% endfor %}
 
-                <!-- Single Courses Area Start -->
-                <div class="col-12">
-                    <div class="single_courses">
-                        <div class="single_courses_thumb" style="background-image: url(img/course-img/event-2.jpg);"></div>
-                        <div class="single_courses_desc">
-                            <div class="title">
-                                <a href="#">7 Quick Ways to Make a Great Event Successful</a>
-                                <div class="date_time d-flex">
-                                    <div class="date w-50">
-                                        <p><span class="icon-calendar"></span> 16 Sep, 2017</p>
-                                    </div>
-                                    <div class="time w-50 text-right">
-                                        <p><span class="icon-clock"></span> 20:30</p>
-                                    </div>
-                                </div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima, ut earum officia, quisquam eos laboriosam distinctio laudantium! Quis voluptas eaque, quasi id adipisci dicta nemo, sint quia labore perspiciatis commodi.</p>
-                            </div>
-                            <!-- Single Courses Blog Title Area End -->
-                            <div class="price_rating_area">
-                                <ul data-countdown="2019/01/01 14:21:37" class="timer">
-                                    <!-- Please use event time this format: YYYY/MM/DD hh:mm:ss -->
-                                    <li><span class="days">0</span>d</li>
-                                    <li><span class="hours">0</span>h</li>
-                                    <li><span class="minutes">00</span>m</li>
-                                    <li><span class="seconds">00</span>s</li>
-                                </ul>
-                            </div>
-                            <!-- Event Coundown area End -->
-                        </div>
                     </div>
                 </div>
                 <!-- Single Courses Area End -->
-
-                <!-- Single Courses Area Start -->
-                <div class="col-12">
-                    <div class="single_courses">
-                        <div class="single_courses_thumb" style="background-image: url(img/course-img/event-3.jpg);"></div>
-                        <div class="single_courses_desc">
-                            <div class="title">
-                                <a href="#">7 Quick Ways to Make a Great Event Successful</a>
-                                <div class="date_time d-flex">
-                                    <div class="date w-50">
-                                        <p><span class="icon-calendar"></span> 16 Sep, 2017</p>
-                                    </div>
-                                    <div class="time w-50 text-right">
-                                        <p><span class="icon-clock"></span> 20:30</p>
-                                    </div>
-                                </div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima, ut earum officia, quisquam eos laboriosam distinctio laudantium! Quis voluptas eaque, quasi id adipisci dicta nemo, sint quia labore perspiciatis commodi.</p>
-                            </div>
-                            <!-- Single Courses Blog Title Area End -->
-                            <div class="price_rating_area">
-                                <ul data-countdown="2020/01/01 14:21:37" class="timer">
-                                    <!-- Please use event time this format: YYYY/MM/DD hh:mm:ss -->
-                                    <li><span class="days">0</span>d</li>
-                                    <li><span class="hours">0</span>h</li>
-                                    <li><span class="minutes">00</span>m</li>
-                                    <li><span class="seconds">00</span>s</li>
-                                </ul>
-                            </div>
-                            <!-- Event Coundown area End -->
-                        </div>
-                    </div>
-                </div>
-                <!-- Single Courses Area End -->
-
-                <!-- Single Courses Area Start -->
-                <div class="col-12">
-                    <div class="single_courses">
-                        <div class="single_courses_thumb" style="background-image: url(img/course-img/event-1.jpg);"></div>
-                        <div class="single_courses_desc">
-                            <div class="title">
-                                <a href="#">7 Quick Ways to Make a Great Event Successful</a>
-                                <div class="date_time d-flex">
-                                    <div class="date w-50">
-                                        <p><span class="icon-calendar"></span> 16 Sep, 2017</p>
-                                    </div>
-                                    <div class="time w-50 text-right">
-                                        <p><span class="icon-clock"></span> 20:30</p>
-                                    </div>
-                                </div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima, ut earum officia, quisquam eos laboriosam distinctio laudantium! Quis voluptas eaque, quasi id adipisci dicta nemo, sint quia labore perspiciatis commodi.</p>
-                            </div>
-                            <!-- Single Courses Blog Title Area End -->
-                            <div class="price_rating_area">
-                                <ul data-countdown="2019/01/01 14:21:37" class="timer">
-                                    <!-- Please use event time this format: YYYY/MM/DD hh:mm:ss -->
-                                    <li><span class="days">0</span>d</li>
-                                    <li><span class="hours">0</span>h</li>
-                                    <li><span class="minutes">00</span>m</li>
-                                    <li><span class="seconds">00</span>s</li>
-                                </ul>
-                            </div>
-                            <!-- Event Coundown area End -->
-                        </div>
-                    </div>
-                </div>
-                <!-- Single Courses Area End -->
-
-                <!-- Single Courses Area Start -->
-                <div class="col-12">
-                    <div class="single_courses">
-                        <div class="single_courses_thumb" style="background-image: url(img/course-img/event-2.jpg);"></div>
-                        <div class="single_courses_desc">
-                            <div class="title">
-                                <a href="#">7 Quick Ways to Make a Great Event Successful</a>
-                                <div class="date_time d-flex">
-                                    <div class="date w-50">
-                                        <p><span class="icon-calendar"></span> 16 Sep, 2017</p>
-                                    </div>
-                                    <div class="time w-50 text-right">
-                                        <p><span class="icon-clock"></span> 20:30</p>
-                                    </div>
-                                </div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima, ut earum officia, quisquam eos laboriosam distinctio laudantium! Quis voluptas eaque, quasi id adipisci dicta nemo, sint quia labore perspiciatis commodi.</p>
-                            </div>
-                            <!-- Single Courses Blog Title Area End -->
-                            <div class="price_rating_area">
-                                <ul data-countdown="2019/01/26 14:21:37" class="timer">
-                                    <!-- Please use event time this format: YYYY/MM/DD hh:mm:ss -->
-                                    <li><span class="days">0</span>d</li>
-                                    <li><span class="hours">0</span>h</li>
-                                    <li><span class="minutes">00</span>m</li>
-                                    <li><span class="seconds">00</span>s</li>
-                                </ul>
-                            </div>
-                            <!-- Event Coundown area End -->
-                        </div>
-                    </div>
-                </div>
-                <!-- Single Courses Area End -->
+                
 
             </div>
         </div>

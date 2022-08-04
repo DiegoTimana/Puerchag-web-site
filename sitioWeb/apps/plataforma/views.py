@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Profesor, Acudiente, Curso, Estudiante, Asignatura, Nota, Usuario
+from .models import Profesor, Acudiente, Curso, Estudiante, Asignatura, Nota, Usuario, Evento
 
 # Create your views here.
 
@@ -315,108 +315,7 @@ def editarNota(request):
 def eliminarNota(request, ident, id_estudiante):
     nota = Nota.objects.get(id_nota = ident)
     nota.delete()
-    return redirect('verNotasEstudiante', id_estudiante)
-
-
-# def registrarCurso(request):
-
-#     ident = request.POST['numeroId']
-#     nombre = request.POST['txtNombre']
-#     periodo = request.POST['txtPeriodoElectivo']
-#     idProfesor = request.POST['numeroIdProfesor']
-
-
-#     curso = Curso.objects.create(id_curso=ident, nombre=nombre, periodo_electivo=periodo, id_profesor= Usuario.objects.get(id_profesor=idProfesor))
-
-#     return redirect('/cursos')
-
-# def edicionCurso(request, ident):
-#     curso = Curso.objects.get(id_curso=ident)
-#     profesores = Usuario.objects.all()
-#     return render(request,"actualizarCurso.html", {"curso":curso,"profesores":profesores})
-
-# def editarCurso(request):
-#     ident = request.POST['numeroId']
-#     nombre = request.POST['txtNombre']
-#     periodo = request.POST['txtPeriodoElectivo']
-#     idProfesor = request.POST['numeroIdProfesor']
-
-#     curso = Curso.objects.get(id_curso=ident)
-
-#     curso.id_curso = ident
-#     curso.nombre = nombre
-#     curso.periodo_electivo = periodo
-#     curso.id_profesor = Usuario.objects.get(id_profesor=idProfesor)
-
-#     curso.save()
-#     return redirect('/cursos')
-
-# def eliminarCurso(request, ident):
-#     curso = Curso.objects.get(id_curso = ident)
-#     curso.delete()
-#     return redirect('/cursos')
-
-# #----------estudiante-------------------------------------
-
-# def estudiantes(request):
-#     estudiantes = Estudiante.objects.all()
-#     cursos =  Curso.objects.all()
-#     acudientes = Usuario.objects.all()
-#     return render(request,"gestionEstudiante.html",{"estudiantes":estudiantes,"cursos":cursos,"acudientes":acudientes})
-
-# def registrarEstudiante(request):
-
-#     ident = request.POST['numeroId']
-#     nombre = request.POST['txtNombre']
-#     apellido1 = request.POST['txtPrimerApellido']
-#     apellido2 = request.POST['txtSegundoApellido']
-#     fechaNacimiento = request.POST['fechaNacimiento']
-#     sexo = request.POST['Sexo']
-#     curso = request.POST['numeroIdCurso']
-#     acudiente = request.POST['numeroIdAcudiente']
-#     activo = request.POST['Activo']
-
-#     estudiante = Estudiante.objects.create(id_estudiante=ident, nombre=nombre, primer_apellido=apellido1, segundo_apellido=apellido2, fecha_nacimiento=fechaNacimiento,
-#     sexo = sexo, id_curso=Curso.objects.get(id_curso=curso), id_acudiente=Usuario.objects.get(id_profesor=acudiente), vigencia=activo)
-
-#     return redirect('/estudiantes')
-
-# def edicionEstudiante(request, ident):
-#     estudiante = Estudiante.objects.get(id_estudiante=ident)
-#     cursos =  Curso.objects.all()
-#     acudientes = Usuario.objects.all()
-#     return render(request,"actualizarEstudiante.html", {"estudiante":estudiante,"cursos":cursos,"acudientes":acudientes})
-
-# def editarEstudiante(request):
-#     ident = request.POST['numeroId']
-#     nombre = request.POST['txtNombre']
-#     apellido1 = request.POST['txtPrimerApellido']
-#     apellido2 = request.POST['txtSegundoApellido']
-#     fechaNacimiento = request.POST['fechaNacimiento']
-#     sexo = request.POST['Sexo']
-#     curso = request.POST['numeroIdCurso']
-#     acudiente = request.POST['numeroIdAcudiente']
-#     activo = request.POST['Activo']
-
-#     estudiante = Estudiante.objects.get(id_estudiante=ident)
-
-#     estudiante.id_estudiante=ident 
-#     estudiante.nombre=nombre 
-#     estudiante.primer_apellido=apellido1
-#     estudiante.segundo_apellido=apellido2
-#     estudiante.fecha_nacimiento=fechaNacimiento
-#     estudiante.sexo = sexo
-#     estudiante.id_curso=Curso.objects.get(id_curso=curso)
-#     estudiante.id_acudiente=Usuario.objects.get(id_profesor=acudiente)
-#     estudiante.vigencia=activo
-#     estudiante.save()
-#     return redirect('/estudiantes')
-
-# def eliminarEstudiante(request, ident):
-#     estudiante = Estudiante.objects.get(id_estudiante = ident)
-#     estudiante.vigencia = False
-#     estudiante.save()
-#     return redirect('/estudiantes')
+    return redirect('verNotasEstudiante', id_estudiante)   
 
 def eventos(request):
     eventos = Evento.objects.all()
@@ -431,3 +330,14 @@ def registrarEvento(request):
     imagen = request.FILES['imagen']
     evento = Evento.objects.create(id_evento=id, fecha=Fecha, hora=Hora, detalle= detalles, imagen=imagen)
     return redirect('/gestionEventos')
+
+def editarEvento(request):
+
+    id = request.POST['numeroId']
+    Fecha = request.POST['fecha']
+    Hora = request.POST['hora']
+    detalles = request.POST['detalle']
+    imagen = request.FILES['imagen']
+    evento = Evento.objects.create(id_evento=id, fecha=Fecha, hora=Hora, detalle= detalles, imagen=imagen)
+    return redirect('/gestionEventos')
+
