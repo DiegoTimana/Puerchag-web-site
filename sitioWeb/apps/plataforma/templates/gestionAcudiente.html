@@ -29,19 +29,19 @@
                             <input type="text" id="txtSegundoApellido" name="txtSegundoApellido" class="form-control" placeholder="Segundo Apellido" minlength="2" maxlength="50" required>
                         </div>
                         
-                        <div>Email:</div>
+                        <div>Correo Electrónico:</div>
                         <div class="form-group">
-                            <input type="text" id="txtEmail" name="txtEmail" class="form-control" placeholder="Email" minlength="6" maxlength="50" required>
+                            <input type="text" id="txtEmail" name="txtEmail" class="form-control" placeholder="Correo Electrónico" minlength="6" maxlength="50" required>
                         </div>
 
-                        <div>Telefono:</div>
+                        <div>Teléfono:</div>
                         <div class="form-group">
-                            <input type="text" id="txtTelefono" name="txtTelefono" class="form-control" placeholder="Telefono" minlength="7" maxlength="15" required>
+                            <input type="text" id="txtTelefono" name="txtTelefono" class="form-control" placeholder="Teléfono" minlength="7" maxlength="15" required>
                         </div>
                         
-                        <div>Password:</div>
+                        <div>Contraseña:</div>
                         <div class="form-group">
-                            <input type="password" id="pwd" name="pwd" class="form-control" placeholder="Password" minlength="1" maxlength="20" required>
+                            <input type="password" id="pwd" name="pwd" class="form-control" placeholder="Contraseña" minlength="7" maxlength="20" required>
                         </div>
 
                         <br>
@@ -63,8 +63,7 @@
                             <th style="text-align:center">#</th>
                             <th style="text-align:center">Id</th>
                             <th style="text-align:center">Nombre</th>
-                            <th style="text-align:center">Apellido</th>
-                            <th style="text-align:center">Apellido</th>
+                            <th style="text-align:center">Apellidos</th>
                             <th style="text-align:center">Vigencia</th>
                             <th style="text-align:center" colspan="2">Opciones</th>
                         </tr>
@@ -75,8 +74,7 @@
                                 <td>{{forloop.counter}}</td>
                                 <td>{{acudiente.id}}</td>
                                 <td>{{acudiente.username}}</td>
-                                <td>{{acudiente.primer_apellido}}</td>
-                                <td>{{acudiente.segundo_apellido}}</td>
+                                <td>{{acudiente.primer_apellido}} {{acudiente.segundo_apellido}}</td>
                                 <td>{{acudiente.vigencia}}</td>
                                 <td><a href="/edicionAcudiente/{{acudiente.id}}" class="btn btn-info">Editar</a></td>
                                 <td><a href="/eliminarAcudiente/{{acudiente.id}}" class="btn btn-danger btnEliminacion">Eliminar</a></td>

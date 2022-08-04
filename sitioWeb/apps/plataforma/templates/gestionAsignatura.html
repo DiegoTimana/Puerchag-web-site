@@ -25,7 +25,7 @@
                             <select name="numeroIdCurso" id="numeroIdCurso" class="form-control">
                                 <option value=""></option>
                                 {% for results in cursos %}
-                                <option value="{{results.id_curso}}">{{results.id_curso}}</option>
+                                <option value="{{results.id_curso}}">{{results.nombre}}</option>
                                 {% endfor %}
                             </select>
                         </div>
