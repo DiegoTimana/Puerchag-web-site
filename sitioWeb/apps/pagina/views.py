@@ -77,8 +77,7 @@ def singleSidebar(request):
 #vista de event-list
 def eventList(request):
     eventos = Evento.objects.all()
-    lista = [1,2,3]
-    return render(request, "pagina/event-list.html", {"lista":lista})
+    return render(request, "pagina/event-list.html", {"eventos":eventos})
     
 #vista de galeria
 def galeria(request): 

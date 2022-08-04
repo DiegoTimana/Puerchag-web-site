@@ -331,13 +331,29 @@ def registrarEvento(request):
     evento = Evento.objects.create(id_evento=id, fecha=Fecha, hora=Hora, detalle= detalles, imagen=imagen)
     return redirect('/gestionEventos')
 
-def editarEvento(request):
+def edicionEvento(request, ident):
+    evento = Evento.objects.get(id=ident)
+    return render(request,"actualizarEvento.html", {"evento":evento})
 
-    id = request.POST['numeroId']
-    Fecha = request.POST['fecha']
-    Hora = request.POST['hora']
-    detalles = request.POST['detalle']
-    imagen = request.FILES['imagen']
-    evento = Evento.objects.create(id_evento=id, fecha=Fecha, hora=Hora, detalle= detalles, imagen=imagen)
-    return redirect('/gestionEventos')
+def editarProfesor(request):
+    ident = request.POST['numeroId']
+    nombre = request.POST['txtNombre']
+    apellido1 = request.POST['txtPrimerApellido']
+    apellido2 = request.POST['txtSegundoApellido']
+    email = request.POST['txtEmail']
+    telefono = request.POST['txtTelefono']
+    password = request.POST['pwd']
+    activo = request.POST['Activo']
 
+    profesor = Usuario.objects.get(id=ident)
+
+    profesor.id = ident
+    profesor.nombre = nombre
+    profesor.primer_apellido = apellido1
+    profesor.segundo_apellido = apellido2
+    profesor.email_profesor = email
+    profesor.telefono_profesor = telefono
+    profesor.password = password
+    profesor.vigencia = activo
+    profesor.save()
+    return redirect('/profesores')
