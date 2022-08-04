@@ -55,6 +55,8 @@ urlpatterns = [
     path('editarNota/', login_required(views.editarNota)),
     path('eliminarNota/<ident>/<id_estudiante>', login_required(views.eliminarNota)),
 
+    path('verNotasAcudiente/', login_required(views.verNotasAcudiente)),
+
 ]
 
 if settings.DEBUG:

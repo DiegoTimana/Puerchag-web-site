@@ -1,0 +1,49 @@
+{% extends "./base-plataforma.html" %}
+
+{% block title %}Notas del Estudiante{% endblock%}
+
+
+{% block body %}
+<div>
+    <h1>Notas del Estudiante</h1>
+    <br>
+    <div>
+        <p><b>Estudiante:</b> {{estudiante.nombre}} {{estudiante.primer_apellido}} {{estudiante.segundo_apellido}}</p>
+        <p><b>ID:</b> {{estudiante.id_estudiante}}</p>
+    </div>
+    <br>
+    <div class="col-sm-12 col-md-6 col-lg-8 col-xl-8">
+        <div class="table-responsive py-2">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th style="text-align:center">#</th>
+                        <th style="text-align:center">ID Nota</th>
+                        <th style="text-align:center">Calificacion</th>
+                        <th style="text-align:center">Periodo</th>
+                        <th style="text-align:center">Fecha</th>
+                        <th style="text-align:center">Titulo</th>
+                        <th style="text-align:center">Comentario</th>
+                        <th style="text-align:center">Asignatura</th>
+                        <th style="text-align:center">Curso</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for nota in notas %}
+                        <tr>
+                            <td>{{forloop.counter}}</td>
+                            <td>{{nota.id_nota}}</td>
+                            <td>{{nota.calificacion}}</td>
+                            <td>{{nota.periodo}}</td>
+                            <td>{{nota.fecha}}</td>
+                            <td>{{nota.titulo}}</td>
+                            <td>{{nota.comentario}}</td>
+                            <td>{{nota.id_asignatura.nombre}}</td>
+                            <td>{{estudiante.id_curso.nombre}}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+</div>
+{% endblock %}

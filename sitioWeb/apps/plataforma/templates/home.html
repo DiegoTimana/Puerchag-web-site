@@ -5,7 +5,7 @@
 {% block body %}
 
 <div class="bienvenida">
-    <h1>BIENVENIDO AL SISTEMA <span>{{request.user.username}} {{request.user.primer_apellido}}</span></h1>
+    <h1>BIENVENIDO AL SISTEMA: <span>{{request.user.username}} {{request.user.primer_apellido}} {{request.user.segundo_apellido}}</span></h1>
 </div>
 
 {% endblock %}

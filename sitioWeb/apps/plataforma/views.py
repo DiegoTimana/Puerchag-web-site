@@ -4,11 +4,20 @@ from .models import Profesor, Acudiente, Curso, Estudiante, Asignatura, Nota, Us
 # Create your views here.
 
 def home(request):
-    return render(request, 'home.html',{})
+    esProfesor = request.user.es_profesor
+    esAcudiente = request.user.es_acudiente
+    esAdmin = request.user.es_administrador
+
+    return render(request, 'home.html',{"esProfesor":esProfesor, "esAcudiente":esAcudiente, "esAdmin":esAdmin})
 
 def profesores(request):
-    profesores = Usuario.objects.filter(es_profesor=True).order_by('id')
-    return render(request,"gestionProfesor.html",{"profesores":profesores})
+    esProfesor = request.user.es_profesor
+    esAcudiente = request.user.es_acudiente
+    esAdmin = request.user.es_administrador
+    
+    profesores = Usuario.objects.filter(es_profesor=True, vigencia=True).order_by('id')
+
+    return render(request,"gestionProfesor.html",{"profesores":profesores, "esProfesor":esProfesor, "esAcudiente":esAcudiente, "esAdmin":esAdmin})
 
 def registrarProfesor(request):
     ident = request.POST['numeroId']
@@ -25,8 +34,12 @@ def registrarProfesor(request):
     return redirect('/profesores')
 
 def edicionProfesor(request, ident):
+    esProfesor = request.user.es_profesor
+    esAcudiente = request.user.es_acudiente
+    esAdmin = request.user.es_administrador
+
     profesor = Usuario.objects.get(id=ident)
-    return render(request,"actualizarProfesor.html", {"profesor":profesor})
+    return render(request,"actualizarProfesor.html", {"profesor":profesor, "esProfesor":esProfesor, "esAcudiente":esAcudiente, "esAdmin":esAdmin})
 
 def editarProfesor(request):
     ident = request.POST['numeroId']
@@ -60,8 +73,12 @@ def eliminarProfesor(request, ident):
 #------------Acudiente----------------------------------------------------
 
 def acudientes(request):
+    esProfesor = request.user.es_profesor
+    esAcudiente = request.user.es_acudiente
+    esAdmin = request.user.es_administrador
+
     acudientes = Usuario.objects.filter(es_acudiente=True).order_by('id')
-    return render(request,"gestionAcudiente.html",{"acudientes":acudientes})
+    return render(request,"gestionAcudiente.html",{"acudientes":acudientes, "esProfesor":esProfesor, "esAcudiente":esAcudiente, "esAdmin":esAdmin})
 
 def registrarAcudiente(request):
     ident = request.POST['numeroId']
@@ -78,8 +95,12 @@ def registrarAcudiente(request):
     return redirect('/acudientes')
 
 def edicionAcudiente(request, ident):
+    esProfesor = request.user.es_profesor
+    esAcudiente = request.user.es_acudiente
+    esAdmin = request.user.es_administrador
+
     acudiente = Usuario.objects.get(id=ident)
-    return render(request,"actualizarAcudiente.html", {"acudiente":acudiente})
+    return render(request,"actualizarAcudiente.html", {"acudiente":acudiente, "esProfesor":esProfesor, "esAcudiente":esAcudiente, "esAdmin":esAdmin})
 
 def editarAcudiente(request):
     ident = request.POST['numeroId']
@@ -113,10 +134,14 @@ def eliminarAcudiente(request, ident):
 #--------------Cursos------------------
 
 def cursos(request):
+    esProfesor = request.user.es_profesor
+    esAcudiente = request.user.es_acudiente
+    esAdmin = request.user.es_administrador
+
     cursos = Curso.objects.all()
-    profesores = Usuario.objects.filter(es_profesor=True)
+    profesores = Usuario.objects.filter(es_profesor=True, vigencia=True)
     cursos1 = Curso.objects.select_related('id_profesor')
-    return render(request,"gestionCurso.html",{"cursos1":cursos1, "profesores":profesores})
+    return render(request,"gestionCurso.html",{"cursos1":cursos1, "profesores":profesores, "esProfesor":esProfesor, "esAcudiente":esAcudiente, "esAdmin":esAdmin})
 
 def registrarCurso(request):
     ident = request.POST['numeroId']
@@ -128,9 +153,13 @@ def registrarCurso(request):
     return redirect('/cursos')
 
 def edicionCurso(request, ident):
+    esProfesor = request.user.es_profesor
+    esAcudiente = request.user.es_acudiente
+    esAdmin = request.user.es_administrador
+
     curso = Curso.objects.get(id_curso=ident)
     profesores = Usuario.objects.filter(es_profesor=True)
-    return render(request,"actualizarCurso.html", {"curso":curso,"profesores":profesores})
+    return render(request,"actualizarCurso.html", {"curso":curso,"profesores":profesores, "esProfesor":esProfesor, "esAcudiente":esAcudiente, "esAdmin":esAdmin})
 
 def editarCurso(request):
     ident = request.POST['numeroId']
@@ -155,10 +184,14 @@ def eliminarCurso(request, ident):
 #----------estudiante-------------------------------------
 
 def estudiantes(request):
+    esProfesor = request.user.es_profesor
+    esAcudiente = request.user.es_acudiente
+    esAdmin = request.user.es_administrador
+
     cursos =  Curso.objects.all()
     estudiantes = Estudiante.objects.select_related('id_curso')
-    acudientes = Usuario.objects.filter(es_acudiente=True).order_by('id')
-    return render(request,"gestionEstudiante.html",{"estudiantes":estudiantes,"cursos":cursos,"acudientes":acudientes})
+    acudientes = Usuario.objects.filter(es_acudiente=True, vigencia=True).order_by('id')
+    return render(request,"gestionEstudiante.html",{"estudiantes":estudiantes,"cursos":cursos,"acudientes":acudientes, "esProfesor":esProfesor, "esAcudiente":esAcudiente, "esAdmin":esAdmin})
 
 def registrarEstudiante(request):
 
@@ -176,10 +209,14 @@ def registrarEstudiante(request):
     return redirect('/estudiantes')
 
 def edicionEstudiante(request, ident):
+    esProfesor = request.user.es_profesor
+    esAcudiente = request.user.es_acudiente
+    esAdmin = request.user.es_administrador
+
     estudiante = Estudiante.objects.get(id_estudiante=ident)
     cursos =  Curso.objects.all()
     acudientes = Usuario.objects.filter(es_acudiente=True).order_by('id')
-    return render(request,"actualizarEstudiante.html", {"estudiante":estudiante,"cursos":cursos,"acudientes":acudientes})
+    return render(request,"actualizarEstudiante.html", {"estudiante":estudiante,"cursos":cursos,"acudientes":acudientes, "esProfesor":esProfesor, "esAcudiente":esAcudiente, "esAdmin":esAdmin})
 
 def editarEstudiante(request):
     ident = request.POST['numeroId']
@@ -215,9 +252,13 @@ def eliminarEstudiante(request, ident):
 #-------------------------------------asignatura---------------------------------------------------
 
 def asignaturas(request):
+    esProfesor = request.user.es_profesor
+    esAcudiente = request.user.es_acudiente
+    esAdmin = request.user.es_administrador
+
     cursos =  Curso.objects.all()
     asignaturas = Asignatura.objects.select_related('id_curso').order_by('id_asignatura')
-    return render(request,"gestionAsignatura.html",{"asignaturas":asignaturas,"cursos":cursos})
+    return render(request,"gestionAsignatura.html",{"asignaturas":asignaturas,"cursos":cursos, "esProfesor":esProfesor, "esAcudiente":esAcudiente, "esAdmin":esAdmin})
 
 def registrarAsignatura(request):
     ident = request.POST['numeroId']
@@ -229,9 +270,13 @@ def registrarAsignatura(request):
 
 
 def edicionAsignatura(request, ident):
+    esProfesor = request.user.es_profesor
+    esAcudiente = request.user.es_acudiente
+    esAdmin = request.user.es_administrador
+
     asignatura = Asignatura.objects.get(id_asignatura=ident)
     cursos =  Curso.objects.all()
-    return render(request,"actualizarAsignatura.html", {"asignatura":asignatura,"cursos":cursos})
+    return render(request,"actualizarAsignatura.html", {"asignatura":asignatura,"cursos":cursos, "esProfesor":esProfesor, "esAcudiente":esAcudiente, "esAdmin":esAdmin})
 
 def editarAsignatura(request):
     ident = request.POST['numeroId']
@@ -257,11 +302,18 @@ def eliminarAsignatura(request, ident):
 #--------------------------------Notas---------------------------------------------
 
 def notas(request):
-    #necesito pasarle el id del curso!!!!!!!!!!!    
+    esProfesor = request.user.es_profesor
+    esAcudiente = request.user.es_acudiente
+    esAdmin = request.user.es_administrador
+
+    idUser = request.user.id
+    idProfesor = Usuario.objects.get(id=idUser)
+    curso = Curso.objects.get(id_profesor=idProfesor)
+
     cursos = Curso.objects.all()
-    asignaturas = Asignatura.objects.filter(id_curso = 1).order_by('id_asignatura')
-    estudiantes = Estudiante.objects.filter(id_curso = 1).order_by('primer_apellido')
-    return render(request,"gestionNota.html",{"cursos":cursos, "asignaturas":asignaturas, "estudiantes":estudiantes})
+    asignaturas = Asignatura.objects.filter(id_curso = curso).order_by('id_asignatura')
+    estudiantes = Estudiante.objects.filter(id_curso = curso).order_by('primer_apellido')
+    return render(request,"gestionNota.html",{"cursos":cursos, "asignaturas":asignaturas, "estudiantes":estudiantes, "esProfesor":esProfesor, "esAcudiente":esAcudiente, "esAdmin":esAdmin})
 
 def registrarNota(request):
     ident = request.POST['numeroId']
@@ -279,15 +331,23 @@ def registrarNota(request):
     return redirect('/notas')
 
 def verNotas(request, ident):
+    esProfesor = request.user.es_profesor
+    esAcudiente = request.user.es_acudiente
+    esAdmin = request.user.es_administrador
+
     asignaturas = Asignatura.objects.all()
     estudiante = Estudiante.objects.select_related('id_curso').get(id_estudiante=ident)
 
     notas = Nota.objects.select_related('id_asignatura').filter(id_estudiante=ident).order_by('id_asignatura')
-    return render(request,"verNotas.html",{"notas":notas, "estudiante":estudiante})
+    return render(request,"verNotas.html",{"notas":notas, "estudiante":estudiante, "esProfesor":esProfesor, "esAcudiente":esAcudiente, "esAdmin":esAdmin})
 
 def edicionNota(request, ident):
+    esProfesor = request.user.es_profesor
+    esAcudiente = request.user.es_acudiente
+    esAdmin = request.user.es_administrador
+
     nota = Nota.objects.get(id_nota=ident)
-    return render(request,"actualizarNota.html",{"nota":nota})
+    return render(request,"actualizarNota.html",{"nota":nota, "esProfesor":esProfesor, "esAcudiente":esAcudiente, "esAdmin":esAdmin})
 
 def editarNota(request):
     ident = request.POST['numeroId']
@@ -318,8 +378,12 @@ def eliminarNota(request, ident, id_estudiante):
     return redirect('verNotasEstudiante', id_estudiante)   
 
 def eventos(request):
+    esProfesor = request.user.es_profesor
+    esAcudiente = request.user.es_acudiente
+    esAdmin = request.user.es_administrador
+
     eventos = Evento.objects.all()
-    return render(request,"gestionEventos.html",{"eventos":eventos})
+    return render(request,"gestionEventos.html",{"eventos":eventos, "esProfesor":esProfesor, "esAcudiente":esAcudiente, "esAdmin":esAdmin})
 
 def registrarEvento(request):
 
@@ -340,4 +404,23 @@ def editarEvento(request):
     imagen = request.FILES['imagen']
     evento = Evento.objects.create(id_evento=id, fecha=Fecha, hora=Hora, detalle= detalles, imagen=imagen)
     return redirect('/gestionEventos')
+
+#------------Notas Para Acudientes----------------------------
+
+def verNotasAcudiente(request):
+    esProfesor = request.user.es_profesor
+    esAcudiente = request.user.es_acudiente
+    esAdmin = request.user.es_administrador
+
+    numeroId = request.user.id
+    idAcudiente = Usuario.objects.get(id=numeroId)
+
+    asignaturas = Asignatura.objects.all()
+
+
+    estudiante = Estudiante.objects.select_related('id_curso').get(id_acudiente=idAcudiente)
+
+    notas = Nota.objects.select_related('id_asignatura').filter(id_estudiante=estudiante).order_by('id_asignatura')
+
+    return render(request,"verNotasAcudiente.html",{"notas":notas, "estudiante":estudiante, "esProfesor":esProfesor, "esAcudiente":esAcudiente, "esAdmin":esAdmin})
 
