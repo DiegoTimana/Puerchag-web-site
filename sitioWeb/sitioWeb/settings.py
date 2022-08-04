@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
+from email.policy import default
 from pathlib import Path
 import os
 from telnetlib import LOGOUT
@@ -31,9 +32,9 @@ STATICFILES_DIRS = (
 SECRET_KEY = 'django-insecure-_)@uu(0a3&s)#p$jhbhwukcx$g47+gn@998^7v=^j-88x97568'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -73,6 +74,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middlewarel.WhiteNoiseMiddleware'
 ]
 
 ROOT_URLCONF = 'sitioWeb.urls'
@@ -99,9 +101,12 @@ WSGI_APPLICATION = 'sitioWeb.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
+#import dj_database_url
+#from decouple import config
 
 DATABASES = {
     'default': {
+        #dj_database_url.config(default= config('DATABASE_URL')), 
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'rokfgyns',
         'USER' : 'rokfgyns',
@@ -147,7 +152,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
-
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = 'static/'
 
 LOGIN_REDIRECT_URL = '../../../../home/'
@@ -187,9 +192,10 @@ ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = 7
 
 #claves captcha api google
 RECAPTCHA_PUBLIC_KEY = '6LfuXgkhAAAAAMT7lzAO9jObbhgKnHDi0tACvgga'
-GOOGLE_RECAPTCHA_PRIVATE_KEY = '6LfuXgkhAAAAAJbTiuQXc9EQuVzijYG_eGE0cBGy'
+RECAPTCHA_PRIVATE_KEY = '6LfuXgkhAAAAAJbTiuQXc9EQuVzijYG_eGE0cBGy'
 RECAPTCHA_REQUIRED_SCORE = 0.85
 SILENCED_SYSTEM_CHECKS = ['captcha.recaptcha_test_key_error']
+RECAPTCHA_USE_SSL = True
 
 #manifesto
 PWA_APP_NAME = 'Plataforma Sede Educativa Puerchag'
@@ -214,3 +220,5 @@ MEDIA_URL = '/media/'
 
 # Path where media is stored
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'

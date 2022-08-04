@@ -1,0 +1,1 @@
+web: gunicorn sitioWeb.wsgi --log-file -

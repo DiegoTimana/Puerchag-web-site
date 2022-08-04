@@ -20,6 +20,8 @@ from apps.pagina import views
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.urls import include
 from django.contrib.auth.views import LoginView, LogoutView
+from django.conf import settings
+from django.conf.urls.static import static #puedeser config
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -30,7 +32,7 @@ urlpatterns = [
     path('logout/', LogoutView.as_view(template_name='index.html'), name='logout'),
     path('accounts/', include('allauth.urls')), #urls utilizadas para las autenticaciones del login
     url('', include('pwa.urls'))
-]
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 
 urlpatterns += staticfiles_urlpatterns()
