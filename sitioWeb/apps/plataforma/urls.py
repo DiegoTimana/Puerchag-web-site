@@ -1,7 +1,6 @@
 #Este archivo es para gestionar las rutas de la aplicacion plataforma
 
 from django.conf import settings
-from msilib.schema import AdminExecuteSequence
 from django.urls import path
 from django.contrib.auth.decorators import login_required
 from django.conf.urls.static import static
