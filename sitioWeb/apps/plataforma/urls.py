@@ -41,6 +41,9 @@ urlpatterns = [
 
     path('gestionEventos/', login_required(views.eventos)),
     path('registrarEvento/',login_required(views.registrarEvento)),
+    path('edicionEvento/<ident>', login_required(views.edicionEvento)),
+    path('editarEvento/', login_required(views.editarEvento)),
+    path('eliminarEvento/<ident>', login_required(views.eliminarEvento)),
 
     path('asignaturas/', login_required(views.asignaturas)),
     path('registrarAsignatura/', login_required(views.registrarAsignatura)),

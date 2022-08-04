@@ -332,28 +332,27 @@ def registrarEvento(request):
     return redirect('/gestionEventos')
 
 def edicionEvento(request, ident):
-    evento = Evento.objects.get(id=ident)
+    evento = Evento.objects.get(id_evento=ident)
     return render(request,"actualizarEvento.html", {"evento":evento})
 
-def editarProfesor(request):
-    ident = request.POST['numeroId']
-    nombre = request.POST['txtNombre']
-    apellido1 = request.POST['txtPrimerApellido']
-    apellido2 = request.POST['txtSegundoApellido']
-    email = request.POST['txtEmail']
-    telefono = request.POST['txtTelefono']
-    password = request.POST['pwd']
-    activo = request.POST['Activo']
+def editarEvento(request):
+    id_evento = request.POST['numeroId']
+    fecha = request.POST['fecha']
+    hora = request.POST['hora']
+    detalle = request.POST['detalle']
+    imagen = request.FILES['imagen']
 
-    profesor = Usuario.objects.get(id=ident)
+    evento = Evento.objects.get(id_evento=id_evento)
 
-    profesor.id = ident
-    profesor.nombre = nombre
-    profesor.primer_apellido = apellido1
-    profesor.segundo_apellido = apellido2
-    profesor.email_profesor = email
-    profesor.telefono_profesor = telefono
-    profesor.password = password
-    profesor.vigencia = activo
-    profesor.save()
-    return redirect('/profesores')
+    evento.id_evento = id_evento
+    evento.fecha = fecha
+    evento.hora = hora
+    evento.detalle = detalle
+    evento.imagen = imagen
+    evento.save()
+    return redirect('/gestionEventos')
+
+def eliminarEvento(request, ident):
+    evento = Evento.objects.get(id_evento = ident)
+    evento.delete()
+    return redirect('/gestionEventos')
