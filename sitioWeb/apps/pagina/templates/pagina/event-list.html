@@ -194,20 +194,18 @@
     <!-- ===================== Breadcumb area end ===================== -->
 
     <!-- ===================== Popular Courses Area Start ===================== -->
+
     <div class="popular_coureses_area home2 event-list section_padding_100">
         <div class="container">
             <div class="row">
-
                 
                 <div class="col-12">
+                    
                     <div class="single_courses">
-
-                    {% for evento in lista %}
-
                         <div class="single_courses_thumb" style="background-image: url(img/course-img/event-1.jpg);"></div>
                         <div class="single_courses_desc">
                             <div class="title">
-                                <a href="#"> Esto es un ensayo </a>
+                                <a href="#"> hola </a>
                                 <div class="date_time d-flex">
                                     <div class="date w-50">
                                         <p><span class="icon-calendar"></span> 16 Sep, 2017</p>
@@ -230,15 +228,15 @@
                             </div>
                             <!-- Event Coundown area End -->
                         </div>
-                        {% endfor %}
-
                     </div>
+                    
                 </div>
-                <!-- Single Courses Area End -->
                 
-
+                <!-- Single Courses Area End -->
             </div>
+            
         </div>
+        
 
         <div class="container">
             <div class="row">
@@ -386,6 +384,10 @@
     <!-- Active js -->
     <script src="{% static 'js/active.js' %}"></script>
 
+    {% for lista in listas %}
+    <p>holas</p>
+    {% endfor %}
+    
 </body>
 
 </html>
