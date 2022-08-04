@@ -4,6 +4,8 @@
 
 {% block body %}
 
-    <h1>Bienvenido al Sistema {{request.user.first_name}} {{request.user.last_name}}</h1>
+<div class="bienvenida">
+    <h1>BIENVENIDO AL SISTEMA <span>{{request.user.username}} {{request.user.primer_apellido}}</span></h1>
+</div>
 
 {% endblock %}

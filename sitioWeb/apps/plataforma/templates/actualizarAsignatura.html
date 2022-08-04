@@ -1,4 +1,4 @@
-{% extends "./base.html" %}
+{% extends "./base-plataforma.html" %}
 
 {% block title %}Gestion de Asignaturas{% endblock%}
 
@@ -20,11 +20,11 @@
                             <input type="text" id="txtNombre" name="txtNombre" value="{{asignatura.nombre}}" class="form-control" placeholder="Nombre" minlength="2" maxlength="50" required>
                         </div>
                         
-                        <div>Id Curso:</div>
+                        <div>Curso:</div>
                         <div class="form-group">
                             <select name="numeroIdCurso" id="numeroIdCurso" class="form-control">
                                 {% for results in cursos %}
-                                <option value="{{results.id_curso}}">{{results.id_curso}}</option>
+                                <option value="{{results.id_curso}}">{{results.nombre}}</option>
                                 {% endfor %}
                             </select>
                         </div>
