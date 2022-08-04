@@ -1,10 +1,11 @@
 py -m pip install Django
 pip install django-allauth
 pip install django-crispy-forms
-pip install django-pwa editar la primera linea del archivo urls de esta libreria, cambiarla por from django.urls import path, re_path as url
+pip install django-pwa editar          la primera linea del archivo urls de esta libreria, cambiarla por from django.urls import path, re_path as url
 pip install django-recaptcha
-pip install psycopg2
+pip install psycopg2                   para conectarse a postgres
 pip instal Pillow 
-
-Para despliegue:
-pip instal gunicorn
+pip instal gunicorn                    para despliegue
+pip install dj-database-url            conexion proyecto-base de datos heroku-postgres
+pip install python-decouple            leer variables de entorno
+pip install whitenoise                 para desplegar los archivos estaticos

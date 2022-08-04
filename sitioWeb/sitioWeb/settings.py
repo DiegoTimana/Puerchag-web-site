@@ -10,11 +10,13 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
+
+import os
+import django_heroku
+from telnetlib import LOGOUT
 from email.policy import default
 from pathlib import Path
-import os
-from telnetlib import LOGOUT
-from django.urls import reverse_lazy
+
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -220,5 +222,7 @@ MEDIA_URL = '/media/'
 
 # Path where media is stored
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+django_heroku.settings(locals())
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
