@@ -25,12 +25,12 @@
                             <input type="text" id="txtPeriodoElectivo" name="txtPeriodoElectivo" class="form-control" placeholder="Periodo Electivo" minlength="1" maxlength="6" required>
                         </div>
 
-                        <div>Id Profesor:</div>
+                        <div>Asignar Profesor:</div>
                         <div class="form-group">
-                            <select name="numeroIdProfesor" id="numeroIdProfesor" class="form-control">
+                            <select name="numeroIdProfesor" id="numeroIdProfesor" class="form-control" required>
                                 <option value=""></option>
                                 {% for results in profesores %}
-                                <option value="{{results.id}}">{{results.id}}</option>
+                                <option value="{{results.id}}">{{results.username}} {{results.primer_apellido}}</option>
                                 {% endfor %}
                             </select>
                         </div>
@@ -69,7 +69,7 @@
                                 <td>{{curso.nombre}}</td>
                                 <td>{{curso.periodo_electivo}}</td>
                                 <td>{{curso.id_profesor}}</td>
-                                <td>{{curso.id_profesor.username}}{{curso.id_profesor.primer_apellido}}</td>
+                                <td>{{curso.id_profesor.username}} {{curso.id_profesor.primer_apellido}}</td>
                                 <td><a href="/edicionCurso/{{curso.id_curso}}" class="btn btn-info">Editar</a></td>
                                 <td><a href="/eliminarCurso/{{curso.id_curso}}" class="btn btn-danger btnEliminacion">Eliminar</a></td>
                             </tr>

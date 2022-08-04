@@ -14,17 +14,17 @@
                     
                     <div>ID Nota:</div>
                     <div class="form-group">
-                        <input type="number" id="numeroId" name="numeroId" class="form-control" minlength="1" maxlength="15" required>
+                        <input type="number" id="numeroId" name="numeroId" class="form-control" placeholder="Id Nota" minlength="1" maxlength="15" required>
                     </div>
 
                     <div>Calificacion:</div>
                     <div class="form-group">
-                        <input type="number" id="numeroCalificacion" name="numeroCalificacion" class="form-control"  step="0.1" min="0" max="5" required>
+                        <input type="number" id="numeroCalificacion" name="numeroCalificacion" class="form-control"  placeholder="Calificación 0-5"  step="0.1" min="0" max="5" required>
                     </div>
 
                     <div>Periodo:</div>
                     <div class="form-group">
-                        <input type="text" id="txtPeriodo" name="txtPeriodo" class="form-control" minlength="1" maxlength="6" required>
+                        <input type="text" id="txtPeriodo" name="txtPeriodo" class="form-control"  placeholder="Periodo" minlength="1" maxlength="6" required>
                     </div>
 
                     <div>Fecha:</div>
@@ -34,28 +34,30 @@
 
                     <div>Titulo:</div>
                     <div class="form-group">
-                        <input type="text" id="txtTitulo" name="txtTitulo" class="form-control" minlength="2" maxlength="50" required>
+                        <input type="text" id="txtTitulo" name="txtTitulo" class="form-control"  placeholder="Titulo/Concepto de Nota" minlength="2" maxlength="50" required>
                     </div>
 
                     <div>Comentario:</div>
                     <div class="form-group">
-                        <input type="text" id="txtComentario" name="txtComentario" class="form-control" minlength="2" maxlength="250" required>
+                        <input type="text" id="txtComentario" name="txtComentario" class="form-control"  placeholder="Info Adicional" minlength="2" maxlength="250">
                     </div>
 
-                    <div>ID Asignatura:</div>
+                    <div>Asignatura:</div>
                     <div class="form-group">
-                        <select name="numeroIdAsignatura" id="numeroIdAsignatura" class="form-control">
+                        <select name="numeroIdAsignatura" id="numeroIdAsignatura" class="form-control" required>
+                            <option value=""></option>
                             {% for results in asignaturas %}
-                            <option value="{{results.id_asignatura}}">{{results.id_asignatura}}</option>
+                            <option value="{{results.id_asignatura}}">{{results.nombre}}</option>
                             {% endfor %}
                         </select>
                     </div>
 
-                    <div>ID Estudiante:</div>
+                    <div>Estudiante:</div>
                     <div class="form-group">
-                        <select name="numeroIdEstudiante" id="numeroIdEstudiante" class="form-control">
+                        <select name="numeroIdEstudiante" id="numeroIdEstudiante" class="form-control" required>
+                            <option value=""></option>
                             {% for results in estudiantes %}
-                            <option value="{{results.id_estudiante}}">{{results.id_estudiante}}</option>
+                            <option value="{{results.id_estudiante}}">{{results.nombre}} {{results.primer_apellido}}</option>
                             {% endfor %}
                         </select>
                     </div>

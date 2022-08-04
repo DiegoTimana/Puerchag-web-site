@@ -3306,4 +3306,13 @@
         color: #fff;
     }
 
+    .bienvenida > h1 {
+        color: #2c3e50;
+    }
+
+    .bienvenida > h1 span {
+        color: #46c34a;
+        text-transform: uppercase;
+    }
+
     /* The End */
