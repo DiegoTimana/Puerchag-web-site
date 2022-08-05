@@ -34,9 +34,9 @@ STATICFILES_DIRS = (
 SECRET_KEY = 'django-insecure-_)@uu(0a3&s)#p$jhbhwukcx$g47+gn@998^7v=^j-88x97568'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['127.0.0.1:8000']
 
 
 # Application definition
@@ -62,7 +62,7 @@ INSTALLED_APPS = [
     #captcha :p
     'captcha',
     #pwa
-    'pwa',
+    #'pwa',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -192,6 +192,18 @@ ACCOUNT_EMAIL_VERIFICATION = True
 #tiene un plazo de una semana para hacerlo
 ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = 7  
 
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'SCOPE': [
+            'profile',
+            'email',
+        ],
+        'AUTH_PARAMS': {
+            'access_type': 'online',
+        }
+    }
+}
+
 #claves captcha api google
 RECAPTCHA_PUBLIC_KEY = '6LfuXgkhAAAAAMT7lzAO9jObbhgKnHDi0tACvgga'
 RECAPTCHA_PRIVATE_KEY = '6LfuXgkhAAAAAJbTiuQXc9EQuVzijYG_eGE0cBGy'
@@ -199,23 +211,23 @@ RECAPTCHA_REQUIRED_SCORE = 0.85
 SILENCED_SYSTEM_CHECKS = ['captcha.recaptcha_test_key_error']
 RECAPTCHA_USE_SSL = True
 
-#manifesto
-PWA_APP_NAME = 'Plataforma Sede Educativa Puerchag'
-PWA_APP_SHORT_NAME = 'SE Puerchag'
-PWA_APP_START_URL = '/index'
-PWA_APP_DISPLAY = 'standalone'
-PWA_APP_BACKGROUND_COLOR = '#F7F7F7'
-PWA_APP_THEME_COLOR = '#46c34a'
-PWA_APP_ORIENTATION = 'portrait-primary'
-PWA_APP_ICONS = [
-        {'src': '/static/img/core-img/titulo.png',
-        'type': 'image/png',
-        'sizes': '230x43'},
-        {'src': '/static/img/core-img/titulo144.png',
-        'type': 'image/png',
-        'sizes': '170x170'}
-    ]
-PWA_APP_LANG= "es"
+# #manifesto
+# PWA_APP_NAME = 'Plataforma Sede Educativa Puerchag'
+# PWA_APP_SHORT_NAME = 'SE Puerchag'
+# PWA_APP_START_URL = '/index'
+# PWA_APP_DISPLAY = 'standalone'
+# PWA_APP_BACKGROUND_COLOR = '#F7F7F7'
+# PWA_APP_THEME_COLOR = '#46c34a'
+# PWA_APP_ORIENTATION = 'portrait-primary'
+# PWA_APP_ICONS = [
+#         {'src': '/static/img/core-img/titulo.png',
+#         'type': 'image/png',
+#         'sizes': '230x43'},
+#         {'src': '/static/img/core-img/titulo144.png',
+#         'type': 'image/png',
+#         'sizes': '170x170'}
+#     ]
+# PWA_APP_LANG= "es"
 
 # Base url to serve media files
 MEDIA_URL = '/media/'
