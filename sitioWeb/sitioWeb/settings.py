@@ -213,4 +213,6 @@ PWA_APP_LANG= "es"
 MEDIA_URL = '/media/'
 
 # Path where media is stored
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+#MEDIA_ROOT = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'static', 'media')
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'static')
