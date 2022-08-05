@@ -1,2 +1,21 @@
 
 *.pyc
+*.pyc
+*.pyc
+sitioWeb/apps/__pycache__/__init__.cpython-310.pyc
+sitioWeb/apps/pagina/__pycache__/__init__.cpython-310.pyc
+sitioWeb/apps/pagina/__pycache__/admin.cpython-310.pyc
+sitioWeb/apps/pagina/__pycache__/apps.cpython-310.pyc
+sitioWeb/apps/pagina/__pycache__/models.cpython-310.pyc
+sitioWeb/apps/pagina/__pycache__/urls.cpython-310.pyc
+sitioWeb/apps/pagina/__pycache__/views.cpython-310.pyc
+sitioWeb/apps/plataforma/__pycache__/__init__.cpython-310.pyc
+sitioWeb/apps/plataforma/__pycache__/admin.cpython-310.pyc
+sitioWeb/apps/plataforma/__pycache__/apps.cpython-310.pyc
+sitioWeb/apps/plataforma/__pycache__/models.cpython-310.pyc
+sitioWeb/apps/plataforma/__pycache__/urls.cpython-310.pyc
+sitioWeb/apps/plataforma/__pycache__/views.cpython-310.pyc
+sitioWeb/sitioWeb/__pycache__/__init__.cpython-310.pyc
+sitioWeb/sitioWeb/__pycache__/settings.cpython-310.pyc
+sitioWeb/sitioWeb/__pycache__/urls.cpython-310.pyc
+sitioWeb/sitioWeb/__pycache__/wsgi.cpython-310.pyc
