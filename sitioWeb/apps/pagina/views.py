@@ -8,6 +8,8 @@ import urllib
 from django.contrib import messages
 import urllib3
 
+from apps.plataforma.models import Evento
+
 
 # Create your views here.
 #Para crear una vista, definir la funcion en la parte de abajo, cambiar el nombre y el path. Luego agregar la url al archivo
@@ -73,9 +75,10 @@ def singleSidebar(request):
     return render(request, "pagina/single-sidebar.html")
 
 #vista de event-list
-def eventList(request): 
-    return render(request, "pagina/event-list.html")
-
+def eventList(request):
+    eventos = Evento.objects.all()
+    return render(request, "pagina/event-list.html", {"eventos":eventos})
+    
 #vista de galeria
 def galeria(request): 
     return render(request, "pagina/gallery-4-column.html")

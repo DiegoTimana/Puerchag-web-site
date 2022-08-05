@@ -1,0 +1,72 @@
+{% extends "./base-plataforma.html" %}
+{% block title %}Gestion de Eventos{% endblock%}
+
+{% block body %}
+    <divc class="row">
+        <div class="col-md-4 offset-md-4">
+            <h2>Actualizar Evento</h2>
+            <div class="card">
+                <div class="card-body">
+                    <form action="/editarEvento/" method="POST" enctype="multipart/form-data">{% csrf_token%}
+
+                        <div>Id Evento:</div>
+                        <div class="form-group">
+                            <input type="number" id="numeroId" name="numeroId" value="{{evento.id_evento}}" class="form-control" placeholder="Id" minlength="6" maxlength="15" readonly required>
+                        </div>
+
+                        <div>Fecha:</div>
+                        <div class="form-group">
+                            <input type="date" id="fecha" name="fecha" value="{{evento.fecha}}" class="form-control" required>
+                        </div>
+
+                        <div>Hora:</div>
+                        <div class="form-group">
+                            <input type="time" id="hora" name="hora" value="{{evento.hora}}" class="form-control" required>
+                        </div>
+
+                        <div>Detalle:</div>
+                        <div class="form-group">
+                            <input type="text" id="detalle" name="detalle" value="{{evento.detalle}}" class="form-control" placeholder="Detalle" minlength="2" maxlength="250" required>
+                        </div>
+                        
+                        <div>Imagen:</div>
+                        <div class="form-group">
+                            <img src="{{evento.imagen.url}}" alt="" height=10>
+                            <input type="file" id="imagen" name="imagen" class="form-control" value={{evento.imagen.url}} accept = "image/png, image/jpeg, image/jpg"  required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-success">Guardar</button>
+                            <a href="/gestionEventos/" class="btn btn-danger">Cancelar</a>
+                        </div>
+
+                        <script>
+
+                            select = document.getElementById('fecha');
+                                var year = '{{evento.fecha.year}}'
+                                var month = '{{evento.fecha.month}}';
+                                var day ='{{evento.fecha.day}}'
+
+                                function formatoDia(numero){
+                                    if(numero<10){
+                                        dia = '' + 0 + numero
+                                        return dia;
+                                    }else{
+                                        return dia;
+                                    }
+                                }
+
+                                month = formatoDia(month);
+                                day = formatoDia(day);
+                                var fecha = `${year}-${month}-${day}`;
+                                select.value = fecha;
+
+                        </script>
+
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </divc>
+{% endblock %}

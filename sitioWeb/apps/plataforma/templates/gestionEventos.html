@@ -1,11 +1,11 @@
 {% extends "./base-plataforma.html" %}
 
-{% block title %}Gestion de Estudiantes{% endblock%}
+{% block title %}Gestion de Eventos{% endblock%}
 
 {% block body %}
     <div class="row">
         <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4">
-            <h2>Gestion de Estudiantes</h2>
+            <h2>Gestion de Eventos</h2>
             <div class="card">
                 <div class="card-body">
                     <form action="/registrarEvento/" method="POST" enctype="multipart/form-data">{% csrf_token%}
@@ -17,7 +17,7 @@
 
                         <div>Fecha:</div>
                         <div class="form-group">
-                            <input type="date" id="fecha" name="fecha" class="form-control" placeholder="Fecha de Nacimiento"  required>
+                            <input type="date" id="fecha" name="fecha" class="form-control"   required>
                         </div>
 
                         <div>Hora:</div>
@@ -33,7 +33,7 @@
 
                         <div>Imagen:</div>
                         <div class="form-group">
-                            <input type="file" id="imagen" name="imagen" class="form-control" accept = "image/png, image/jpeg, image/jpg">
+                            <input type="file" id="imagen" name="imagen" class="form-control" accept = "image/png, image/jpeg, image/jpg" required>
                         </div>
 
                         <br>
@@ -55,24 +55,24 @@
                             <th>Id</th>
                             <th>Fecha</th>
                             <th>Hora</th>
-                            <th>Detalle</th>
+                            <th>Detalle</th> 
+                            <th>Imagen</th>
                         </tr>
                     </thead>
-                    <!--<tbody>
-                        {% for estudiante in estudiantes %}
+                    <tbody>
+                        {% for evento in eventos %}
                             <tr>
                                 <td>{{forloop.counter}}</td>
-                                <td>{{estudiante.id_estudiante}}</td>
-                                <td>{{estudiante.nombre}}</td>
-                                <td>{{estudiante.primer_apellido}}</td>
-                                <td>{{estudiante.segundo_apellido}}</td>
-                                <td>{{estudiante.id_curso}}</td>
-                                <td>{{estudiante.vigencia}}</td>
-                                <td><a href="/edicionEstudiante/{{estudiante.id_estudiante}}" class="btn btn-info">Editar</a></td>
-                                <td><a href="/eliminarEstudiante/{{estudiante.id_estudiante}}" class="btn btn-danger btnEliminacion">Eliminar</a></td>
+                                <td>{{evento.id_evento}}</td>
+                                <td>{{evento.fecha}}</td>
+                                <td>{{evento.hora}}</td>
+                                <td>{{evento.detalle}}</td>
+                                <td><img src="{{evento.imagen.url}}" alt="" height=10></td>
+                                <td><a href="/edicionEvento/{{evento.id_evento}}" class="btn btn-info">Editar</a></td>
+                                <td><a href="/eliminarEvento/{{evento.id_evento}}" class="btn btn-danger btnEliminacion">Eliminar</a></td>
                             </tr>
                         {% endfor %}
-                    </tbody>-->
+                    </tbody>
                 </table>
             </div>
         </div>
