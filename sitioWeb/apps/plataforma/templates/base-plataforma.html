@@ -63,6 +63,8 @@
                           <li class="nav-item">
                             <a class="nav-link" href="{% url 'homePage' %}">Home</a>
                           </li>
+                          
+                          {% if esAdmin %}
 
                           <li class="nav-item">
                             <a class="nav-link" href="{% url 'profesoresPage' %}">Profesores</a>
@@ -84,9 +86,11 @@
                             <a class="nav-link" href="/asignaturas/">Asignaturas</a>
                           </li>
                           
+                          <!--
                           <li class="nav-item">
                             <a class="nav-link" href="/notas/">Notas</a>
                           </li>
+                          -->
                         
                           <li class="nav-item">
                             <a class="nav-link" href="">Citas</a>
@@ -103,7 +107,27 @@
                           <li class="nav-item">
                             <a class="nav-link" href="{% url 'logout' %}" >Salir</a>
                           </li>
-                        
+                          
+                          {% elif esProfesor %}
+                          <li class="nav-item">
+                            <a class="nav-link" href="/notas/">Notas</a>
+                          </li>
+                          
+                          <li class="nav-item">
+                            <a class="nav-link" href="{% url 'logout' %}" >Salir</a>
+                          </li>
+                          
+                          {% elif esAcudiente %}
+
+                          <li class="nav-item">
+                            <a class="nav-link" href="/verNotasAcudiente/">Notas</a>
+                          </li>
+
+                          <li class="nav-item">
+                            <a class="nav-link" href="{% url 'logout' %}" >Salir</a>
+                          </li>
+
+                          {% endif %}
                         </ul>
 
                         </div>    
