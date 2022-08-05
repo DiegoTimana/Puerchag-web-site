@@ -34,9 +34,9 @@ STATICFILES_DIRS = (
 SECRET_KEY = 'django-insecure-_)@uu(0a3&s)#p$jhbhwukcx$g47+gn@998^7v=^j-88x97568'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1:8000']
+ALLOWED_HOSTS = ['puerchag-educa.herokuapp.com/']
 
 
 # Application definition
@@ -110,10 +110,10 @@ DATABASES = {
     'default': {
         #dj_database_url.config(default= config('DATABASE_URL')), 
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'rokfgyns',
-        'USER' : 'rokfgyns',
-        'PASSWORD': 'vc4w8oUKXuP1rcPdtxg-RdGEmPg8c52a',
-        'HOST': 'fanny.db.elephantsql.com',
+        'NAME': 'dfc922fa7rrjh3',
+        'USER' : 'yplekooptksxwv',
+        'PASSWORD': 'fab7fb8e7077fa9969b250dacea3b86f8f526c17bdaa7ecc089633acc2b07796',
+        'HOST': 'ec2-44-205-112-253.compute-1.amazonaws.com',
         'DATABASE_PORT': '5432',
     }
 }
