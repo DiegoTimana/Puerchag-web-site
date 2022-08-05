@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 
-from django.urls import path, re_path as url
+from django.urls import path, re_path
 from apps.pagina import views
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.urls import include
@@ -31,7 +31,7 @@ urlpatterns = [
     path('accounts/login', LoginView.as_view(template_name='login.html'), name='login'),
     path('logout/', LogoutView.as_view(template_name='index.html'), name='logout'),
     path('accounts/', include('allauth.urls')), #urls utilizadas para las autenticaciones del login
-    url('', include('pwa.urls'))
+    # path('', include('pwa.urls'))
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 
