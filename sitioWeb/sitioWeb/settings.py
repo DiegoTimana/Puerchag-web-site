@@ -76,7 +76,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'whitenoise.middlewarel.WhiteNoiseMiddleware'
+    'whitenoise.middleware.WhiteNoiseMiddleware'
 ]
 
 ROOT_URLCONF = 'sitioWeb.urls'
@@ -221,7 +221,7 @@ PWA_APP_LANG= "es"
 MEDIA_URL = '/media/'
 
 # Path where media is stored
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'static')
 
 django_heroku.settings(locals())
 

@@ -194,18 +194,17 @@
     <!-- ===================== Breadcumb area end ===================== -->
 
     <!-- ===================== Popular Courses Area Start ===================== -->
-
     <div class="popular_coureses_area home2 event-list section_padding_100">
         <div class="container">
-            <div class="row">
-                
+            <div class="row">  
+            {% for evento in lista %}
                 <div class="col-12">
-                    
                     <div class="single_courses">
                         <div class="single_courses_thumb" style="background-image: url(img/course-img/event-1.jpg);"></div>
                         <div class="single_courses_desc">
                             <div class="title">
-                                <a href="#"> hola </a>
+                                <a href="#"> Esto es un ensayo </a>
+                                
                                 <div class="date_time d-flex">
                                     <div class="date w-50">
                                         <p><span class="icon-calendar"></span> 16 Sep, 2017</p>
@@ -215,7 +214,10 @@
                                     </div>
                                 </div>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima, ut earum officia, quisquam eos laboriosam distinctio laudantium! Quis voluptas eaque, quasi id adipisci dicta nemo, sint quia labore perspiciatis commodi.</p>
+                                
                             </div>
+                            
+
                             <!-- Single Courses Blog Title Area End -->
                             <div class="price_rating_area">
                                 <ul data-countdown="2019/01/01 14:21:37" class="timer">
@@ -229,14 +231,11 @@
                             <!-- Event Coundown area End -->
                         </div>
                     </div>
-                    
                 </div>
-                
                 <!-- Single Courses Area End -->
+            {% endfor %}
             </div>
-            
         </div>
-        
 
         <div class="container">
             <div class="row">
@@ -384,10 +383,6 @@
     <!-- Active js -->
     <script src="{% static 'js/active.js' %}"></script>
 
-    {% for lista in listas %}
-    <p>holas</p>
-    {% endfor %}
-    
 </body>
 
 </html>

@@ -395,14 +395,34 @@ def registrarEvento(request):
     evento = Evento.objects.create(id_evento=id, fecha=Fecha, hora=Hora, detalle= detalles, imagen=imagen)
     return redirect('/gestionEventos')
 
-def editarEvento(request):
+def edicionEvento(request, ident):
+    esProfesor = request.user.es_profesor
+    esAcudiente = request.user.es_acudiente
+    esAdmin = request.user.es_administrador
 
-    id = request.POST['numeroId']
-    Fecha = request.POST['fecha']
-    Hora = request.POST['hora']
-    detalles = request.POST['detalle']
+    evento = Evento.objects.get(id_evento=ident)
+    return render(request,"actualizarEvento.html", {"evento":evento, "esProfesor":esProfesor, "esAcudiente":esAcudiente, "esAdmin":esAdmin})
+
+def editarEvento(request):
+    id_evento = request.POST['numeroId']
+    fecha = request.POST['fecha']
+    hora = request.POST['hora']
+    detalle = request.POST['detalle']
     imagen = request.FILES['imagen']
-    evento = Evento.objects.create(id_evento=id, fecha=Fecha, hora=Hora, detalle= detalles, imagen=imagen)
+
+    evento = Evento.objects.get(id_evento=id_evento)
+
+    evento.id_evento = id_evento
+    evento.fecha = fecha
+    evento.hora = hora
+    evento.detalle = detalle
+    evento.imagen = imagen
+    evento.save()
+    return redirect('/gestionEventos')
+
+def eliminarEvento(request, ident):
+    evento = Evento.objects.get(id_evento = ident)
+    evento.delete()
     return redirect('/gestionEventos')
 
 #------------Notas Para Acudientes----------------------------
