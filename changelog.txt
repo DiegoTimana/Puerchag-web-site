@@ -1,6 +1,0 @@
-*** Version: 2.2.0 ***
-
-- Updated: Bootstrap 4.0.0 Beta > Bootstrap 4.1.1
-- Updated: Popper 2017 > Popper 2018
-- New Plugins: Classy Nav Premium Mega menu
-- Updated: Code Quality

@@ -36,11 +36,17 @@
                 <!-- <div class="sign_in_facebook">
                     <a class="btn btn-default" href="#" role="button"><i class="fa fa-facebook"></i>Sign in with Facebook</a>
                 </div> -->
-                <div class="sign_in_facebook">
+                <!-- <div class="sign_in_facebook">
                   <ul>
                     <a class="btn btn-default" role="button"></i>{% include "socialaccount/snippets/provider_list.html" with process="login" %}</a>  
                   </ul>
-                  </div>
+                  </div> -->
+                <div class="google-btn">
+                    <div class="google-icon-wrapper">
+                      <img class="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"/>
+                    </div>
+                    <a class="btn-text" href = "{% provider_login_url 'google' %}"><b>Ingresar con Google</b></a>
+                </div>
                 <!-- sign in manual form -->
                 <div class="login_manual_form">
                     <p>o</p>
