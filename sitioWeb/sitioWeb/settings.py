@@ -34,9 +34,9 @@ STATICFILES_DIRS = (
 SECRET_KEY = 'django-insecure-_)@uu(0a3&s)#p$jhbhwukcx$g47+gn@998^7v=^j-88x97568'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['127.0.0.1:8000']
 
 
 # Application definition
@@ -191,6 +191,18 @@ ACCOUNT_EMAIL_UNIQUE = True
 ACCOUNT_EMAIL_VERIFICATION = True  
 #tiene un plazo de una semana para hacerlo
 ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = 7  
+
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'SCOPE': [
+            'profile',
+            'email',
+        ],
+        'AUTH_PARAMS': {
+            'access_type': 'online',
+        }
+    }
+}
 
 #claves captcha api google
 RECAPTCHA_PUBLIC_KEY = '6LfuXgkhAAAAAMT7lzAO9jObbhgKnHDi0tACvgga'
