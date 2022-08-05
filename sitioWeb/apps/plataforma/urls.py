@@ -42,10 +42,6 @@ urlpatterns = [
     path('gestionEventos/', login_required(views.eventos)),
     path('registrarEvento/',login_required(views.registrarEvento)),
 
-
-    #if settings.DEBUG:
-    #   urlpatterns += static(settings.MEDIA_URL,
-    #                          document_root=settings.MEDIA_ROOT)
     path('asignaturas/', login_required(views.asignaturas)),
     path('registrarAsignatura/', login_required(views.registrarAsignatura)),
     path('edicionAsignatura/<ident>', login_required(views.edicionAsignatura)),
@@ -59,6 +55,9 @@ urlpatterns = [
     path('editarNota/', login_required(views.editarNota)),
     path('eliminarNota/<ident>/<id_estudiante>', login_required(views.eliminarNota)),
 
+    path('verNotasAcudiente/', login_required(views.verNotasAcudiente)),
 
-    # path('gestionEventos/', login_required(views.eventos)),
 ]
+
+if settings.DEBUG:
+        urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
