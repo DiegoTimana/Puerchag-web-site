@@ -145,6 +145,10 @@ class Cita(models.Model):
     id_acudiente = models.ForeignKey(Acudiente, on_delete=models.CASCADE)
     id_profesor = models.ForeignKey(Profesor, on_delete=models.CASCADE)
 
+    #cambios 
+    profesor_acepto = models.BooleanField(default=False)
+    acudiente_acepto = models.BooleanField(default=False)
+
     def __str__(self):
         return f'{self.id_cita}'
 
@@ -176,3 +180,15 @@ class Image(models.Model):
 
     def __str__(self):
         return self.title
+
+class Citas(models.Model):
+    id_cita = models.BigIntegerField(primary_key=True)
+    fecha = models.DateField()
+    hora = models.TimeField()
+    id_acudiente = models.ForeignKey(Usuario, on_delete=models.CASCADE,related_name='identAcudiente')
+    id_profesor = models.ForeignKey(Usuario, on_delete=models.CASCADE,related_name='identProfesor')
+    profesor_acepto = models.BooleanField(default=False)
+    acudiente_acepto = models.BooleanField(default=False)
+
+    def __str__(self):
+        return f'{self.id_cita}'

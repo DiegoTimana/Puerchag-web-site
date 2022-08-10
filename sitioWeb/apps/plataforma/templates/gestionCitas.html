@@ -1,0 +1,84 @@
+{% extends "./base-plataforma.html" %}
+
+{% block title %}Gestion de Citas{% endblock%}
+
+{% block body %}
+    <div class="row">
+        <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4" >
+            <h2>Registro de Citas</h2>
+            <div class="card">
+                <div class="card-body">
+                    <form action="/registrarCita/" method="POST">{% csrf_token%}
+                        
+                        <div>Id Cita:</div>
+                        <div class="form-group">
+                            <input type="number" id="numeroId" name="numeroId" class="form-control" placeholder="Identificación" minlength="6" maxlength="15" required>
+                        </div>
+
+                        <div>Fecha:</div>
+                        <div class="form-group">
+                            <input type="date" id="fecha" name="fecha" class="form-control" required>
+                        </div>
+
+                        <div>Hora:</div>
+                        <div class="form-group">
+                            <input type="time" id="hora" name="hora" value="00:00:00" max="23:59:00" min="00:00:00" step="1" required>
+                            <!--<input type="datetime" id="hora" name="hora" class="form-control" placeholder="Hora" required>-->
+                        </div>
+
+                        <div>Seleccionar Acudiente:</div>
+                        <div class="form-group">
+                            <select name="numeroIdAcudiente" id="numeroIdAcudiente" class="form-control" required>
+                                <option value=""></option>
+                                {% for results in acudientes %}
+                                <option value="{{results.id}}">{{results.username}} {{results.primer_apellido}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-success">Guardar</button>
+                        </div>
+                        
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="col-sm-12 col-md-6 col-lg-8 col-xl-8">
+            <h1>Citas por Confirmar</h1>
+            <div class="table-responsive py-2">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th style="text-align:center">#</th>
+                            <th style="text-align:center">Id</th>
+                            <th style="text-align:center">Fecha</th>
+                            <th style="text-align:center">Hora</th>
+                            <th style="text-align:center">Acudiente</th>
+                            <th style="text-align:center">Confirmacion Acudiente</th>
+                            <th style="text-align:center">Confirmacion Profesor</th>
+                            <th style="text-align:center" colspan="2">Opciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for cita in citas %}
+                            <tr>
+                                <td>{{forloop.counter}}</td>
+                                <td>{{cita.id_cita}}</td>
+                                <td>{{cita.fecha}}</td>
+                                <td>{{cita.hora}}</td>
+                                <td>{{cita.id_acudiente.username}} {{cita.id_acudiente.primer_apellido}} {{cita.id_acudiente.segundo_apellido}}</td>
+                                <td>{{cita.acudiente_acepto}}</td>
+                                <td>{{cita.profesor_acepto}}</td>
+                                <td><a href="/confirmarCita/{{cita.id_cita}}" class="btn btn-info">Confirmar</a></td>
+                                <td><a href="/cancelarCita/{{cita.id_cita}}" class="btn btn-danger btnEliminacion">Cancelar</a></td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}

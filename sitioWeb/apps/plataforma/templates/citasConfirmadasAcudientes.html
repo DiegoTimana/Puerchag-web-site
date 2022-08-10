@@ -1,0 +1,39 @@
+{% extends "./base-plataforma.html" %}
+
+{% block title %}Gestion de Citas{% endblock%}
+
+{% block body %}
+    <div class="row">
+        <div class="col-sm-12 col-md-6 col-lg-8 col-xl-8">
+            <h1>Citas Confirmadas</h1>
+            <div class="table-responsive py-2">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th style="text-align:center">#</th>
+                            <th style="text-align:center">Id</th>
+                            <th style="text-align:center">Fecha</th>
+                            <th style="text-align:center">Hora</th>
+                            <th style="text-align:center">Profesor</th>
+                            <th style="text-align:center">Confirmacion Acudiente</th>
+                            <th style="text-align:center">Confirmacion Profesor</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for cita in citas %}
+                            <tr>
+                                <td>{{forloop.counter}}</td>
+                                <td>{{cita.id_cita}}</td>
+                                <td>{{cita.fecha}}</td>
+                                <td>{{cita.hora}}</td>
+                                <td>{{cita.id_profesor.username}} {{cita.id_profesor.primer_apellido}}</td>
+                                <td>{{cita.acudiente_acepto}}</td>
+                                <td>{{cita.profesor_acepto}}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}

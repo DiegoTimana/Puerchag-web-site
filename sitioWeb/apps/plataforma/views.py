@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Profesor, Acudiente, Curso, Estudiante, Asignatura, Nota, Usuario, Evento
+from .models import Profesor, Acudiente, Curso, Estudiante, Asignatura, Nota, Usuario, Evento, Citas
 
 # Create your views here.
 
@@ -444,3 +444,116 @@ def verNotasAcudiente(request):
 
     return render(request,"verNotasAcudiente.html",{"notas":notas, "estudiante":estudiante, "esProfesor":esProfesor, "esAcudiente":esAcudiente, "esAdmin":esAdmin})
 
+#-------------------citas----------------------------------------
+
+def citas(request):
+    esProfesor = request.user.es_profesor
+    esAcudiente = request.user.es_acudiente
+    esAdmin = request.user.es_administrador
+    idUser = request.user.id
+    idProfesor = Usuario.objects.get(id=idUser)
+
+    acudientes = Usuario.objects.filter(es_acudiente=True, vigencia=True).order_by('id')
+    citas = Citas.objects.select_related('id_acudiente').filter(id_profesor=idUser, profesor_acepto=True, acudiente_acepto=False) | Citas.objects.select_related('id_acudiente').filter(id_profesor=idUser, profesor_acepto=False, acudiente_acepto=True) | Citas.objects.select_related('id_acudiente').filter(id_profesor=idUser, profesor_acepto=False, acudiente_acepto=False)
+    return render(request,"gestionCitas.html", {"acudientes":acudientes, "idProfesor":idProfesor, "citas":citas, "esProfesor":esProfesor, "esAcudiente":esAcudiente, "esAdmin":esAdmin}) 
+
+def registrarCita(request):
+
+    id = request.POST['numeroId']
+    Fecha = request.POST['fecha']
+    Hora = request.POST['hora']
+    idAcudiente = request.POST['numeroIdAcudiente']
+
+    idUser = request.user.id
+   
+    acudiente = Usuario.objects.get(id=idAcudiente)
+    profesor = Usuario.objects.get(id=idUser)
+    
+    cita = Citas.objects.create(id_cita=id, fecha=Fecha, hora=Hora, id_acudiente=acudiente, id_profesor=profesor, profesor_acepto=True, acudiente_acepto=False)
+    return redirect('/citas')
+
+def confirmarCita(request,ident):
+    cita = Citas.objects.get(id_cita=ident)
+    cita.profesor_acepto = True
+    cita.save()
+    return redirect('/citas')
+
+def cancelarCita(request,ident):
+    cita = Citas.objects.get(id_cita=ident)
+    cita.profesor_acepto = False
+    cita.save()
+    return redirect('/citas')
+
+def citasConfirmadas(request):
+    esProfesor = request.user.es_profesor
+    esAcudiente = request.user.es_acudiente
+    esAdmin = request.user.es_administrador
+
+    idUser = request.user.id
+    idProfesor = Usuario.objects.get(id=idUser)
+
+    profesores = Usuario.objects.filter(es_profesor=True, vigencia=True).order_by('id')
+    
+    citas = Citas.objects.select_related('id_acudiente').filter(id_profesor=idUser,profesor_acepto=True, acudiente_acepto=True)
+
+    return render(request,"citasConfirmadas.html", {"profesores":profesores, "idProfesor":idProfesor, "citas":citas, "esProfesor":esProfesor, "esAcudiente":esAcudiente, "esAdmin":esAdmin}) 
+ 
+
+
+def citasAcudientes(request):
+    esProfesor = request.user.es_profesor
+    esAcudiente = request.user.es_acudiente
+    esAdmin = request.user.es_administrador
+
+    idUser = request.user.id
+    idAcudiente = Usuario.objects.get(id=idUser)
+
+    profesores = Usuario.objects.filter(es_profesor=True, vigencia=True).order_by('id')
+    citas = Citas.objects.select_related('id_profesor').filter(id_acudiente=idUser, profesor_acepto=True, acudiente_acepto=False) | Citas.objects.select_related('id_acudiente').filter(id_acudiente=idUser, profesor_acepto=False, acudiente_acepto=True) | Citas.objects.select_related('id_acudiente').filter(id_acudiente=idUser, profesor_acepto=False, acudiente_acepto=False)
+
+
+    return render(request,"gestionCitasAcudientes.html", {"profesores":profesores, "idAcudiente":idAcudiente, "citas":citas, "esProfesor":esProfesor, "esAcudiente":esAcudiente, "esAdmin":esAdmin}) 
+
+
+def registrarCitaAcudiente(request):
+
+    id = request.POST['numeroId']
+    Fecha = request.POST['fecha']
+    Hora = request.POST['hora']
+    idProfesor = request.POST['numeroIdProfesor']
+
+    idUser = request.user.id
+   
+    profesor = Usuario.objects.get(id=idProfesor)
+    acudiente = Usuario.objects.get(id=idUser)
+    
+    cita = Citas.objects.create(id_cita=id, fecha=Fecha, hora=Hora, id_acudiente=acudiente, id_profesor=profesor, profesor_acepto=False, acudiente_acepto=True)
+    return redirect('/citasAcudientes')
+
+
+def confirmarCitaAcudiente(request,ident):
+    cita = Citas.objects.get(id_cita=ident)
+    cita.acudiente_acepto = True
+    cita.save()
+    return redirect('/citasAcudientes')
+
+def cancelarCitaAcudiente(request,ident):
+    cita = Citas.objects.get(id_cita=ident)
+    cita.acudiente_acepto = False
+    cita.save()
+    return redirect('/citasAcudientes')
+
+def citasConfirmadasAcudientes(request):
+    esProfesor = request.user.es_profesor
+    esAcudiente = request.user.es_acudiente
+    esAdmin = request.user.es_administrador
+
+    idUser = request.user.id
+    idAcudiente = Usuario.objects.get(id=idUser)
+
+    profesores = Usuario.objects.filter(es_profesor=True, vigencia=True).order_by('id')
+    
+    citas = Citas.objects.select_related('id_profesor').filter(id_acudiente=idUser,profesor_acepto=True, acudiente_acepto=True)
+
+    return render(request,"citasConfirmadasAcudientes.html", {"profesores":profesores, "idAcudiente":idAcudiente, "citas":citas, "esProfesor":esProfesor, "esAcudiente":esAcudiente, "esAdmin":esAdmin}) 
+ 

@@ -59,6 +59,18 @@ urlpatterns = [
 
     path('verNotasAcudiente/', login_required(views.verNotasAcudiente)),
 
+    path('citas/', login_required(views.citas)),
+    path('registrarCita/', login_required(views.registrarCita)),
+    path('confirmarCita/<ident>', login_required(views.confirmarCita)),
+    path('cancelarCita/<ident>', login_required(views.cancelarCita)),
+    path('citasConfirmadas/', login_required(views.citasConfirmadas)),
+    
+    path('citasAcudientes/', login_required(views.citasAcudientes)),
+    path('registrarCitaAcudiente/', login_required(views.registrarCitaAcudiente)),
+    path('confirmarCitaAcudiente/<ident>', login_required(views.confirmarCitaAcudiente)),
+    path('cancelarCitaAcudiente/<ident>', login_required(views.cancelarCitaAcudiente)),
+    path('citasConfirmadasAcudientes/', login_required(views.citasConfirmadasAcudientes)),
+
 ]
 
 if settings.DEBUG:
